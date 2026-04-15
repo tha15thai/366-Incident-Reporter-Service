@@ -1,0 +1,15 @@
+{
+  "name": "incident-reporter-lambda",
+  "version": "1.0.0",
+  "description": "Lambda functions for Incident Reporter Service",
+  "main": "index.js",
+  "scripts": {
+    "build-layer": "npm install --production && mkdir -p layers/nodejs && cp -r node_modules layers/nodejs/ && cd layers && zip -r dependencies.zip nodejs"
+  },
+  "dependencies": {
+    "pg": "^8.11.3",
+    "@aws-sdk/client-sns": "^3.490.0",
+    "@aws-sdk/client-sqs": "^3.490.0",
+    "uuid": "^9.0.1"
+  }
+}
