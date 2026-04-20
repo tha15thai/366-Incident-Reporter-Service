@@ -71,7 +71,7 @@ async function checkDuplicate(db, location, timestamp) {
       ST_SetSRID(ST_MakePoint($1, $2), 4326)::geography,
       1000
     )
-    AND created_at >= $3 - INTERVAL '10 minutes'
+    AND created_at >= ($3::TIMESTAMP - INTERVAL '10 minutes')
     AND status NOT IN ('CLOSED', 'REJECTED')
     ORDER BY created_at DESC
     LIMIT 1

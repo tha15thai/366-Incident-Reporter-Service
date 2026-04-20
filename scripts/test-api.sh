@@ -1,6 +1,8 @@
 #!/bin/bash
+set -e
 
 GREEN='\033[0;32m'
+RED='\033[0;31m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m'
@@ -11,13 +13,24 @@ cd "$PROJECT_ROOT/terraform"
 API_URL=$(terraform output -raw api_gateway_url 2>/dev/null || echo "")
 
 if [ -z "$API_URL" ]; then
-    echo "❌ API URL not found"
+    echo -e "${RED}❌ API URL not found. Please run deploy first.${NC}"
     exit 1
 fi
 
 echo -e "${BLUE}Testing Incident Reporter API${NC}"
-echo -e "${YELLOW}API: $API_URL${NC}"
+echo -e "${YELLOW}API Endpoint: $API_URL${NC}"
 echo ""
+
+# Helper function to check for errors in response
+check_response() {
+    if [[ "$1" == *"Missing Authentication Token"* ]]; then
+        echo -e "${RED}❌ URL Error: API Gateway cannot find this resource. (404)${NC}"
+        exit 1
+    elif [[ "$1" == *"INTERNAL_ERROR"* ]]; then
+        echo -e "${RED}❌ Server Error: Lambda failed to process request. Check CloudWatch logs.${NC}"
+        exit 1
+    fi
+}
 
 echo -e "${YELLOW}Test 1: Create Incident${NC}"
 RESPONSE=$(curl -s -X POST "$API_URL" \
@@ -26,28 +39,37 @@ RESPONSE=$(curl -s -X POST "$API_URL" \
     "reporter_id": "1234567890123",
     "reporter_name": "Test User",
     "phone": "0812345678",
-    "incident_type": "FLOOD",
+    "incident_type": "FIRE",
     "location": {"type": "Point", "coordinates": [100.608, 14.072]},
     "address_name": "Test Location",
-    "description": "Test incident",
+    "description": "Test incident message",
     "severity": "HIGH",
     "affected_count": 5
   }')
 
 echo "$RESPONSE"
-INCIDENT_ID=$(echo "$RESPONSE" | grep -o '"incident_id":"[^"]*"' | cut -d'"' -f4)
+check_response "$RESPONSE"
+
+INCIDENT_ID=$(echo "$RESPONSE" | grep -o '"incident_id":"[^"]*"' | cut -d'"' -f4 || echo "")
+
+if [ -z "$INCIDENT_ID" ]; then
+    echo -e "${RED}❌ Failed to get Incident ID from response${NC}"
+    exit 1
+fi
 echo -e "${GREEN}✅ Created: $INCIDENT_ID${NC}\n"
 
-sleep 2
+sleep 1
 
 echo -e "${YELLOW}Test 2: Get Incident${NC}"
-curl -s "$API_URL/$INCIDENT_ID"
+GET_RESPONSE=$(curl -s "$API_URL/$INCIDENT_ID")
+echo "$GET_RESPONSE"
+check_response "$GET_RESPONSE"
 echo -e "\n${GREEN}✅ Get successful${NC}\n"
 
-sleep 2
-
 echo -e "${YELLOW}Test 3: List Incidents${NC}"
-curl -s "$API_URL?limit=5"
+LIST_RESPONSE=$(curl -s "$API_URL?limit=5")
+echo "$LIST_RESPONSE"
+check_response "$LIST_RESPONSE"
 echo -e "\n${GREEN}✅ List successful${NC}\n"
 
-echo -e "${GREEN}All tests completed!${NC}"
+echo -e "${GREEN}⭐ All tests passed successfully!${NC}"

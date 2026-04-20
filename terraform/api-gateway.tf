@@ -6,15 +6,11 @@ resource "aws_api_gateway_rest_api" "main" {
   }
 }
 
-resource "aws_api_gateway_resource" "v1" {
-  rest_api_id = aws_api_gateway_rest_api.main.id
-  parent_id   = aws_api_gateway_rest_api.main.root_resource_id
-  path_part   = "v1"
-}
+
 
 resource "aws_api_gateway_resource" "incidents" {
   rest_api_id = aws_api_gateway_rest_api.main.id
-  parent_id   = aws_api_gateway_resource.v1.id
+  parent_id   = aws_api_gateway_rest_api.main.root_resource_id
   path_part   = "incidents"
 }
 
@@ -164,6 +160,27 @@ resource "aws_lambda_permission" "get_history" {
 # Deployment
 resource "aws_api_gateway_deployment" "main" {
   rest_api_id = aws_api_gateway_rest_api.main.id
+  triggers = {
+    redeployment = sha1(jsonencode([
+      aws_api_gateway_resource.incidents,
+      aws_api_gateway_resource.incident_id,
+      aws_api_gateway_resource.status,
+      aws_api_gateway_resource.history,
+      aws_api_gateway_method.create_incident,
+      aws_api_gateway_method.list_incidents,
+      aws_api_gateway_method.get_incident,
+      aws_api_gateway_method.update_status,
+      aws_api_gateway_method.get_history,
+      aws_api_gateway_integration.create_incident,
+      aws_api_gateway_integration.list_incidents,
+      aws_api_gateway_integration.get_incident,
+      aws_api_gateway_integration.update_status,
+      aws_api_gateway_integration.get_history,
+    ]))
+    # Force redeployment on every apply
+    timestamp = timestamp()
+  }
+
   depends_on = [
     aws_api_gateway_integration.create_incident,
     aws_api_gateway_integration.list_incidents,
