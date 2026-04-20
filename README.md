@@ -23,7 +23,7 @@ Incident Reporter Service เป็นบริการหลักในระ
 ```
 API Gateway → Lambda Functions → RDS PostgreSQL
                 ↓
-              SNS Topics → Subscribers (16 services)
+              SNS Topics → Subscribers
                 ↑
            SQS Queues ← External Services
 ```

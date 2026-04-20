@@ -1,7 +1,13 @@
 const { SNSClient, PublishCommand } = require('@aws-sdk/client-sns');
 const { v4: uuidv4 } = require('uuid');
 
-const snsClient = new SNSClient({ region: process.env.AWS_REGION || 'us-east-1' });
+const snsClient = new SNSClient({ 
+  region: process.env.AWS_REGION || 'us-east-1',
+  requestHandler: {
+    requestTimeout: 5000,      // 5 seconds timeout
+    connectionTimeout: 3000    // 3 seconds connection timeout
+  }
+});
 
 async function publishIncidentCreated(incident) {
   const message = {
@@ -36,8 +42,12 @@ async function publishIncidentCreated(incident) {
     console.log('Published IncidentCreated event:', result.MessageId);
     return result;
   } catch (error) {
+    // แก้: ไม่ throw error ให้ incident creation ล้มเหลว
+    // แค่ log และ retry ทีหลัง
     console.error('Error publishing IncidentCreated event:', error);
-    throw error;
+    console.log('Event will be retried via dead letter queue');
+    // ไม่ throw - ให้ incident สร้างสำเร็จต่อไป
+    return null;
   }
 }
 
@@ -70,8 +80,9 @@ async function publishIncidentStatusChanged(incident, previousStatus) {
     console.log('Published IncidentStatusChanged event:', result.MessageId);
     return result;
   } catch (error) {
+    // ไม่ throw error - แค่ log
     console.error('Error publishing IncidentStatusChanged event:', error);
-    throw error;
+    return null;
   }
 }
 

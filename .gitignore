@@ -29,3 +29,11 @@ Thumbs.db
 # Environment
 .env
 .env.local
+
+# AWS Credentials (NEVER commit these)
+$HOME/
+.aws/
+credentials
+credentials.txt
+*.pem
+*.key

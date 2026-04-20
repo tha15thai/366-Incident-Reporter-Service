@@ -10,13 +10,15 @@ function generateLogId() {
   return `LOG${uuidv4().replace(/-/g, '').substring(0, 12).toUpperCase()}`;
 }
 
-function successResponse(statusCode, body) {
+function successResponse(statusCode, body, traceId) {
+  const trace = traceId || uuidv4();
   return {
     statusCode,
     headers: {
       'Content-Type': 'application/json',
+      'X-Trace-Id': traceId,  // เพิ่มบรรทัดนี้
       'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers': 'Content-Type,X-Request-Id,X-Admin-Id',
+      'Access-Control-Allow-Headers': 'Content-Type,X-Request-Id,X-Admin-Id,X-Trace-Id',
       'Access-Control-Allow-Methods': 'GET,POST,PATCH,OPTIONS',
     },
     body: JSON.stringify(body),
@@ -28,6 +30,7 @@ function errorResponse(statusCode, code, message, traceId) {
     statusCode,
     headers: {
       'Content-Type': 'application/json',
+      'X-Trace-Id': traceId || uuidv4(),  // เพิ่มบรรทัดนี้
       'Access-Control-Allow-Origin': '*',
     },
     body: JSON.stringify({

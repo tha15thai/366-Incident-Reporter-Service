@@ -21,7 +21,7 @@ locals {
 resource "aws_lambda_function" "create_incident" {
   filename         = "../lambda/create-incident.zip"
   function_name    = "${var.project_name}-create-incident"
-  role            = aws_iam_role.lambda_role.arn
+  role            = data.aws_iam_role.lab_role.arn
   handler         = "index.handler"
   runtime         = "nodejs20.x"
   timeout         = 30
@@ -36,7 +36,7 @@ resource "aws_lambda_function" "create_incident" {
 resource "aws_lambda_function" "get_incident" {
   filename         = "../lambda/get-incident.zip"
   function_name    = "${var.project_name}-get-incident"
-  role            = aws_iam_role.lambda_role.arn
+  role            = data.aws_iam_role.lab_role.arn
   handler         = "index.handler"
   runtime         = "nodejs20.x"
   timeout         = 30
@@ -51,7 +51,7 @@ resource "aws_lambda_function" "get_incident" {
 resource "aws_lambda_function" "list_incidents" {
   filename         = "../lambda/list-incidents.zip"
   function_name    = "${var.project_name}-list-incidents"
-  role            = aws_iam_role.lambda_role.arn
+  role            = data.aws_iam_role.lab_role.arn
   handler         = "index.handler"
   runtime         = "nodejs20.x"
   timeout         = 30
@@ -66,7 +66,7 @@ resource "aws_lambda_function" "list_incidents" {
 resource "aws_lambda_function" "update_status" {
   filename         = "../lambda/update-status.zip"
   function_name    = "${var.project_name}-update-status"
-  role            = aws_iam_role.lambda_role.arn
+  role            = data.aws_iam_role.lab_role.arn
   handler         = "index.handler"
   runtime         = "nodejs20.x"
   timeout         = 30
@@ -81,7 +81,7 @@ resource "aws_lambda_function" "update_status" {
 resource "aws_lambda_function" "get_history" {
   filename         = "../lambda/get-history.zip"
   function_name    = "${var.project_name}-get-history"
-  role            = aws_iam_role.lambda_role.arn
+  role            = data.aws_iam_role.lab_role.arn
   handler         = "index.handler"
   runtime         = "nodejs20.x"
   timeout         = 30
@@ -96,7 +96,7 @@ resource "aws_lambda_function" "get_history" {
 resource "aws_lambda_function" "resource_dispatched_handler" {
   filename         = "../lambda/resource-dispatched-handler.zip"
   function_name    = "${var.project_name}-resource-dispatched-handler"
-  role            = aws_iam_role.lambda_role.arn
+  role            = data.aws_iam_role.lab_role.arn
   handler         = "index.handler"
   runtime         = "nodejs20.x"
   timeout         = 60
