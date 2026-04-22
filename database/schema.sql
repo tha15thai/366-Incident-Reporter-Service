@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS "Reporter" (
 
 CREATE TABLE IF NOT EXISTS "Incidents" (
     incident_id VARCHAR(50) PRIMARY KEY,
-    incident_type VARCHAR(50) NOT NULL CHECK (incident_type IN ('FLOOD', 'FIRE', 'EARTHQUAKE', 'POWER_OUTAGE')),
+    incident_type VARCHAR(50) NOT NULL CHECK (incident_type IN ('FLOOD', 'FIRE', 'EARTHQUAKE', 'POWER_OUTAGE', 'STORM')),
     severity VARCHAR(20) NOT NULL CHECK (severity IN ('CRITICAL', 'HIGH', 'MEDIUM', 'LOW')),
     status VARCHAR(20) NOT NULL CHECK (status IN ('REPORTED', 'VERIFIED', 'DISPATCHED', 'IN_PROGRESS', 'RESOLVED', 'CLOSED', 'REJECTED')),
     location GEOMETRY(Point, 4326) NOT NULL,

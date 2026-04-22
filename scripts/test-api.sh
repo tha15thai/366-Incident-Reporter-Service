@@ -33,19 +33,27 @@ check_response() {
 }
 
 echo -e "${YELLOW}Test 1: Create Incident${NC}"
+
+# สร้างไฟล์ json แบบชั่วคราวเพื่อป้องกันปัญหาตัวหนังสือภาษาไทยกลายเป็น ???? บน Windows
+cat << 'EOF' > temp_payload.json
+{
+  "reporter_id": "1234567890123",
+  "reporter_name": "สมชาย ใจดี",
+  "phone": "0812345678",
+  "incident_type": "FIRE",
+  "location": {"type": "Point", "coordinates": [100.608, 14.072]},
+  "address_name": "ร้านสะดวกซื้อ ปากซอยสุขุมวิท 50 กรุงเทพ",
+  "description": "ไฟไหม้แผงสายไฟฟ้าหน้าร้าน ลูกไฟตกลงมาใส่หลังคารถยนต์ประชาชน",
+  "severity": "HIGH",
+  "affected_count": 5
+}
+EOF
+
 RESPONSE=$(curl -s -X POST "$API_URL" \
   -H "Content-Type: application/json" \
-  -d '{
-    "reporter_id": "1234567890123",
-    "reporter_name": "Test User",
-    "phone": "0812345678",
-    "incident_type": "FIRE",
-    "location": {"type": "Point", "coordinates": [100.608, 14.072]},
-    "address_name": "Test Location",
-    "description": "Test incident message",
-    "severity": "HIGH",
-    "affected_count": 5
-  }')
+  -d @temp_payload.json)
+
+rm temp_payload.json
 
 echo "$RESPONSE"
 check_response "$RESPONSE"

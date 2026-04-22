@@ -32,12 +32,21 @@ exports.handler = async (event) => {
     }
 
     const severity = body.severity || calculateSeverity(body.incident_type, body.affected_count || 0, 1);
-    const incidentId = generateIncidentId();
     const logId = generateLogId();
     const client = await db.getClient();
 
     try {
       await client.query('BEGIN');
+
+      // ======== การแก้ ID ชั่วคราว ========
+      // ของเดิม:
+      // const incidentId = generateIncidentId();
+      
+      // ของใหม่ชั่วคราว:
+      const countResult = await client.query('SELECT COUNT(*) FROM "Incidents"');
+      const nextIdNumber = parseInt(countResult.rows[0].count, 10) + 1;
+      const incidentId = `INC_${String(nextIdNumber).padStart(4, '0')}`;
+      // ===================================
 
       await client.query(
         `INSERT INTO "Reporter" (reporter_id, name, phone_num, reporter_type)
