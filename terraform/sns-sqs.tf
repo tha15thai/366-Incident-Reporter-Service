@@ -42,7 +42,10 @@ resource "aws_sns_topic_policy" "incident_created" {
         Sid    = "AllowCrossAccountSubscribe"
         Effect = "Allow"
         Principal = {
-          AWS = "arn:aws:iam::709706489755:root"
+          AWS = [
+            "arn:aws:iam::709706489755:root",
+            "arn:aws:iam::767398101278:root"
+          ]
         }
         Action   = ["SNS:Subscribe", "SNS:Receive"]
         Resource = aws_sns_topic.incident_created.arn

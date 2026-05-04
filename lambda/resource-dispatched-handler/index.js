@@ -27,7 +27,7 @@ exports.handler = async (event) => {
 
         const incident = incidentResult.rows[0];
 
-        if (incident.status === 'DISPATCHED') {
+        if (incident.status === 'VERIFIED') {
           const now = new Date().toISOString();
           const logId = generateLogId();
 
@@ -51,7 +51,7 @@ exports.handler = async (event) => {
             (await client.query('SELECT ST_AsGeoJSON($1) as geojson', [updatedIncident.location])).rows[0].geojson
           );
 
-          await publishIncidentStatusChanged({ ...updatedIncident, location: locationGeoJSON }, 'DISPATCHED');
+          await publishIncidentStatusChanged({ ...updatedIncident, location: locationGeoJSON }, 'VERIFIED');
         } else {
           await client.query('ROLLBACK');
         }

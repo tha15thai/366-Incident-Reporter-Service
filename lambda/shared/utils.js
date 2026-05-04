@@ -45,10 +45,8 @@ function errorResponse(statusCode, code, message, traceId) {
 
 const VALID_TRANSITIONS = {
   REPORTED: ['VERIFIED', 'REJECTED'],
-  VERIFIED: ['DISPATCHED'],
-  DISPATCHED: ['IN_PROGRESS'],
+  VERIFIED: ['IN_PROGRESS'],
   IN_PROGRESS: ['RESOLVED'],
-  RESOLVED: ['CLOSED'],
 };
 
 function isValidTransition(currentStatus, newStatus) {
@@ -72,7 +70,7 @@ async function checkDuplicate(db, location, timestamp) {
       1000
     )
     AND created_at >= ($3::TIMESTAMP - INTERVAL '10 minutes')
-    AND status NOT IN ('CLOSED', 'REJECTED')
+    AND status NOT IN ('RESOLVED', 'REJECTED')
     ORDER BY created_at DESC
     LIMIT 1
   `;

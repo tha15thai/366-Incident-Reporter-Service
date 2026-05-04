@@ -2,7 +2,7 @@ BEGIN;
 
 -- ปลดล็อค Constraint เดิมและใส่ตัวใหม่ที่รองรับคำว่า 'STORM'
 ALTER TABLE "Incidents" DROP CONSTRAINT IF EXISTS "Incidents_incident_type_check";
-ALTER TABLE "Incidents" ADD CONSTRAINT "Incidents_incident_type_check" CHECK (incident_type IN ('FLOOD', 'FIRE', 'EARTHQUAKE', 'POWER_OUTAGE', 'STORM'));
+ALTER TABLE "Incidents" ADD CONSTRAINT "Incidents_incident_type_check" CHECK (incident_type IN ('FLOOD', 'EARTHQUAKE', 'STORM'));
 
 -- แปลง INC_0007
 UPDATE "Incidents" SET 
