@@ -1,0 +1,9 @@
+{
+  "Records": [
+    {
+      "Sns": {
+        "Message": "{\"incidentId\":\"INC_0007\",\"status\":\"IN_PROGRESS\",\"description\":\"ทีมกู้ภัยกำลังลงพื้นที่\",\"operatorId\":\"RescueTeam-Alpha\"}"
+      }
+    }
+  ]
+}

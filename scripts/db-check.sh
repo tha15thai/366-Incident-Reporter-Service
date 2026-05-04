@@ -22,6 +22,7 @@ read -s DB_PASSWORD
 echo ""
 
 export PGPASSWORD="$DB_PASSWORD"
+export PGCLIENTENCODING=utf8
 
 echo -e "${BLUE}--- [Table: Reporter] All Columns ---${NC}"
 psql -h "$DB_HOST" -p "$DB_PORT" -U "$DB_USER" -d "$DB_NAME" -c "\x on" -c "SELECT * FROM \"Reporter\";"

@@ -96,6 +96,10 @@ cd "$LAMBDA_DIR/resource-dispatched-handler"
 do_zip ../resource-dispatched-handler.zip index.js
 echo -e "${GREEN}resource-dispatched-handler packaged${NC}"
 
+cd "$LAMBDA_DIR/changedInprogress"
+do_zip ../changedInprogress.zip index.js
+echo -e "${GREEN}changedInprogress packaged${NC}"
+
 # ---------------------------------------------------------------------------
 # Step 3: Deploy infrastructure with Terraform
 # ---------------------------------------------------------------------------

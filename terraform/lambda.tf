@@ -114,3 +114,26 @@ resource "aws_lambda_event_source_mapping" "resource_dispatched" {
   batch_size       = 10
   enabled          = true
 }
+
+resource "aws_lambda_function" "changed_inprogress" {
+  filename         = "../lambda/changedInprogress.zip"
+  function_name    = "${var.project_name}-changedInprogress"
+  role             = data.aws_iam_role.lab_role.arn
+  handler          = "index.handler"
+  runtime          = "nodejs20.x"
+  timeout          = 30
+  memory_size      = 256
+  source_code_hash = filebase64sha256("../lambda/changedInprogress.zip")
+  layers           = [aws_lambda_layer_version.dependencies.arn]
+  environment {
+    variables = local.lambda_environment
+  }
+}
+
+resource "aws_lambda_permission" "allow_friend_sns" {
+  statement_id  = "AllowExecutionFromFriendSNS"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.changed_inprogress.function_name
+  principal     = "sns.amazonaws.com"
+  source_arn    = "arn:aws:sns:us-east-1:620162259453:SendIncidentStatus"
+}

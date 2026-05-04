@@ -1,0 +1,1 @@
+{"statusCode":200,"headers":{"Content-Type":"application/json","Access-Control-Allow-Origin":"*","Access-Control-Allow-Headers":"Content-Type,X-Request-Id,X-Admin-Id,X-Trace-Id","Access-Control-Allow-Methods":"GET,POST,PATCH,OPTIONS"},"body":"{\"incident_id\":\"INC_0007\",\"old_status\":\"IN_PROGRESS\",\"new_status\":\"RESOLVED\",\"updated_at\":\"2026-05-04T17:37:56.680Z\"}"}

@@ -1,0 +1,9 @@
+{
+  "pathParameters": {
+    "incident_id": "INC_0007"
+  },
+  "headers": {
+    "X-Admin-Id": "ADMIN_001"
+  },
+  "body": "{\"status\":\"RESOLVED\",\"description\":\"Admin resolved incident\"}"
+}
