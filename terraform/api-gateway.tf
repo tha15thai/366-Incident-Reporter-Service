@@ -41,9 +41,9 @@ resource "aws_api_gateway_method" "create_incident" {
 }
 
 resource "aws_api_gateway_integration" "create_incident" {
-  rest_api_id = aws_api_gateway_rest_api.main.id
-  resource_id = aws_api_gateway_resource.incidents.id
-  http_method = aws_api_gateway_method.create_incident.http_method
+  rest_api_id             = aws_api_gateway_rest_api.main.id
+  resource_id             = aws_api_gateway_resource.incidents.id
+  http_method             = aws_api_gateway_method.create_incident.http_method
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
   uri                     = aws_lambda_function.create_incident.invoke_arn
@@ -66,9 +66,9 @@ resource "aws_api_gateway_method" "list_incidents" {
 }
 
 resource "aws_api_gateway_integration" "list_incidents" {
-  rest_api_id = aws_api_gateway_rest_api.main.id
-  resource_id = aws_api_gateway_resource.incidents.id
-  http_method = aws_api_gateway_method.list_incidents.http_method
+  rest_api_id             = aws_api_gateway_rest_api.main.id
+  resource_id             = aws_api_gateway_resource.incidents.id
+  http_method             = aws_api_gateway_method.list_incidents.http_method
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
   uri                     = aws_lambda_function.list_incidents.invoke_arn
@@ -91,9 +91,9 @@ resource "aws_api_gateway_method" "get_incident" {
 }
 
 resource "aws_api_gateway_integration" "get_incident" {
-  rest_api_id = aws_api_gateway_rest_api.main.id
-  resource_id = aws_api_gateway_resource.incident_id.id
-  http_method = aws_api_gateway_method.get_incident.http_method
+  rest_api_id             = aws_api_gateway_rest_api.main.id
+  resource_id             = aws_api_gateway_resource.incident_id.id
+  http_method             = aws_api_gateway_method.get_incident.http_method
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
   uri                     = aws_lambda_function.get_incident.invoke_arn
@@ -116,9 +116,9 @@ resource "aws_api_gateway_method" "update_status" {
 }
 
 resource "aws_api_gateway_integration" "update_status" {
-  rest_api_id = aws_api_gateway_rest_api.main.id
-  resource_id = aws_api_gateway_resource.status.id
-  http_method = aws_api_gateway_method.update_status.http_method
+  rest_api_id             = aws_api_gateway_rest_api.main.id
+  resource_id             = aws_api_gateway_resource.status.id
+  http_method             = aws_api_gateway_method.update_status.http_method
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
   uri                     = aws_lambda_function.update_status.invoke_arn
@@ -141,9 +141,9 @@ resource "aws_api_gateway_method" "get_history" {
 }
 
 resource "aws_api_gateway_integration" "get_history" {
-  rest_api_id = aws_api_gateway_rest_api.main.id
-  resource_id = aws_api_gateway_resource.history.id
-  http_method = aws_api_gateway_method.get_history.http_method
+  rest_api_id             = aws_api_gateway_rest_api.main.id
+  resource_id             = aws_api_gateway_resource.history.id
+  http_method             = aws_api_gateway_method.get_history.http_method
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
   uri                     = aws_lambda_function.get_history.invoke_arn

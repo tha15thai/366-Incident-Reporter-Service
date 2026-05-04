@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ระบบแจ้งเหตุภัยพิบัติ | Incident Reporter Portal</title>
+  <meta name="description" content="ระบบแจ้งเหตุภัยพิบัติสำหรับเจ้าหน้าที่ – กรอกข้อมูลเหตุการณ์เพื่อส่งเข้าระบบ Incident Reporter Service" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Incident Reporter</span>
+          <span class="brand-subtitle">ระบบแจ้งเหตุคาดว่าจะเกิดภัยพิบัติ</span>
+        </div>
+      </div>
+      <div class="header-badge">
+        <span class="badge-dot"></span>
+        <span>ระบบออนไลน์</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-content">
+      <div class="hero-icon-wrap">
+        <div class="hero-icon pulse-ring">
+          <svg viewBox="0 0 48 48" fill="none">
+            <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="2.5" stroke-dasharray="6 4"/>
+            <path d="M24 14v10l6 4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M12 36c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+      <h1 class="hero-title">แจ้งเหตุเพื่อขอรับความช่วยเหลือ</h1>
+      <p class="hero-desc">สำหรับเจ้าหน้าที่และบุคคลที่เกี่ยวข้องกับเหตุการณ์ภัยพิบัติ<br>กรุณากรอกข้อมูลให้ครบถ้วนและถูกต้อง</p>
+      <div class="hero-tags">
+        <span class="tag tag-fire">🔥 เพลิงไหม้</span>
+        <span class="tag tag-flood">🌊 น้ำท่วม</span>
+        <span class="tag tag-quake">⚡ แผ่นดินไหว</span>
+        <span class="tag tag-other">🚨 อื่น ๆ</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONFIG PANEL (API URL) ===== -->
+  <div class="container">
+    <div class="config-panel" id="configPanel">
+      <button class="config-toggle" id="configToggle" onclick="toggleConfig()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M12 2v2M12 20v2M2 12H4M20 12h2M6.34 17.66l-1.41 1.41M18.36 5.64l1.41 1.41"/></svg>
+        ตั้งค่า API Endpoint
+        <svg class="chevron" id="configChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="config-body" id="configBody" style="display:none">
+        <label class="field-label" for="apiEndpoint">API Gateway URL</label>
+        <input
+          type="url"
+          id="apiEndpoint"
+          class="field-input"
+          placeholder="https://xxxxxxxxxx.execute-api.ap-southeast-1.amazonaws.com/prod/incidents"
+          value=""
+        />
+        <p class="config-hint">
+          ดู URL ได้จาก <code>terraform output api_gateway_url</code> หรือ AWS Console → API Gateway
+        </p>
+      </div>
+    </div>
+
+    <!-- ===== MAIN FORM ===== -->
+    <form id="incidentForm" novalidate>
+
+      <!-- SECTION 1: Reporter Info -->
+      <div class="form-section" id="section-reporter">
+        <div class="section-header">
+          <div class="section-num">01</div>
+          <div>
+            <h2 class="section-title">ข้อมูลผู้แจ้งเหตุ</h2>
+            <p class="section-desc">ระบุตัวตนและข้อมูลติดต่อของผู้รายงาน</p>
+          </div>
+        </div>
+        <div class="fields-grid">
+          <div class="field-group full-width">
+            <label class="field-label" for="reporterId">
+              รหัสประจำตัวประชาชน / บัตรเจ้าหน้าที่
+              <span class="required">*</span>
+            </label>
+            <input
+              type="text"
+              id="reporterId"
+              name="reporter_id"
+              class="field-input"
+              placeholder="1234567890123"
+              maxlength="13"
+              required
+            />
+            <span class="field-error" id="reporterIdError"></span>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="reporterName">ชื่อ-นามสกุล</label>
+            <input
+              type="text"
+              id="reporterName"
+              name="reporter_name"
+              class="field-input"
+              placeholder="สมชาย ใจดี"
+            />
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="reporterPhone">หมายเลขโทรศัพท์</label>
+            <input
+              type="tel"
+              id="reporterPhone"
+              name="phone"
+              class="field-input"
+              placeholder="0812345678"
+              maxlength="10"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2: Incident Details -->
+      <div class="form-section" id="section-incident">
+        <div class="section-header">
+          <div class="section-num">02</div>
+          <div>
+            <h2 class="section-title">รายละเอียดเหตุการณ์</h2>
+            <p class="section-desc">ประเภทภัยและระดับความรุนแรง</p>
+          </div>
+        </div>
+
+        <!-- Incident Type Cards -->
+        <div class="field-group full-width">
+          <label class="field-label">ประเภทภัยพิบัติ <span class="required">*</span></label>
+          <div class="incident-type-grid" id="incidentTypeGrid">
+            <button type="button" class="type-card" data-value="FIRE" onclick="selectType(this)">
+              <span class="type-emoji">🔥</span>
+              <span>เพลิงไหม้</span>
+              <span class="type-val">FIRE</span>
+            </button>
+            <button type="button" class="type-card" data-value="FLOOD" onclick="selectType(this)">
+              <span class="type-emoji">🌊</span>
+              <span>น้ำท่วม</span>
+              <span class="type-val">FLOOD</span>
+            </button>
+            <button type="button" class="type-card" data-value="EARTHQUAKE" onclick="selectType(this)">
+              <span class="type-emoji">🏚️</span>
+              <span>แผ่นดินไหว</span>
+              <span class="type-val">EARTHQUAKE</span>
+            </button>
+            <button type="button" class="type-card" data-value="STORM" onclick="selectType(this)">
+              <span class="type-emoji">🌪️</span>
+              <span>พายุ</span>
+              <span class="type-val">STORM</span>
+            </button>
+            <button type="button" class="type-card" data-value="CHEMICAL" onclick="selectType(this)">
+              <span class="type-emoji">☣️</span>
+              <span>สารเคมี</span>
+              <span class="type-val">CHEMICAL</span>
+            </button>
+            <button type="button" class="type-card" data-value="ACCIDENT" onclick="selectType(this)">
+              <span class="type-emoji">🚗</span>
+              <span>อุบัติเหตุ</span>
+              <span class="type-val">ACCIDENT</span>
+            </button>
+            <button type="button" class="type-card" data-value="LANDSLIDE" onclick="selectType(this)">
+              <span class="type-emoji">⛰️</span>
+              <span>ดินถล่ม</span>
+              <span class="type-val">LANDSLIDE</span>
+            </button>
+            <button type="button" class="type-card" data-value="OTHER" onclick="selectType(this)">
+              <span class="type-emoji">🚨</span>
+              <span>อื่น ๆ</span>
+              <span class="type-val">OTHER</span>
+            </button>
+          </div>
+          <input type="hidden" id="incidentType" name="incident_type" required />
+          <span class="field-error" id="incidentTypeError"></span>
+        </div>
+
+        <!-- Severity – locked to HIGH, calculated by priority service -->
+        <div class="severity-locked-notice">
+          <div class="sev-locked-left">
+            <span class="sev-dot sev-high"></span>
+            <div>
+              <div class="sev-locked-label">ระดับความรุนแรง: <strong>HIGH</strong></div>
+              <div class="sev-locked-sub">ระบบจะคำนวณ Priority ให้อัตโนมัติโดย Priority Service</div>
+            </div>
+          </div>
+          <span class="sev-locked-badge">AUTO</span>
+        </div>
+        <input type="hidden" id="severity" name="severity" value="HIGH" />
+
+        <div class="fields-grid">
+          <div class="field-group">
+            <label class="field-label" for="affectedCount">จำนวนผู้ได้รับผลกระทบ (ราย)</label>
+            <input
+              type="number"
+              id="affectedCount"
+              name="affected_count"
+              class="field-input"
+              placeholder="0"
+              min="0"
+            />
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="incidentStart">เวลาที่เกิดเหตุ</label>
+            <input
+              type="datetime-local"
+              id="incidentStart"
+              name="incident_start"
+              class="field-input"
+            />
+          </div>
+        </div>
+
+        <div class="field-group full-width">
+          <label class="field-label" for="description">คำอธิบายเหตุการณ์</label>
+          <textarea
+            id="description"
+            name="description"
+            class="field-input field-textarea"
+            placeholder="อธิบายสถานการณ์ให้ละเอียด เช่น ไฟไหม้แผงสายไฟ ลูกไฟตกลงบนหลังคา มีผู้ติดอยู่ในอาคาร..."
+            rows="4"
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- SECTION 3: Location -->
+      <div class="form-section" id="section-location">
+        <div class="section-header">
+          <div class="section-num">03</div>
+          <div>
+            <h2 class="section-title">ที่ตั้ง / สถานที่เกิดเหตุ</h2>
+            <p class="section-desc">ค้นหาชื่อสถานที่ หรือกรอกพิกัดด้วยตนเอง – ไม่จำเป็นต้องอยู่ในพื้นที่</p>
+          </div>
+        </div>
+
+        <!-- ① ค้นหาชื่อสถานที่ (Geocoding) -->
+        <div class="field-group full-width">
+          <label class="field-label" for="addressSearch">
+            🔍 ค้นหาสถานที่เพื่อดึงพิกัดอัตโนมัติ
+          </label>
+          <div class="search-row">
+            <input
+              type="text"
+              id="addressSearch"
+              class="field-input"
+              placeholder="เช่น วัดพระแก้ว กรุงเทพ  หรือ  Thammasat University Rangsit"
+              autocomplete="off"
+            />
+            <button type="button" class="btn-search" id="searchBtn" onclick="searchAddress()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+              <span id="searchBtnText">ค้นหา</span>
+            </button>
+          </div>
+          <div class="search-results" id="searchResults" style="display:none"></div>
+          <p class="field-hint">ข้อมูลพิกัดจาก OpenStreetMap · Nominatim (ฟรี ไม่ต้อง API Key)</p>
+        </div>
+
+        <div class="loc-divider"><span>หรือกรอกพิกัดโดยตรง</span></div>
+
+        <!-- ② กรอกพิกัดด้วยตัวเอง -->
+        <div class="fields-grid">
+          <div class="field-group">
+            <label class="field-label" for="latitude">
+              ละติจูด (Latitude) <span class="required">*</span>
+            </label>
+            <input
+              type="number"
+              id="latitude"
+              name="latitude"
+              class="field-input"
+              placeholder="13.7563"
+              step="any"
+              required
+            />
+            <span class="field-error" id="latitudeError"></span>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="longitude">
+              ลองจิจูด (Longitude) <span class="required">*</span>
+            </label>
+            <input
+              type="number"
+              id="longitude"
+              name="longitude"
+              class="field-input"
+              placeholder="100.5018"
+              step="any"
+              required
+            />
+            <span class="field-error" id="longitudeError"></span>
+          </div>
+        </div>
+
+        <!-- ③ ชื่อสถานที่ที่จะแสดงในระบบ -->
+        <div class="field-group full-width" style="margin-top:4px">
+          <label class="field-label" for="addressName">ชื่อสถานที่ / ที่อยู่ (สำหรับแสดงในระบบ)</label>
+          <input
+            type="text"
+            id="addressName"
+            name="address_name"
+            class="field-input"
+            placeholder="เช่น ร้านสะดวกซื้อ ปากซอยสุขุมวิท 50 กรุงเทพมหานคร"
+          />
+        </div>
+
+        <!-- GPS secondary -->
+        <button type="button" class="btn-gps btn-gps-secondary" id="gpsBtn" onclick="getGPS()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><path d="M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+          <span id="gpsBtnText">📍 ใช้ตำแหน่งอุปกรณ์นี้ (ถ้าอยู่ในพื้นที่)</span>
+        </button>
+
+        <div class="map-preview" id="mapPreview" style="display:none">
+          <div class="map-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span id="mapCoordText">รับตำแหน่งแล้ว</span>
+          </div>
+          <a id="mapLink" href="#" target="_blank" class="map-link">เปิดใน Google Maps →</a>
+        </div>
+      </div>
+
+      <!-- SECTION 4: Submit -->
+      <div class="form-section submit-section">
+        <div class="submit-disclaimer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+          <p>ข้อมูลที่กรอกจะถูกส่งเข้าระบบ Incident Reporter Service และแจ้งเตือนหน่วยงานที่เกี่ยวข้องทันที กรุณาตรวจสอบให้ครบถ้วนก่อนส่ง</p>
+        </div>
+        <button type="submit" class="btn-submit" id="submitBtn">
+          <span id="submitText">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            ส่งรายงานเหตุการณ์
+          </span>
+          <span id="submitSpinner" style="display:none">
+            <span class="spinner"></span>
+            กำลังส่ง...
+          </span>
+        </button>
+      </div>
+
+    </form>
+
+    <!-- ===== RESULT PANEL ===== -->
+    <div class="result-panel" id="resultPanel" style="display:none">
+      <!-- Success -->
+      <div class="result-success" id="resultSuccess" style="display:none">
+        <div class="result-icon-wrap success-icon">
+          <svg viewBox="0 0 48 48" fill="none">
+            <circle cx="24" cy="24" r="22" stroke="#22c55e" stroke-width="2.5"/>
+            <path d="M14 24l7 7 13-14" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h2 class="result-title">ส่งรายงานสำเร็จ!</h2>
+        <p class="result-subtitle">ระบบได้รับข้อมูลเรียบร้อยแล้ว หน่วยงานที่เกี่ยวข้องจะได้รับการแจ้งเตือนทันที</p>
+        <div class="result-details" id="resultDetails"></div>
+        <button class="btn-new" onclick="resetForm()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4V1L8 5l4 4V6a6 6 0 110 12H6"/></svg>
+          แจ้งเหตุใหม่
+        </button>
+      </div>
+
+      <!-- Error -->
+      <div class="result-error" id="resultError" style="display:none">
+        <div class="result-icon-wrap error-icon">
+          <svg viewBox="0 0 48 48" fill="none">
+            <circle cx="24" cy="24" r="22" stroke="#ef4444" stroke-width="2.5"/>
+            <path d="M16 16l16 16M32 16L16 32" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h2 class="result-title">เกิดข้อผิดพลาด</h2>
+        <p class="result-subtitle" id="errorMessage">ไม่สามารถส่งข้อมูลได้ กรุณาลองใหม่อีกครั้ง</p>
+        <button class="btn-retry" onclick="retryForm()">ลองใหม่</button>
+      </div>
+    </div>
+
+  </div><!-- /container -->
+
+  <footer class="site-footer">
+    <p>Incident Reporter Service &nbsp;|&nbsp; CS366 Cloud Computing &nbsp;|&nbsp; Thammasat University</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

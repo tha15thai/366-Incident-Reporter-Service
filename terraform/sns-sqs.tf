@@ -1,7 +1,7 @@
 # SNS Topics
 resource "aws_sns_topic" "incident_created" {
   name = "${var.project_name}-incident-created"
-  
+
   tags = {
     Name = "${var.project_name}-incident-created"
   }
@@ -61,7 +61,7 @@ resource "aws_sns_topic_policy" "incident_created" {
 
 resource "aws_sns_topic" "incident_status_changed" {
   name = "${var.project_name}-incident-status-changed"
-  
+
   tags = {
     Name = "${var.project_name}-incident-status-changed"
   }
@@ -102,7 +102,10 @@ resource "aws_sns_topic_policy" "incident_status_changed" {
         Sid    = "AllowCrossAccountSubscribeSQS"
         Effect = "Allow"
         Principal = {
-          AWS = "arn:aws:iam::439140430379:root"
+          AWS = [
+            "arn:aws:iam::439140430379:root",
+            "arn:aws:iam::813157187595:root"
+          ]
         }
         Action   = ["SNS:Subscribe", "SNS:Receive"]
         Resource = aws_sns_topic.incident_status_changed.arn
@@ -111,12 +114,19 @@ resource "aws_sns_topic_policy" "incident_status_changed" {
   })
 }
 
+# SNS Subscription - ชี้ไปที่ Lambda เพื่อนคนที่ 3 (impactZoneHandler)
+# resource "aws_sns_topic_subscription" "incident_status_changed_to_friend3_lambda" {
+#   topic_arn = aws_sns_topic.incident_status_changed.arn
+#   protocol  = "lambda"
+#   endpoint  = "arn:aws:lambda:us-east-1:813157187595:function:impactZoneHandler"
+# }
+
 # SQS Queues
 resource "aws_sqs_queue" "resource_dispatched" {
   name                       = "${var.project_name}-resource-dispatched"
   visibility_timeout_seconds = 300
   message_retention_seconds  = 86400
-  
+
   tags = {
     Name = "${var.project_name}-resource-dispatched"
   }
@@ -124,7 +134,7 @@ resource "aws_sqs_queue" "resource_dispatched" {
 
 resource "aws_sqs_queue" "resource_dispatched_dlq" {
   name = "${var.project_name}-resource-dispatched-dlq"
-  
+
   tags = {
     Name = "${var.project_name}-resource-dispatched-dlq"
   }
@@ -132,7 +142,7 @@ resource "aws_sqs_queue" "resource_dispatched_dlq" {
 
 resource "aws_sqs_queue_redrive_policy" "resource_dispatched" {
   queue_url = aws_sqs_queue.resource_dispatched.id
-  
+
   redrive_policy = jsonencode({
     deadLetterTargetArn = aws_sqs_queue.resource_dispatched_dlq.arn
     maxReceiveCount     = 3

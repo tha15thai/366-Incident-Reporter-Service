@@ -22,6 +22,10 @@ async function publishIncidentCreated(incident) {
     reportChannel: incident.report_channel,
     affectedCount: incident.affected_count || 0,
     createdAt: incident.created_at,
+    updatedAt: incident.updated_at,
+    incidentStart: incident.incident_start,
+    endTime: incident.end_time,
+    reportCount: incident.report_count,
   };
 
   const params = {
