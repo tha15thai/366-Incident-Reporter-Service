@@ -10,7 +10,16 @@ NC='\033[0m'
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$PROJECT_ROOT/terraform"
 
-API_URL=$(terraform output -raw api_gateway_url 2>/dev/null || echo "")
+if command -v terraform > /dev/null 2>&1; then
+    TERRAFORM="terraform"
+elif command -v terraform.exe > /dev/null 2>&1; then
+    TERRAFORM="terraform.exe"
+else
+    echo -e "${RED}Terraform is not installed or not in PATH${NC}"
+    exit 1
+fi
+
+API_URL=$($TERRAFORM output -raw api_gateway_url 2>/dev/null || echo "")
 
 if [ -z "$API_URL" ]; then
     echo -e "${RED}❌ API URL not found. Please run deploy first.${NC}"
@@ -40,7 +49,7 @@ cat << 'EOF' > temp_payload.json
   "reporter_id": "1234567890123",
   "reporter_name": "สมชาย ใจดี",
   "phone": "0812345678",
-  "incident_type": "FIRE",
+  "incident_type": "STORM",
   "location": {"type": "Point", "coordinates": [100.608, 14.072]},
   "address_name": "ร้านสะดวกซื้อ ปากซอยสุขุมวิท 50 กรุงเทพ",
   "description": "ไฟไหม้แผงสายไฟฟ้าหน้าร้าน ลูกไฟตกลงมาใส่หลังคารถยนต์ประชาชน",

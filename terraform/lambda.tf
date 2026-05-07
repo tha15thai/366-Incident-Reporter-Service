@@ -137,3 +137,74 @@ resource "aws_lambda_permission" "allow_friend_sns" {
   principal     = "sns.amazonaws.com"
   source_arn    = "arn:aws:sns:us-east-1:620162259453:SendIncidentStatus"
 }
+
+resource "aws_lambda_function" "news_rejected_handler" {
+  filename         = "../lambda/news-rejected-handler.zip"
+  function_name    = "${var.project_name}-news-rejected-handler"
+  role             = data.aws_iam_role.lab_role.arn
+  handler          = "index.handler"
+  runtime          = "nodejs20.x"
+  timeout          = 30
+  memory_size      = 256
+  source_code_hash = filebase64sha256("../lambda/news-rejected-handler.zip")
+  layers           = [aws_lambda_layer_version.dependencies.arn]
+  environment {
+    variables = local.lambda_environment
+  }
+}
+
+resource "aws_lambda_function" "priority_verified_handler" {
+  filename         = "../lambda/priority-verified-handler.zip"
+  function_name    = "${var.project_name}-priority-verified-handler"
+  role             = data.aws_iam_role.lab_role.arn
+  handler          = "index.handler"
+  runtime          = "nodejs20.x"
+  timeout          = 30
+  memory_size      = 256
+  source_code_hash = filebase64sha256("../lambda/priority-verified-handler.zip")
+  layers           = [aws_lambda_layer_version.dependencies.arn]
+  environment {
+    variables = local.lambda_environment
+  }
+}
+
+resource "aws_lambda_permission" "allow_friend_sns_news_rejected" {
+  statement_id  = "AllowExecutionFromFriendSNSRejected"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.news_rejected_handler.function_name
+  principal     = "sns.amazonaws.com"
+  source_arn    = "arn:aws:sns:us-east-1:767398101278:status-changed-rejected-topic"
+}
+
+resource "aws_lambda_permission" "allow_friend_sns_priority_verified" {
+  statement_id  = "AllowExecutionFromFriendSNSPriorityVerified"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.priority_verified_handler.function_name
+  principal     = "sns.amazonaws.com"
+  source_arn    = "arn:aws:sns:us-east-1:085514988671:incident-prioritized-topic"
+}
+
+# Lambda: resolved-handler (polls friend's SQS for RESOLVED events)
+resource "aws_lambda_function" "resolved_handler" {
+  filename         = "../lambda/resolved-handler.zip"
+  function_name    = "${var.project_name}-resolved-handler"
+  role             = data.aws_iam_role.lab_role.arn
+  handler          = "index.handler"
+  runtime          = "nodejs20.x"
+  timeout          = 30
+  memory_size      = 256
+  source_code_hash = filebase64sha256("../lambda/resolved-handler.zip")
+  layers           = [aws_lambda_layer_version.dependencies.arn]
+  environment {
+    variables = local.lambda_environment
+  }
+}
+
+# Event Source Mapping: poll friend's SQS queue automatically
+# NOTE: Friend must first add SQS policy to allow our account (317315311067) to read their queue
+resource "aws_lambda_event_source_mapping" "resolved_handler_sqs" {
+  event_source_arn = "arn:aws:sqs:us-east-1:217430480136:resource-events-incident-completed"
+  function_name    = aws_lambda_function.resolved_handler.arn
+  batch_size       = 5
+  enabled          = true
+}

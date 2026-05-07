@@ -7,7 +7,6 @@ exports.handler = async (event) => {
 
   for (const record of event.Records) {
     try {
-      // 1. Parse SNS Message
       const snsMessage = record.Sns.Message;
       let payload;
       try {
@@ -27,8 +26,8 @@ exports.handler = async (event) => {
       const { status, description, operatorId } = payload;
       const incidentId = payload.incidentId || payload.incident_id || payload.incident_Id;
 
-      if (!incidentId || status !== 'IN_PROGRESS') {
-        console.warn('Skipping message: Missing incidentId or status is not IN_PROGRESS');
+      if (!incidentId || status !== 'REJECTED') {
+        console.warn('Skipping message: Missing incidentId or status is not REJECTED');
         continue;
       }
 
@@ -36,7 +35,6 @@ exports.handler = async (event) => {
       try {
         await client.query('BEGIN');
 
-        // 2. Check Data Integrity (Does the incident exist?) and State Validation
         const incidentResult = await client.query(
           'SELECT * FROM "Incidents" WHERE incident_id = $1 FOR UPDATE',
           [incidentId]
@@ -50,48 +48,44 @@ exports.handler = async (event) => {
 
         const incident = incidentResult.rows[0];
 
-        // 3. Idempotency & State Validation Check
-        // If it's already IN_PROGRESS, skip gracefully
-        if (incident.status === 'IN_PROGRESS') {
-          console.log(`Incident ${incidentId} is already IN_PROGRESS. Skipping.`);
+        if (incident.status === 'REJECTED') {
+          console.log(`Incident ${incidentId} is already REJECTED. Skipping.`);
           await client.query('ROLLBACK');
           continue;
         }
 
-        // Only allow transition from VERIFIED
-        if (incident.status !== 'VERIFIED') {
-          console.error(`Invalid state transition. Cannot move from ${incident.status} to IN_PROGRESS for ${incidentId}`);
+        // Only allow rejection from REPORTED
+        if (incident.status !== 'REPORTED') {
+          console.error(`Invalid state transition. Cannot move from ${incident.status} to REJECTED for ${incidentId}`);
           await client.query('ROLLBACK');
           continue;
         }
 
         const now = new Date().toISOString();
         const logId = generateLogId();
-        const actionDescription = description || 'มีการปรับสถานะเป็น IN_PROGRESS จากทีมงานภายนอก';
-        const actionBy = operatorId || 'FRIEND_EXTERNAL_SYSTEM';
+        const actionDescription = description || 'ข้อมูลถูกปฏิเสธ (Fake News) จากหน่วยตรวจสอบข่าว';
+        const actionBy = operatorId || 'NEWS_CHECKER_SERVICE';
 
-        // 4. Update Database & Write Audit Trail
         const updatedResult = await client.query(
-          `UPDATE "Incidents" SET status = 'IN_PROGRESS', description = $1, updated_at = $2 WHERE incident_id = $3 RETURNING *`,
+          `UPDATE "Incidents" SET status = 'REJECTED', description = $1, updated_at = $2 WHERE incident_id = $3 RETURNING *`,
           [actionDescription, now, incidentId]
         );
 
         await client.query(
           `INSERT INTO "StatusHistory" (log_id, incident_id, status, description, created_at, created_by)
            VALUES ($1, $2, $3, $4, $5, $6)`,
-          [logId, incidentId, 'IN_PROGRESS', actionDescription, now, actionBy]
+          [logId, incidentId, 'REJECTED', actionDescription, now, actionBy]
         );
 
         await client.query('COMMIT');
 
-        // 5. Publish Event internally so our system knows
         const updatedIncident = updatedResult.rows[0];
         const locationGeoJSON = JSON.parse(
           (await client.query('SELECT ST_AsGeoJSON($1) as geojson', [updatedIncident.location])).rows[0].geojson
         );
 
-        await publishIncidentStatusChanged({ ...updatedIncident, location: locationGeoJSON }, 'VERIFIED');
-        console.log(`Successfully updated ${incidentId} to IN_PROGRESS`);
+        await publishIncidentStatusChanged({ ...updatedIncident, location: locationGeoJSON }, 'REPORTED');
+        console.log(`Successfully updated ${incidentId} to REJECTED`);
 
       } catch (error) {
         await client.query('ROLLBACK');
@@ -99,7 +93,6 @@ exports.handler = async (event) => {
       } finally {
         client.release();
       }
-
     } catch (error) {
       console.error('Error processing record:', error);
     }

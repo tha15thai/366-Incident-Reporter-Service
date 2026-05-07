@@ -62,6 +62,14 @@ resource "aws_sns_topic_policy" "incident_created" {
 #   endpoint  = "arn:aws:lambda:us-east-1:709706489755:function:SyncIncidentHandler"
 # }
 
+# SNS Subscription - ส่งข้อมูลไปให้ SQS ของเพื่อน (News Checker / Priority Sorter)
+# หมายเหตุ: Uncomment เมื่อเพื่อนตั้งค่า SQS Access Policy ยอมรับ SNS ของเราแล้ว
+# resource "aws_sns_topic_subscription" "incident_created_to_friend_sqs" {
+#   topic_arn = aws_sns_topic.incident_created.arn
+#   protocol  = "sqs"
+#   endpoint  = "arn:aws:sqs:us-east-1:767398101278:incident-reporter"
+# }
+
 resource "aws_sns_topic" "incident_status_changed" {
   name = "${var.project_name}-incident-status-changed"
 

@@ -100,6 +100,18 @@ cd "$LAMBDA_DIR/changedInprogress"
 do_zip ../changedInprogress.zip index.js
 echo -e "${GREEN}changedInprogress packaged${NC}"
 
+cd "$LAMBDA_DIR/news-rejected-handler"
+do_zip ../news-rejected-handler.zip index.js
+echo -e "${GREEN}news-rejected-handler packaged${NC}"
+
+cd "$LAMBDA_DIR/priority-verified-handler"
+do_zip ../priority-verified-handler.zip index.js
+echo -e "${GREEN}priority-verified-handler packaged${NC}"
+
+cd "$LAMBDA_DIR/resolved-handler"
+do_zip ../resolved-handler.zip index.js
+echo -e "${GREEN}resolved-handler packaged${NC}"
+
 # ---------------------------------------------------------------------------
 # Step 3: Deploy infrastructure with Terraform
 # ---------------------------------------------------------------------------
