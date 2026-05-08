@@ -46,13 +46,13 @@ resource "aws_api_gateway_integration" "create_incident" {
   http_method             = aws_api_gateway_method.create_incident.http_method
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
-  uri                     = aws_lambda_function.create_incident.invoke_arn
+  uri                     = aws_lambda_function.api_handler.invoke_arn
 }
 
-resource "aws_lambda_permission" "create_incident" {
+resource "aws_lambda_permission" "api_gateway" {
   statement_id  = "AllowAPIGatewayInvoke"
   action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.create_incident.function_name
+  function_name = aws_lambda_function.api_handler.function_name
   principal     = "apigateway.amazonaws.com"
   source_arn    = "${aws_api_gateway_rest_api.main.execution_arn}/*/*"
 }
@@ -71,16 +71,10 @@ resource "aws_api_gateway_integration" "list_incidents" {
   http_method             = aws_api_gateway_method.list_incidents.http_method
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
-  uri                     = aws_lambda_function.list_incidents.invoke_arn
+  uri                     = aws_lambda_function.api_handler.invoke_arn
 }
 
-resource "aws_lambda_permission" "list_incidents" {
-  statement_id  = "AllowAPIGatewayInvoke"
-  action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.list_incidents.function_name
-  principal     = "apigateway.amazonaws.com"
-  source_arn    = "${aws_api_gateway_rest_api.main.execution_arn}/*/*"
-}
+
 
 # GET /incidents/{id}
 resource "aws_api_gateway_method" "get_incident" {
@@ -96,16 +90,10 @@ resource "aws_api_gateway_integration" "get_incident" {
   http_method             = aws_api_gateway_method.get_incident.http_method
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
-  uri                     = aws_lambda_function.get_incident.invoke_arn
+  uri                     = aws_lambda_function.api_handler.invoke_arn
 }
 
-resource "aws_lambda_permission" "get_incident" {
-  statement_id  = "AllowAPIGatewayInvoke"
-  action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.get_incident.function_name
-  principal     = "apigateway.amazonaws.com"
-  source_arn    = "${aws_api_gateway_rest_api.main.execution_arn}/*/*"
-}
+
 
 # PATCH /incidents/{id}/status
 resource "aws_api_gateway_method" "update_status" {
@@ -121,16 +109,10 @@ resource "aws_api_gateway_integration" "update_status" {
   http_method             = aws_api_gateway_method.update_status.http_method
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
-  uri                     = aws_lambda_function.update_status.invoke_arn
+  uri                     = aws_lambda_function.api_handler.invoke_arn
 }
 
-resource "aws_lambda_permission" "update_status" {
-  statement_id  = "AllowAPIGatewayInvoke"
-  action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.update_status.function_name
-  principal     = "apigateway.amazonaws.com"
-  source_arn    = "${aws_api_gateway_rest_api.main.execution_arn}/*/*"
-}
+
 
 # GET /incidents/{id}/history
 resource "aws_api_gateway_method" "get_history" {
@@ -146,16 +128,10 @@ resource "aws_api_gateway_integration" "get_history" {
   http_method             = aws_api_gateway_method.get_history.http_method
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
-  uri                     = aws_lambda_function.get_history.invoke_arn
+  uri                     = aws_lambda_function.api_handler.invoke_arn
 }
 
-resource "aws_lambda_permission" "get_history" {
-  statement_id  = "AllowAPIGatewayInvoke"
-  action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.get_history.function_name
-  principal     = "apigateway.amazonaws.com"
-  source_arn    = "${aws_api_gateway_rest_api.main.execution_arn}/*/*"
-}
+
 
 # Deployment
 resource "aws_api_gateway_deployment" "main" {

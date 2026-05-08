@@ -1,0 +1,15 @@
+{
+  "Records": [
+    {
+      "messageId": "test-001",
+      "body": "{\"event_id\":\"test-uuid\",\"event_type\":\"INCIDENT_COMPLETED\",\"incident_id\":\"INC_0009\",\"status\":\"RESOLVED\",\"source_service\":\"ResourceAllocationService\",\"description\":\"Incident resolved by resource team\"}",
+      "receiptHandle": "test",
+      "attributes": {},
+      "messageAttributes": {},
+      "md5OfBody": "test",
+      "eventSource": "aws:sqs",
+      "eventSourceARN": "arn:aws:sqs:us-east-1:698050801161:resource-events-incident-completed",
+      "awsRegion": "us-east-1"
+    }
+  ]
+}

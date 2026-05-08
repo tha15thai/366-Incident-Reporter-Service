@@ -72,45 +72,13 @@ echo -e "${GREEN}Lambda layer created${NC}"
 # ---------------------------------------------------------------------------
 echo -e "${YELLOW}Step 2: Packaging Lambda functions...${NC}"
 
-cd "$LAMBDA_DIR/create-incident"
-do_zip ../create-incident.zip index.js
-echo -e "${GREEN}create-incident packaged${NC}"
+cd "$LAMBDA_DIR/api-handler"
+do_zip ../api-handler.zip index.js
+echo -e "${GREEN}api-handler packaged${NC}"
 
-cd "$LAMBDA_DIR/update-status"
-do_zip ../update-status.zip index.js
-echo -e "${GREEN}update-status packaged${NC}"
-
-cd "$LAMBDA_DIR/get-incident"
-do_zip ../get-incident.zip index.js
-echo -e "${GREEN}get-incident packaged${NC}"
-
-cd "$LAMBDA_DIR/list-incidents"
-do_zip ../list-incidents.zip index.js
-echo -e "${GREEN}list-incidents packaged${NC}"
-
-cd "$LAMBDA_DIR/get-history"
-do_zip ../get-history.zip index.js
-echo -e "${GREEN}get-history packaged${NC}"
-
-cd "$LAMBDA_DIR/resource-dispatched-handler"
-do_zip ../resource-dispatched-handler.zip index.js
-echo -e "${GREEN}resource-dispatched-handler packaged${NC}"
-
-cd "$LAMBDA_DIR/changedInprogress"
-do_zip ../changedInprogress.zip index.js
-echo -e "${GREEN}changedInprogress packaged${NC}"
-
-cd "$LAMBDA_DIR/news-rejected-handler"
-do_zip ../news-rejected-handler.zip index.js
-echo -e "${GREEN}news-rejected-handler packaged${NC}"
-
-cd "$LAMBDA_DIR/priority-verified-handler"
-do_zip ../priority-verified-handler.zip index.js
-echo -e "${GREEN}priority-verified-handler packaged${NC}"
-
-cd "$LAMBDA_DIR/resolved-handler"
-do_zip ../resolved-handler.zip index.js
-echo -e "${GREEN}resolved-handler packaged${NC}"
+cd "$LAMBDA_DIR/event-handler"
+do_zip ../event-handler.zip index.js
+echo -e "${GREEN}event-handler packaged${NC}"
 
 # ---------------------------------------------------------------------------
 # Step 3: Deploy infrastructure with Terraform

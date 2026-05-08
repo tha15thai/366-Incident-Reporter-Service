@@ -34,7 +34,7 @@ resource "aws_sns_topic_policy" "incident_created" {
         Resource = aws_sns_topic.incident_created.arn
         Condition = {
           StringEquals = {
-            "AWS:SourceOwner" = "317315311067"
+            "AWS:SourceOwner" = "121953018955"
           }
         }
       },
@@ -63,12 +63,12 @@ resource "aws_sns_topic_policy" "incident_created" {
 # }
 
 # SNS Subscription - ส่งข้อมูลไปให้ SQS ของเพื่อน (News Checker / Priority Sorter)
-# หมายเหตุ: Uncomment เมื่อเพื่อนตั้งค่า SQS Access Policy ยอมรับ SNS ของเราแล้ว
-# resource "aws_sns_topic_subscription" "incident_created_to_friend_sqs" {
-#   topic_arn = aws_sns_topic.incident_created.arn
-#   protocol  = "sqs"
-#   endpoint  = "arn:aws:sqs:us-east-1:767398101278:incident-reporter"
-# }
+resource "aws_sns_topic_subscription" "incident_created_to_friend_sqs" {
+  topic_arn = aws_sns_topic.incident_created.arn
+  protocol  = "sqs"
+  endpoint  = "arn:aws:sqs:us-east-1:072833417664:incident-reporter-queue"
+}
+
 
 resource "aws_sns_topic" "incident_status_changed" {
   name = "${var.project_name}-incident-status-changed"
@@ -105,7 +105,7 @@ resource "aws_sns_topic_policy" "incident_status_changed" {
         Resource = aws_sns_topic.incident_status_changed.arn
         Condition = {
           StringEquals = {
-            "AWS:SourceOwner" = "317315311067"
+            "AWS:SourceOwner" = "121953018955"
           }
         }
       },
@@ -132,30 +132,3 @@ resource "aws_sns_topic_policy" "incident_status_changed" {
 #   endpoint  = "arn:aws:lambda:us-east-1:813157187595:function:impactZoneHandler"
 # }
 
-# SQS Queues
-resource "aws_sqs_queue" "resource_dispatched" {
-  name                       = "${var.project_name}-resource-dispatched"
-  visibility_timeout_seconds = 300
-  message_retention_seconds  = 86400
-
-  tags = {
-    Name = "${var.project_name}-resource-dispatched"
-  }
-}
-
-resource "aws_sqs_queue" "resource_dispatched_dlq" {
-  name = "${var.project_name}-resource-dispatched-dlq"
-
-  tags = {
-    Name = "${var.project_name}-resource-dispatched-dlq"
-  }
-}
-
-resource "aws_sqs_queue_redrive_policy" "resource_dispatched" {
-  queue_url = aws_sqs_queue.resource_dispatched.id
-
-  redrive_policy = jsonencode({
-    deadLetterTargetArn = aws_sqs_queue.resource_dispatched_dlq.arn
-    maxReceiveCount     = 3
-  })
-}

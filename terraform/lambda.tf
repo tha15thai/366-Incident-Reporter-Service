@@ -18,160 +18,51 @@ locals {
   }
 }
 
-resource "aws_lambda_function" "create_incident" {
-  filename         = "../lambda/create-incident.zip"
-  function_name    = "${var.project_name}-create-incident"
+# 1. API Handler (Consolidates Create, Get, List, Update, History)
+resource "aws_lambda_function" "api_handler" {
+  filename         = "../lambda/api-handler.zip"
+  function_name    = "${var.project_name}-api-handler"
   role             = data.aws_iam_role.lab_role.arn
   handler          = "index.handler"
   runtime          = "nodejs20.x"
   timeout          = 30
   memory_size      = 256
-  source_code_hash = filebase64sha256("../lambda/create-incident.zip")
+  source_code_hash = filebase64sha256("../lambda/api-handler.zip")
   layers           = [aws_lambda_layer_version.dependencies.arn]
   environment {
     variables = local.lambda_environment
   }
 }
 
-resource "aws_lambda_function" "get_incident" {
-  filename         = "../lambda/get-incident.zip"
-  function_name    = "${var.project_name}-get-incident"
+# 2. Event Handler (Consolidates IN_PROGRESS, VERIFIED, REJECTED, RESOLVED)
+resource "aws_lambda_function" "event_handler" {
+  filename         = "../lambda/event-handler.zip"
+  function_name    = "${var.project_name}-event-handler"
   role             = data.aws_iam_role.lab_role.arn
   handler          = "index.handler"
   runtime          = "nodejs20.x"
   timeout          = 30
   memory_size      = 256
-  source_code_hash = filebase64sha256("../lambda/get-incident.zip")
+  source_code_hash = filebase64sha256("../lambda/event-handler.zip")
   layers           = [aws_lambda_layer_version.dependencies.arn]
   environment {
     variables = local.lambda_environment
   }
 }
 
-resource "aws_lambda_function" "list_incidents" {
-  filename         = "../lambda/list-incidents.zip"
-  function_name    = "${var.project_name}-list-incidents"
-  role             = data.aws_iam_role.lab_role.arn
-  handler          = "index.handler"
-  runtime          = "nodejs20.x"
-  timeout          = 30
-  memory_size      = 256
-  source_code_hash = filebase64sha256("../lambda/list-incidents.zip")
-  layers           = [aws_lambda_layer_version.dependencies.arn]
-  environment {
-    variables = local.lambda_environment
-  }
-}
-
-resource "aws_lambda_function" "update_status" {
-  filename         = "../lambda/update-status.zip"
-  function_name    = "${var.project_name}-update-status"
-  role             = data.aws_iam_role.lab_role.arn
-  handler          = "index.handler"
-  runtime          = "nodejs20.x"
-  timeout          = 30
-  memory_size      = 256
-  source_code_hash = filebase64sha256("../lambda/update-status.zip")
-  layers           = [aws_lambda_layer_version.dependencies.arn]
-  environment {
-    variables = local.lambda_environment
-  }
-}
-
-resource "aws_lambda_function" "get_history" {
-  filename         = "../lambda/get-history.zip"
-  function_name    = "${var.project_name}-get-history"
-  role             = data.aws_iam_role.lab_role.arn
-  handler          = "index.handler"
-  runtime          = "nodejs20.x"
-  timeout          = 30
-  memory_size      = 256
-  source_code_hash = filebase64sha256("../lambda/get-history.zip")
-  layers           = [aws_lambda_layer_version.dependencies.arn]
-  environment {
-    variables = local.lambda_environment
-  }
-}
-
-resource "aws_lambda_function" "resource_dispatched_handler" {
-  filename         = "../lambda/resource-dispatched-handler.zip"
-  function_name    = "${var.project_name}-resource-dispatched-handler"
-  role             = data.aws_iam_role.lab_role.arn
-  handler          = "index.handler"
-  runtime          = "nodejs20.x"
-  timeout          = 60
-  memory_size      = 256
-  source_code_hash = filebase64sha256("../lambda/resource-dispatched-handler.zip")
-  layers           = [aws_lambda_layer_version.dependencies.arn]
-  environment {
-    variables = local.lambda_environment
-  }
-}
-
-resource "aws_lambda_event_source_mapping" "resource_dispatched" {
-  event_source_arn = aws_sqs_queue.resource_dispatched.arn
-  function_name    = aws_lambda_function.resource_dispatched_handler.arn
-  batch_size       = 10
-  enabled          = true
-}
-
-resource "aws_lambda_function" "changed_inprogress" {
-  filename         = "../lambda/changedInprogress.zip"
-  function_name    = "${var.project_name}-changedInprogress"
-  role             = data.aws_iam_role.lab_role.arn
-  handler          = "index.handler"
-  runtime          = "nodejs20.x"
-  timeout          = 30
-  memory_size      = 256
-  source_code_hash = filebase64sha256("../lambda/changedInprogress.zip")
-  layers           = [aws_lambda_layer_version.dependencies.arn]
-  environment {
-    variables = local.lambda_environment
-  }
-}
-
+# SNS Permissions
 resource "aws_lambda_permission" "allow_friend_sns" {
   statement_id  = "AllowExecutionFromFriendSNS"
   action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.changed_inprogress.function_name
+  function_name = aws_lambda_function.event_handler.function_name
   principal     = "sns.amazonaws.com"
   source_arn    = "arn:aws:sns:us-east-1:620162259453:SendIncidentStatus"
-}
-
-resource "aws_lambda_function" "news_rejected_handler" {
-  filename         = "../lambda/news-rejected-handler.zip"
-  function_name    = "${var.project_name}-news-rejected-handler"
-  role             = data.aws_iam_role.lab_role.arn
-  handler          = "index.handler"
-  runtime          = "nodejs20.x"
-  timeout          = 30
-  memory_size      = 256
-  source_code_hash = filebase64sha256("../lambda/news-rejected-handler.zip")
-  layers           = [aws_lambda_layer_version.dependencies.arn]
-  environment {
-    variables = local.lambda_environment
-  }
-}
-
-resource "aws_lambda_function" "priority_verified_handler" {
-  filename         = "../lambda/priority-verified-handler.zip"
-  function_name    = "${var.project_name}-priority-verified-handler"
-  role             = data.aws_iam_role.lab_role.arn
-  handler          = "index.handler"
-  runtime          = "nodejs20.x"
-  timeout          = 30
-  memory_size      = 256
-  source_code_hash = filebase64sha256("../lambda/priority-verified-handler.zip")
-  layers           = [aws_lambda_layer_version.dependencies.arn]
-  environment {
-    variables = local.lambda_environment
-  }
 }
 
 resource "aws_lambda_permission" "allow_friend_sns_news_rejected" {
   statement_id  = "AllowExecutionFromFriendSNSRejected"
   action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.news_rejected_handler.function_name
+  function_name = aws_lambda_function.event_handler.function_name
   principal     = "sns.amazonaws.com"
   source_arn    = "arn:aws:sns:us-east-1:767398101278:status-changed-rejected-topic"
 }
@@ -179,32 +70,15 @@ resource "aws_lambda_permission" "allow_friend_sns_news_rejected" {
 resource "aws_lambda_permission" "allow_friend_sns_priority_verified" {
   statement_id  = "AllowExecutionFromFriendSNSPriorityVerified"
   action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.priority_verified_handler.function_name
+  function_name = aws_lambda_function.event_handler.function_name
   principal     = "sns.amazonaws.com"
   source_arn    = "arn:aws:sns:us-east-1:085514988671:incident-prioritized-topic"
 }
 
-# Lambda: resolved-handler (polls friend's SQS for RESOLVED events)
-resource "aws_lambda_function" "resolved_handler" {
-  filename         = "../lambda/resolved-handler.zip"
-  function_name    = "${var.project_name}-resolved-handler"
-  role             = data.aws_iam_role.lab_role.arn
-  handler          = "index.handler"
-  runtime          = "nodejs20.x"
-  timeout          = 30
-  memory_size      = 256
-  source_code_hash = filebase64sha256("../lambda/resolved-handler.zip")
-  layers           = [aws_lambda_layer_version.dependencies.arn]
-  environment {
-    variables = local.lambda_environment
-  }
-}
-
-# Event Source Mapping: poll friend's SQS queue automatically
-# NOTE: Friend must first add SQS policy to allow our account (317315311067) to read their queue
+# SQS Event Source Mapping (Friend's RESOLVED queue)
 resource "aws_lambda_event_source_mapping" "resolved_handler_sqs" {
   event_source_arn = "arn:aws:sqs:us-east-1:217430480136:resource-events-incident-completed"
-  function_name    = aws_lambda_function.resolved_handler.arn
+  function_name    = aws_lambda_function.event_handler.arn
   batch_size       = 5
   enabled          = true
 }

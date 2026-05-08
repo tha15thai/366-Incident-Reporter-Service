@@ -28,6 +28,7 @@ read -s DB_PASSWORD
 echo ""
 
 export PGPASSWORD="$DB_PASSWORD"
+export PGCLIENTENCODING="utf-8"
 
 echo -e "${YELLOW}Running diverse seed SQL...${NC}"
 psql -h "$DB_HOST" -p "$DB_PORT" -U "$DB_USER" -d "$DB_NAME" -f "$PROJECT_ROOT/database/seed_incidents.sql"

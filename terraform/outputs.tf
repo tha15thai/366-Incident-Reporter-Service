@@ -29,7 +29,13 @@ output "sns_topic_status_changed_arn" {
   value       = aws_sns_topic.incident_status_changed.arn
 }
 
-output "sqs_resource_dispatched_url" {
-  description = "SQS Queue URL for ResourceDispatched"
-  value       = aws_sqs_queue.resource_dispatched.url
+
+output "event_handler_lambda_arn" {
+  description = "Lambda ARN for friends to subscribe their SNS to"
+  value       = aws_lambda_function.event_handler.arn
+}
+
+output "portal_url" {
+  description = "Reporter Portal Website URL"
+  value       = "http://${aws_s3_bucket_website_configuration.portal.website_endpoint}"
 }
