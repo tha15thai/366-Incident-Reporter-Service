@@ -63,11 +63,11 @@ resource "aws_sns_topic_policy" "incident_created" {
 # }
 
 # SNS Subscription - ส่งข้อมูลไปให้ SQS ของเพื่อน (News Checker / Priority Sorter)
-resource "aws_sns_topic_subscription" "incident_created_to_friend_sqs" {
-  topic_arn = aws_sns_topic.incident_created.arn
-  protocol  = "sqs"
-  endpoint  = "arn:aws:sqs:us-east-1:072833417664:incident-reporter-queue"
-}
+#resource "aws_sns_topic_subscription" "incident_created_to_friend_sqs" {
+#  topic_arn = aws_sns_topic.incident_created.arn
+#  protocol  = "sqs"
+#  endpoint  = "arn:aws:sqs:us-east-1:072833417664:incident-reporter-queue"
+#}
 
 
 resource "aws_sns_topic" "incident_status_changed" {

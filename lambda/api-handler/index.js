@@ -53,7 +53,8 @@ async function createIncident(event) {
     return errorResponse(409, 'DUPLICATE_INCIDENT', 'Similar incident already reported in this area within 10 minutes');
   }
 
-  const severity = body.severity || calculateSeverity(body.incident_type, body.affected_count || 0, 1);
+  // Incident Priority Service requires all incoming incidents to be set as HIGH initially.
+  const severity = 'HIGH';
   const logId = generateLogId();
   const client = await db.getClient();
 

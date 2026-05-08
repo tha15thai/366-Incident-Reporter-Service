@@ -80,7 +80,7 @@ exports.handler = async (event) => {
              console.error(`Invalid severity: ${severity}`);
              await client.query('ROLLBACK'); continue;
           }
-          actionDescription = actionDescription || `ยืนยันข่าวจริงและจัดระดับความรุนแรงเป็น ${severity}`;
+          actionDescription = payload.description || `ยืนยันข่าวจริงและจัดระดับความรุนแรงเป็น ${severity}`;
           actionBy = payload.operatorId || 'PRIORITY_SORTER_SERVICE';
           queryStr = `UPDATE "Incidents" SET status = 'VERIFIED', severity = $1, description = $2, updated_at = $3 WHERE incident_id = $4 RETURNING *`;
           queryParams = [severity, actionDescription, now, incidentId];
@@ -121,10 +121,12 @@ exports.handler = async (event) => {
              console.error(`Invalid transition from ${incident.status} to RESOLVED.`);
              await client.query('ROLLBACK'); continue;
           }
-          actionDescription = actionDescription || 'Incident completed by resource allocation service';
+          actionDescription = payload.description || 'Incident completed by resource allocation service';
           actionBy = payload.source_service || 'RESOURCE_ALLOCATION_SERVICE';
-          queryStr = `UPDATE "Incidents" SET status = 'RESOLVED', description = $1, ended_time = $2, updated_at = $2 WHERE incident_id = $3 RETURNING *`;
-          queryParams = [actionDescription, now, incidentId];
+          // Use provided completed_at or timestamp from friend's payload, fallback to now
+          const endedTime = payload.completed_at || payload.timestamp || now;
+          queryStr = `UPDATE "Incidents" SET status = 'RESOLVED', description = $1, ended_time = $2, updated_at = $3 WHERE incident_id = $4 RETURNING *`;
+          queryParams = [actionDescription, endedTime, now, incidentId];
 
         } else {
            console.warn(`Unsupported status transition: ${status}`);

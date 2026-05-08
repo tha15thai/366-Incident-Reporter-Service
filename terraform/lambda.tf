@@ -64,7 +64,7 @@ resource "aws_lambda_permission" "allow_friend_sns_news_rejected" {
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.event_handler.function_name
   principal     = "sns.amazonaws.com"
-  source_arn    = "arn:aws:sns:us-east-1:767398101278:status-changed-rejected-topic"
+  source_arn    = "arn:aws:sns:us-east-1:072833417664:reporter-news-rejected-topic"
 }
 
 resource "aws_lambda_permission" "allow_friend_sns_priority_verified" {
@@ -72,7 +72,7 @@ resource "aws_lambda_permission" "allow_friend_sns_priority_verified" {
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.event_handler.function_name
   principal     = "sns.amazonaws.com"
-  source_arn    = "arn:aws:sns:us-east-1:085514988671:incident-prioritized-topic"
+  source_arn    = "arn:aws:sns:us-east-1:552692352531:incident-prioritized-topic"
 }
 
 # SQS Event Source Mapping (Friend's RESOLVED queue)

@@ -1,0 +1,702 @@
+[
+  {
+    "logStreamName": "2026/05/08/[$LATEST]1e2b8c95f3fa4171bf7b539361898dc7",
+    "timestamp": 1778236834642,
+    "message": "INIT_START Runtime Version: nodejs:20.v101\tRuntime Version ARN: arn:aws:lambda:us-east-1::runtime:18671876e7cc385452255180c58ca50cf8763398a4248ae92ed14410d196b942\n",
+    "ingestionTime": 1778236839891,
+    "eventId": "39656006551992875166858026045070524841725838205293953024"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]6c9bdd8de7a6499dbc6c30bd14bae7bf",
+    "timestamp": 1778236834643,
+    "message": "INIT_START Runtime Version: nodejs:20.v101\tRuntime Version ARN: arn:aws:lambda:us-east-1::runtime:18671876e7cc385452255180c58ca50cf8763398a4248ae92ed14410d196b942\n",
+    "ingestionTime": 1778236840795,
+    "eventId": "39656006552015175912056556669305230082074473622049062912"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]25d80a1834d943a4badfef42c915ede6",
+    "timestamp": 1778236834644,
+    "message": "INIT_START Runtime Version: nodejs:20.v101\tRuntime Version ARN: arn:aws:lambda:us-east-1::runtime:18671876e7cc385452255180c58ca50cf8763398a4248ae92ed14410d196b942\n",
+    "ingestionTime": 1778236842973,
+    "eventId": "39656006552037476657255087295079586009101137822595219456"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]23f55bf9d0d0440cb6148a31afd6e0df",
+    "timestamp": 1778236834647,
+    "message": "INIT_START Runtime Version: nodejs:20.v101\tRuntime Version ARN: arn:aws:lambda:us-east-1::runtime:18671876e7cc385452255180c58ca50cf8763398a4248ae92ed14410d196b942\n",
+    "ingestionTime": 1778236836521,
+    "eventId": "39656006552104378892850679156703909718516106104388059136"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]80ed933b814145388be66753d5a7d168",
+    "timestamp": 1778236834652,
+    "message": "INIT_START Runtime Version: nodejs:20.v101\tRuntime Version ARN: arn:aws:lambda:us-east-1::runtime:18671876e7cc385452255180c58ca50cf8763398a4248ae92ed14410d196b942\n",
+    "ingestionTime": 1778236843639,
+    "eventId": "39656006552215882618843332281017266838801303931534835712"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]6c9bdd8de7a6499dbc6c30bd14bae7bf",
+    "timestamp": 1778236835056,
+    "message": "START RequestId: f56342ca-a4f3-56e8-9a43-20bd1b115a8f Version: $LATEST\n",
+    "ingestionTime": 1778236840795,
+    "eventId": "39656006561225383679049704026759481728678246924018974721"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]6c9bdd8de7a6499dbc6c30bd14bae7bf",
+    "timestamp": 1778236835058,
+    "message": "2026-05-08T10:40:35.058Z\tf56342ca-a4f3-56e8-9a43-20bd1b115a8f\tINFO\tReceived Event: {\n  \"Records\": [\n    {\n      \"messageId\": \"7fe1278a-eeb8-4cd3-b886-3d252c142d1e\",\n      \"receiptHandle\": \"AQEBzWUfIYzifoFs5ffiwKSh/dmr6DKpzyVwFRukPD3nM8DLHZYW9UNS/xAjpXG/2X+LRkIUfia3vJu5xNmeEJ8b7x6iVQNSx1deQ6uNZ6vNXwGYQFIsXPACWR6oNAs9ZaHpn+7sXKuFoYZEiwcF4EgkFgwCspEP24+cxzBhpJ8SISaVrwGnbnDtwg1hZ/KjyfFAZZIG56AO0p9o3lF+MwHRX3BSOoSb16gEEQp40XWL3/LdJI5Ky2ZCJ1Kkv/gM6DfX2nBsUDZ3xOwSUcyYe6Nr7XDX4kVVykx7D4lsRxeRTZSJ6qWuS1dR1FUE0Yn1bUkwxerTAdPPD3yJBbukshiBh5uQKw7KN+9llWR9j5B/sgeeacGYkqQVQupZcxTPZM1RXe+s6u/7yyJ80CFbAFt5EHxtt1UV6T8UgTeXZQdnkrE=\",\n      \"body\": \"{\\\"event_id\\\":\\\"77652f2b-d82e-4df3-9b10-22450c409275\\\",\\\"event_type\\\":\\\"INCIDENT_COMPLETED\\\",\\\"timestamp\\\":\\\"2026-05-08T09:32:16.999Z\\\",\\\"incident_id\\\":\\\"INC-BKK-104\\\",\\\"request_id\\\":\\\"RES-INC-BKK-104-1778174215140\\\",\\\"status\\\":\\\"RESOLVED\\\",\\\"source_service\\\":\\\"ResourceAllocationService\\\",\\\"description\\\":\\\"Assisted victims to shelter\\\",\\\"resource\\\":{\\\"resource_id\\\":\\\"c866ae02-6090-4fa0-95eb-c62752782cef\\\",\\\"resource_type\\\":\\\"RESCUE_BOAT\\\"},\\\"final_status\\\":\\\"AVAILABLE\\\",\\\"completed_at\\\":\\\"2026-05-08T09:32:16.971Z\\\",\\\"destination\\\":{\\\"destination_type\\\":\\\"SHELTER\\\",\\\"destination_id\\\":\\\"9786\\\",\\\"destination_name\\\":\\\"ศูนย์พัฒนาเด็กเล็กอบต.คูลบางหลวง\\\",\\\"shelter_id\\\":\\\"9786\\\"}}\",\n      \"attributes\": {\n        \"ApproximateReceiveCount\": \"1\",\n        \"SentTimestamp\": \"1778232737005\",\n        \"SenderId\": \"AROATFH652UEIRI2CZTYE:i-0ed81b496c797e410\",\n        \"ApproximateFirstReceiveTimestamp\": \"1778236834390\"\n      },\n      \"messageAttributes\": {\n        \"x-correlation-id\": {\n          \"stringValue\": \"a373c7bf-ea66-4aac-a77b-f965121e13de\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        },\n        \"content-type\": {\n          \"stringValue\": \"application/json\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        }\n      },\n      \"md5OfMessageAttributes\": \"013402e1b8c77b9cc8977b701ace3eca\",\n      \"md5OfBody\": \"7320c0f613a80d0ceeda24bfbd1e50ba\",\n      \"eventSource\": \"aws:sqs\",\n      \"eventSourceARN\": \"arn:aws:sqs:us-east-1:217430480136:resource-events-incident-completed\",\n      \"awsRegion\": \"us-east-1\"\n    },\n    {\n      \"messageId\": \"1205d0fb-c015-43d1-b39c-487bdcb3b9e5\",\n      \"receiptHandle\": \"AQEBjl1WxUwc/Fc003Zm4q/wZQ8yWb6xTIABeOMUIKCt+vv4sm/qvLVXWKdm8tF19S0yaKnBP8Lz5sN54GiJAEcdG+V9FV1Xwy9kYwc+NUcPSA7kCUPpaGrIqgBpAwNR1H5JgLVS2S56x1vyqndvuPjpWkmfGpn55768mVhdQuj+V3yYrKSF24mKCTCsZmZF+be3SaRutD0PSpvFHqN5stNzQQizcseYHbjNnEZNm1poH7pgmZzVrDt5YVbw7cGSM5Xnovf1RHJUpRAg8rU719sZjcWMWsGwQhcvKFlEtnxALDanhrE/F5Em02r0kOxbRjrxK2v/LBt7pr5HQBCYuSSwFtltAtt97Wgcw6q7Wx1IaGXy9kQ+HYRuNG/dx6XAyGvJEz/4EnbfKgHRX3DzQFsKBKc94M6ESeDBDXJtO4Pqhc8=\",\n      \"body\": \"{\\\"event_id\\\":\\\"cecac46a-1db5-4ecd-bf48-32d425b80190\\\",\\\"event_type\\\":\\\"INCIDENT_COMPLETED\\\",\\\"timestamp\\\":\\\"2026-05-08T09:57:26.938Z\\\",\\\"incident_id\\\":\\\"INC-HIGH-999\\\",\\\"request_id\\\":\\\"RES-req_009-1778232996883\\\",\\\"status\\\":\\\"RESOLVED\\\",\\\"source_service\\\":\\\"ResourceAllocationService\\\",\\\"description\\\":\\\"Assisted victims to hospital\\\",\\\"resource\\\":{\\\"resource_id\\\":\\\"d5482c73-f0fc-4eae-8567-3d16347531cb\\\",\\\"resource_type\\\":\\\"RESCUE_BOAT\\\"},\\\"final_status\\\":\\\"AVAILABLE\\\",\\\"completed_at\\\":\\\"2026-05-08T09:57:26.877Z\\\",\\\"destination\\\":{\\\"destination_type\\\":\\\"HOSPITAL\\\",\\\"destination_id\\\":\\\"HOS-001\\\",\\\"destination_name\\\":\\\"Center Hospital\\\"}}\",\n      \"attributes\": {\n        \"ApproximateReceiveCount\": \"1\",\n        \"SentTimestamp\": \"1778234246943\",\n        \"SenderId\": \"AROATFH652UEIRI2CZTYE:i-0ed81b496c797e410\",\n        \"ApproximateFirstReceiveTimestamp\": \"1778236834397\"\n      },\n      \"messageAttributes\": {\n        \"x-correlation-id\": {\n          \"stringValue\": \"75615232-4c23-4acd-a397-d263510a719a\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        },\n        \"content-type\": {\n          \"stringValue\": \"application/json\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        }\n      },\n      \"md5OfMessageAttributes\": \"fc89facbe4ebd803f5a9113a1b1d401f\",\n      \"md5OfBody\": \"7b79e5b2934f1ffc7984eb35e805b4f6\",\n      \"eventSource\": \"aws:sqs\",\n      \"eventSourceARN\": \"arn:aws:sqs:us-east-1:217430480136:resource-events-incident-completed\",\n      \"awsRegion\": \"us-east-1\"\n    }\n  ]\n}\n",
+    "ingestionTime": 1778236840795,
+    "eventId": "39656006561269985169446765273042553165223543647030935554"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]1e2b8c95f3fa4171bf7b539361898dc7",
+    "timestamp": 1778236835059,
+    "message": "START RequestId: d11990bf-e853-5aa8-85b9-f2c857b168ce Version: $LATEST\n",
+    "ingestionTime": 1778236839891,
+    "eventId": "39656006561292285914645295895090919361420204953287786497"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]1e2b8c95f3fa4171bf7b539361898dc7",
+    "timestamp": 1778236835061,
+    "message": "2026-05-08T10:40:35.061Z\td11990bf-e853-5aa8-85b9-f2c857b168ce\tINFO\tReceived Event: {\n  \"Records\": [\n    {\n      \"messageId\": \"ea608619-109a-4eb7-adbd-3cb9dbbbe3ba\",\n      \"receiptHandle\": \"AQEBLhqmUqGPaigr6r3yjdOKCgFmwegho5ipZgl7X9u+DTQ+LoSEn6Ze4CQj51k1YmDci/R0qrPPxavCNApLbhC2w80AUfvQ71F5+7oXVwMprymlp5olag6WpKBjRwLPC+I4kP/KeZ0RGvDpVQhaQbDGROfhhS+TuER2SiEc7SCPftWhZQvBVJzyNGU5lcsmGz04yihuEIToTVNLKjz7ffsAtyqOtKLa0myMY7h24MwYTG3xaLzibmuyVwRGM699N69lFjz5l1Qv1Aponqwo7nCr3foMnL+96Ps6JwXUXYlvIQf+hNbS8VgoaoEuuNLV7CTOJ6KP9bNQyjWPAea/WtCvpLYKGjna3PhbTHd5J9X/tT7y7QMItkDeTL6Z1aLzzk9e33Id3KSDrkiccj9fSkZig26+hvdB4pVAkJ6Vl5hvQxc=\",\n      \"body\": \"{\\\"event_id\\\":\\\"bd825c5a-9787-48a8-940a-be30a946d8f5\\\",\\\"event_type\\\":\\\"INCIDENT_COMPLETED\\\",\\\"timestamp\\\":\\\"2026-05-08T09:31:37.055Z\\\",\\\"incident_id\\\":\\\"N/A\\\",\\\"request_id\\\":\\\"RES-N/A-1778222777036\\\",\\\"status\\\":\\\"RESOLVED\\\",\\\"source_service\\\":\\\"ResourceAllocationService\\\",\\\"description\\\":\\\"Assisted victims to hospital\\\",\\\"resource\\\":{\\\"resource_id\\\":\\\"d5482c73-f0fc-4eae-8567-3d16347531cb\\\",\\\"resource_type\\\":\\\"RESCUE_BOAT\\\"},\\\"final_status\\\":\\\"AVAILABLE\\\",\\\"completed_at\\\":\\\"2026-05-08T09:31:36.990Z\\\",\\\"destination\\\":{\\\"destination_type\\\":\\\"HOSPITAL\\\",\\\"destination_id\\\":\\\"HOS-001\\\",\\\"destination_name\\\":\\\"Center Hospital\\\"}}\",\n      \"attributes\": {\n        \"ApproximateReceiveCount\": \"1\",\n        \"SentTimestamp\": \"1778232697060\",\n        \"SenderId\": \"AROATFH652UEIRI2CZTYE:i-0ed81b496c797e410\",\n        \"ApproximateFirstReceiveTimestamp\": \"1778236834386\"\n      },\n      \"messageAttributes\": {\n        \"x-correlation-id\": {\n          \"stringValue\": \"796a392c-3e55-47d1-9df4-3d7cc78a1f6e\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        },\n        \"content-type\": {\n          \"stringValue\": \"application/json\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        }\n      },\n      \"md5OfMessageAttributes\": \"a6e6cbd3fc44e72f37de3fc84ac7759c\",\n      \"md5OfBody\": \"6a759e6a36b5fafe24f41a8f449b5b05\",\n      \"eventSource\": \"aws:sqs\",\n      \"eventSourceARN\": \"arn:aws:sqs:us-east-1:217430480136:resource-events-incident-completed\",\n      \"awsRegion\": \"us-east-1\"\n    }\n  ]\n}\n",
+    "ingestionTime": 1778236839891,
+    "eventId": "39656006561336887405042357141373990797965501676299747330"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]6c9bdd8de7a6499dbc6c30bd14bae7bf",
+    "timestamp": 1778236835065,
+    "message": "2026-05-08T10:40:35.065Z\tf56342ca-a4f3-56e8-9a43-20bd1b115a8f\tINFO\tProcessing RESOLVED update for incident: INC_BKK_104\n",
+    "ingestionTime": 1778236840795,
+    "eventId": "39656006561426090385836479635033303193132082177572798467"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]80ed933b814145388be66753d5a7d168",
+    "timestamp": 1778236835065,
+    "message": "START RequestId: 5d9f0b01-c8a1-5e8e-81e6-6976774339ac Version: $LATEST\n",
+    "ingestionTime": 1778236843639,
+    "eventId": "39656006561426090385836479638471518485405077233504747521"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]23f55bf9d0d0440cb6148a31afd6e0df",
+    "timestamp": 1778236835066,
+    "message": "START RequestId: 12de946d-9fe4-5dda-901e-f61a20064d04 Version: $LATEST\n",
+    "ingestionTime": 1778236836521,
+    "eventId": "39656006561448391131035010253007375674755769575393853441"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]23f55bf9d0d0440cb6148a31afd6e0df",
+    "timestamp": 1778236835067,
+    "message": "2026-05-08T10:40:35.067Z\t12de946d-9fe4-5dda-901e-f61a20064d04\tINFO\tReceived Event: {\n  \"Records\": [\n    {\n      \"messageId\": \"06685d64-b85e-4e56-9322-f6e5ef41b17a\",\n      \"receiptHandle\": \"AQEBxrJWQC8r30u2kvCD6pRSSuKpHGcBFXAZPrjJCa4PRwZHd5s9MvxnXrtCRKBlYF2JLIEWAVUpmTS+ymqtdJejb6EJNqAZC7LhwBp/EBaEhT87bCScOE8gBA8zvLz0F5kePkAuy6E3dcYm6AMWYHS5n4ImT9uD7pMRcE4vgrk9S0eBiGrVSNsB7jOlTlCexJxPxqYaRi8vwbGeVHkxWSV0V9zjDRgh+XMK7EmcAbqVMXeSdesnUwf0xAgm6achLGWrFbsClpUhHRynWnJfodbwDVhUejmYhY80unGg3SBlzxpLgTNudvurgkr1fRb8byVCqxQiJBDvr8jQUWXTRpsTjvoVKm8ATSK3lCbF+2iWah425qkp6KaIgztyb9z03t2ibztl5HK4KfFoa3N6TWmdVSMR4vTfiBrWTKIKI3u4S2g=\",\n      \"body\": \"{\\\"event_id\\\":\\\"e9b1db1a-18b4-42cc-94ca-7fd333897621\\\",\\\"event_type\\\":\\\"INCIDENT_COMPLETED\\\",\\\"timestamp\\\":\\\"2026-05-08T09:11:01.333Z\\\",\\\"incident_id\\\":\\\"zone-a584381b\\\",\\\"request_id\\\":\\\"VOL-zone-a584381b-1778230933108\\\",\\\"status\\\":\\\"RESOLVED\\\",\\\"source_service\\\":\\\"ResourceAllocationService\\\",\\\"description\\\":\\\"Assisted victims to shelter\\\",\\\"resource\\\":{\\\"resource_id\\\":\\\"15665a1a-5fd9-421d-bd47-35e688c30009\\\",\\\"resource_type\\\":\\\"HELICOPTER\\\"},\\\"final_status\\\":\\\"AVAILABLE\\\",\\\"completed_at\\\":\\\"2026-05-08T09:11:01.274Z\\\",\\\"destination\\\":{\\\"destination_type\\\":\\\"SHELTER\\\",\\\"destination_id\\\":\\\"9786\\\",\\\"destination_name\\\":\\\"ศูนย์พัฒนาเด็กเล็กอบต.คูลบางหลวง\\\",\\\"shelter_id\\\":\\\"9786\\\"}}\",\n      \"attributes\": {\n        \"ApproximateReceiveCount\": \"1\",\n        \"SentTimestamp\": \"1778231461347\",\n        \"SenderId\": \"AROATFH652UEIRI2CZTYE:i-0ed81b496c797e410\",\n        \"ApproximateFirstReceiveTimestamp\": \"1778236834410\"\n      },\n      \"messageAttributes\": {\n        \"x-correlation-id\": {\n          \"stringValue\": \"c08fbcd9-fe56-40fa-87d4-e2990316fcb6\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        },\n        \"content-type\": {\n          \"stringValue\": \"application/json\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        }\n      },\n      \"md5OfBody\": \"eed4ac896991dbdee7af4214a40fb959\",\n      \"md5OfMessageAttributes\": \"c350181129ab493be31ae9840c5fb0a8\",\n      \"eventSource\": \"aws:sqs\",\n      \"eventSourceARN\": \"arn:aws:sqs:us-east-1:217430480136:resource-events-incident-completed\",\n      \"awsRegion\": \"us-east-1\"\n    },\n    {\n      \"messageId\": \"190d548c-3494-4568-bd82-a1374ad2aed0\",\n      \"receiptHandle\": \"AQEBVv/T1LdGPNx7qKue2XyUC88cT2W62nRnWvFJrx1IP6uUO4A07KJyHYNBoAtirh0oJG6gPaMHNCOIjhcoG28uR2z/vSUEYbDgkBL0RBybQ6S764VcyGO8SGLeWAXM/IWifpScvPvwdEHjk4HELikIziUonx//zZu81C5BFRTz/PBysWt6I7SNdBYQ4eo3T3LX+AbbDh5rmuzwqfSSOctlUigtdI21H9XUxAT73gE75W/ErUjfzUi59huCoNBkYuPwWeSdXEMoXeqywVX07zMHjAOdGA1OfIkWl8fKVdltsDCnnU+jzPABcj0B1j8pwOrHYkGNbijCaSgX+f4wXynnKHjXZj0kZp3QFtBwYggACTNfAkXPKxKcp0G/2rCmOTXwQY/Hj4km+A+3Q1Zq6wIsjuuvsj+pZrEUx0/Ns+UYEpU=\",\n      \"body\": \"{\\\"event_id\\\":\\\"5f5d2498-a728-4d0e-9c7b-9b9cbbdbe0cf\\\",\\\"event_type\\\":\\\"INCIDENT_COMPLETED\\\",\\\"timestamp\\\":\\\"2026-05-08T10:39:48.704Z\\\",\\\"incident_id\\\":\\\"INC_0003\\\",\\\"request_id\\\":\\\"REQ-8EF265BC\\\",\\\"status\\\":\\\"RESOLVED\\\",\\\"source_service\\\":\\\"ResourceAllocationService\\\",\\\"description\\\":\\\"Assisted victims to shelter\\\",\\\"resource\\\":{\\\"resource_id\\\":\\\"15665a1a-5fd9-421d-bd47-35e688c30009\\\",\\\"resource_type\\\":\\\"HELICOPTER\\\"},\\\"final_status\\\":\\\"AVAILABLE\\\",\\\"completed_at\\\":\\\"2026-05-08T10:39:48.670Z\\\",\\\"destination\\\":{\\\"destination_type\\\":\\\"SHELTER\\\",\\\"destination_id\\\":\\\"9786\\\",\\\"destination_name\\\":\\\"ศูนย์พัฒนาเด็กเล็กอบต.คูลบางหลวง\\\",\\\"shelter_id\\\":\\\"9786\\\"}}\",\n      \"attributes\": {\n        \"ApproximateReceiveCount\": \"1\",\n        \"SentTimestamp\": \"1778236788710\",\n        \"SenderId\": \"AROATFH652UEIRI2CZTYE:i-0ed81b496c797e410\",\n        \"ApproximateFirstReceiveTimestamp\": \"1778236834416\"\n      },\n      \"messageAttributes\": {\n        \"x-correlation-id\": {\n          \"stringValue\": \"728167ce-7f49-4d4d-9a77-8cb6ad2aab05\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        },\n        \"content-type\": {\n          \"stringValue\": \"application/json\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        }\n      },\n      \"md5OfBody\": \"6e009650492b393abbabe7e1b6eac801\",\n      \"md5OfMessageAttributes\": \"2e34291ac90646063c4f7c20a058df7a\",\n      \"eventSource\": \"aws:sqs\",\n      \"eventSourceARN\": \"arn:aws:sqs:us-east-1:217430480136:resource-events-incident-completed\",\n      \"awsRegion\": \"us-east-1\"\n    }\n  ]\n}\n",
+    "ingestionTime": 1778236836521,
+    "eventId": "39656006561470691876233540876148911393028417936899833858"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]1e2b8c95f3fa4171bf7b539361898dc7",
+    "timestamp": 1778236835068,
+    "message": "2026-05-08T10:40:35.068Z\td11990bf-e853-5aa8-85b9-f2c857b168ce\tINFO\tProcessing RESOLVED update for incident: N/A\n",
+    "ingestionTime": 1778236839891,
+    "eventId": "39656006561492992621432071503364740825874040206841610243"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]23f55bf9d0d0440cb6148a31afd6e0df",
+    "timestamp": 1778236835071,
+    "message": "2026-05-08T10:40:35.071Z\t12de946d-9fe4-5dda-901e-f61a20064d04\tINFO\tProcessing RESOLVED update for incident: zone_a584381b\n",
+    "ingestionTime": 1778236836521,
+    "eventId": "39656006561559894857027663368715054266119011382923755523"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]80ed933b814145388be66753d5a7d168",
+    "timestamp": 1778236835072,
+    "message": "2026-05-08T10:40:35.072Z\t5d9f0b01-c8a1-5e8e-81e6-6976774339ac\tINFO\tReceived Event: {\n  \"Records\": [\n    {\n      \"messageId\": \"8f1b7f9d-2b31-488a-aa6d-8809b9a4f05e\",\n      \"receiptHandle\": \"AQEBgBIzk7ZKmWHvHKP5ts5Pl9slzh2MEGmeVamA8AG+rMzo09897VPCLtlnB1cMZWC/E8yreBtv11dYSDaD2rIMdp+jLfOaA2t3AfX+NE4HbrMWpyL2TWiILsCLb3a4nkb4Kn0K59jwH3jLz8yHrCuSmaK4DdaG32kBw7TL8qy/jS2OkMmBq1gSriqfyntm4UB5JL7J7dxDYU9HGYwDwtcgLZFzHdc41Y0jmL4SRF8swN/puM9agZv1zTyfDDGyVw5SqOie4jLAw6PDJsA6Bnk+DmjL/+L04sDPGEPqCV81K3EucM8ef1a77nzvfWZ52iqH0CfEL5s7cYkoZe4IuvFwjirfFmK9L+/8PJELMckOVh3dqG6csYqvHAAUe5j2xfoWKnZSbJU7+8KKhCaYL/jSIZsuo6jQhyosDYDSbNTudtA=\",\n      \"body\": \"{\\\"event_id\\\":\\\"7941c521-fe25-4507-b6bc-d3a95c842096\\\",\\\"event_type\\\":\\\"INCIDENT_COMPLETED\\\",\\\"timestamp\\\":\\\"2026-05-08T09:58:27.441Z\\\",\\\"incident_id\\\":\\\"INC_0008\\\",\\\"request_id\\\":\\\"REQ-BDD04128\\\",\\\"status\\\":\\\"RESOLVED\\\",\\\"source_service\\\":\\\"ResourceAllocationService\\\",\\\"description\\\":\\\"Assisted victims to shelter\\\",\\\"resource\\\":{\\\"resource_id\\\":\\\"53cfba7a-9102-4703-baec-0f154a7e2c8d\\\",\\\"resource_type\\\":\\\"AMBULANCE_VAN\\\"},\\\"final_status\\\":\\\"AVAILABLE\\\",\\\"completed_at\\\":\\\"2026-05-08T09:58:27.423Z\\\",\\\"destination\\\":{\\\"destination_type\\\":\\\"SHELTER\\\",\\\"destination_id\\\":\\\"9786\\\",\\\"destination_name\\\":\\\"ศูนย์พัฒนาเด็กเล็กอบต.คูลบางหลวง\\\",\\\"shelter_id\\\":\\\"9786\\\"}}\",\n      \"attributes\": {\n        \"ApproximateReceiveCount\": \"1\",\n        \"SentTimestamp\": \"1778234307446\",\n        \"SenderId\": \"AROATFH652UEIRI2CZTYE:i-0ed81b496c797e410\",\n        \"ApproximateFirstReceiveTimestamp\": \"1778236834444\"\n      },\n      \"messageAttributes\": {\n        \"x-correlation-id\": {\n          \"stringValue\": \"249d824f-3f38-4292-980e-7c105c922cba\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        },\n        \"content-type\": {\n          \"stringValue\": \"application/json\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        }\n      },\n      \"md5OfMessageAttributes\": \"8dc6c95953bee4e42fe25fe7b65513ef\",\n      \"md5OfBody\": \"c2f187ad93f6f5ace8c2d7f2d853c89c\",\n      \"eventSource\": \"aws:sqs\",\n      \"eventSourceARN\": \"arn:aws:sqs:us-east-1:217430480136:resource-events-incident-completed\",\n      \"awsRegion\": \"us-east-1\"\n    },\n    {\n      \"messageId\": \"7e6c5092-6b56-49e5-b6d9-df8c7769fb62\",\n      \"receiptHandle\": \"AQEBqmB4dzNMe2rOoymHqGGVucPs3mbRUP38RO400s6SFpJNYCQQKu5TJORRCGSBgV/VckcaUywi09upK9FYRrGQnJIIAhepBpQoiD95sGaVWBPeAtXdGt8wFu5bTUisdFeozM4CdTojiK7RSpuQ7Uft7Qh1drX6nuyptA6fNCQckAoCQS4XVBR7gegTzudhW67DmOQC9vtwcFUqM4nSfsmUN7yjSgaFBoexHFsI9KF0CIja/H7Uu9qC4t2BxSz4PSbhnGfWjRrJ9s3/U6fHyaIk+NECuwuM+7mhArwfmkr673nDquzvpdPznlonTcoBTGs7UfPO1JHpVyVrygIpHv1WX3yC+4mdUvRlvV3jbs8QdpQunvaCAeInu6F13Xa0XnSpjth5C5P+NiiGTP9iZWNNnWz2GHGpG1Yt9wPV/KvM2Oo=\",\n      \"body\": \"{\\\"event_id\\\":\\\"065ac843-25b4-4898-9e34-b8cf4dbc77ce\\\",\\\"event_type\\\":\\\"INCIDENT_COMPLETED\\\",\\\"timestamp\\\":\\\"2026-05-08T10:40:07.526Z\\\",\\\"incident_id\\\":\\\"INC_0003\\\",\\\"request_id\\\":\\\"REQ-8EF265BC\\\",\\\"status\\\":\\\"RESOLVED\\\",\\\"source_service\\\":\\\"ResourceAllocationService\\\",\\\"description\\\":\\\"Assisted victims to shelter\\\",\\\"resource\\\":{\\\"resource_id\\\":\\\"a39cd09c-d6ce-4412-8fce-428906a51de2\\\",\\\"resource_type\\\":\\\"HELICOPTER\\\"},\\\"final_status\\\":\\\"AVAILABLE\\\",\\\"completed_at\\\":\\\"2026-05-08T10:40:07.416Z\\\",\\\"destination\\\":{\\\"destination_type\\\":\\\"SHELTER\\\",\\\"destination_id\\\":\\\"9786\\\",\\\"destination_name\\\":\\\"ศูนย์พัฒนาเด็กเล็กอบต.คูลบางหลวง\\\",\\\"shelter_id\\\":\\\"9786\\\"}}\",\n      \"attributes\": {\n        \"ApproximateReceiveCount\": \"1\",\n        \"SentTimestamp\": \"1778236807531\",\n        \"SenderId\": \"AROATFH652UEIRI2CZTYE:i-0ed81b496c797e410\",\n        \"ApproximateFirstReceiveTimestamp\": \"1778236834448\"\n      },\n      \"messageAttributes\": {\n        \"x-correlation-id\": {\n          \"stringValue\": \"d4dbfc00-724f-4e27-a475-d4da6b280b75\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        },\n        \"content-type\": {\n          \"stringValue\": \"application/json\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        }\n      },\n      \"md5OfMessageAttributes\": \"8adbbbf5413e10fd9e2084eb94a032cb\",\n      \"md5OfBody\": \"6be7f19430a00cec81b678d151418af6\",\n      \"eventSource\": \"aws:sqs\",\n      \"eventSourceARN\": \"arn:aws:sqs:us-east-1:217430480136:resource-events-incident-completed\",\n      \"awsRegion\": \"us-east-1\"\n    }\n  ]\n}\n",
+    "ingestionTime": 1778236843639,
+    "eventId": "39656006561582195602226194000462268513313615764046610434"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]80ed933b814145388be66753d5a7d168",
+    "timestamp": 1778236835076,
+    "message": "2026-05-08T10:40:35.076Z\t5d9f0b01-c8a1-5e8e-81e6-6976774339ac\tINFO\tProcessing RESOLVED update for incident: INC_0008\n",
+    "ingestionTime": 1778236843639,
+    "eventId": "39656006561671398583020316493028411386404209210070532099"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]25d80a1834d943a4badfef42c915ede6",
+    "timestamp": 1778236835079,
+    "message": "START RequestId: 4ca3580c-a0b1-5569-8db7-3a7b1f53601c Version: $LATEST\n",
+    "ingestionTime": 1778236842973,
+    "eventId": "39656006561738300818615908361647623457703175077696700417"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]25d80a1834d943a4badfef42c915ede6",
+    "timestamp": 1778236835081,
+    "message": "2026-05-08T10:40:35.081Z\t4ca3580c-a0b1-5569-8db7-3a7b1f53601c\tINFO\tReceived Event: {\n  \"Records\": [\n    {\n      \"messageId\": \"c1b250cd-019b-46dc-aa59-07c9ab430856\",\n      \"receiptHandle\": \"AQEBFT6lrHuLDog5N5gq9umO0FC1uPTVFX7qz54O3ZrOBWEhJ6w9qi/wQeL0wa1VnV+Vc0cXhcgkbSOFz63/3rGkI2s0uGdLo4G7toj9kTaKZWdx3V3OqVYwwF5w3DjkEgevc/lIOSFcxzfzcq3pom0RoZGjQBnFSw0hxCiv0GXiq15IAL9vk3eVom2NBnFvbLd3UMw46Fk+hPlmxnJXcGUFiPoV+x+e248TGScBaqqqfrrOzPYe0M5SBAbRDtayc3Tn95roj5Km3Inzlw+WG7UR9cHaSStQt+UPoKIX8Deyy0AjaORFC15uSngmGlMHXvr0jRjkFrWtzdUTRilg3C/92BHDGICUbjUmySKBNl0UqE4ofWxxqLqJDKlZfaiM4zU2k8SC5crqNz7tymgEDknoCgiiM18fh90sVbZuW4bcNZY=\",\n      \"body\": \"{\\\"event_id\\\":\\\"cd51a49e-b39c-4ad5-aafa-1a2567e08b04\\\",\\\"event_type\\\":\\\"INCIDENT_COMPLETED\\\",\\\"timestamp\\\":\\\"2026-05-08T09:22:48.201Z\\\",\\\"incident_id\\\":\\\"INC-BKK-104\\\",\\\"request_id\\\":\\\"RES-INC-BKK-104-1778174188988\\\",\\\"status\\\":\\\"RESOLVED\\\",\\\"source_service\\\":\\\"ResourceAllocationService\\\",\\\"description\\\":\\\"Incident resolved\\\",\\\"resource\\\":{\\\"resource_id\\\":\\\"17120860-e05d-4c2e-825d-418522154254\\\",\\\"resource_type\\\":\\\"RESCUE_BOAT\\\"},\\\"final_status\\\":\\\"AVAILABLE\\\",\\\"completed_at\\\":\\\"2026-05-08T09:22:48.146Z\\\"}\",\n      \"attributes\": {\n        \"ApproximateReceiveCount\": \"1\",\n        \"SentTimestamp\": \"1778232168207\",\n        \"SenderId\": \"AROATFH652UEIRI2CZTYE:i-0ed81b496c797e410\",\n        \"ApproximateFirstReceiveTimestamp\": \"1778236834390\"\n      },\n      \"messageAttributes\": {\n        \"x-correlation-id\": {\n          \"stringValue\": \"81d6aae2-9e5c-4b42-8160-557bf0d65f74\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        },\n        \"content-type\": {\n          \"stringValue\": \"application/json\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        }\n      },\n      \"md5OfMessageAttributes\": \"294cf4ec8ddb6eb06df13dd263c6af1c\",\n      \"md5OfBody\": \"4403962084e44fe7258bc4dd0dad8a33\",\n      \"eventSource\": \"aws:sqs\",\n      \"eventSourceARN\": \"arn:aws:sqs:us-east-1:217430480136:resource-events-incident-completed\",\n      \"awsRegion\": \"us-east-1\"\n    }\n  ]\n}\n",
+    "ingestionTime": 1778236842973,
+    "eventId": "39656006561782902309012969607930694894248471800708661250"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]25d80a1834d943a4badfef42c915ede6",
+    "timestamp": 1778236835085,
+    "message": "2026-05-08T10:40:35.085Z\t4ca3580c-a0b1-5569-8db7-3a7b1f53601c\tINFO\tProcessing RESOLVED update for incident: INC_BKK_104\n",
+    "ingestionTime": 1778236842973,
+    "eventId": "39656006561872105289807092100496837767339065246732582915"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]6c9bdd8de7a6499dbc6c30bd14bae7bf",
+    "timestamp": 1778236835425,
+    "message": "2026-05-08T10:40:35.425Z\tf56342ca-a4f3-56e8-9a43-20bd1b115a8f\tERROR\tDatabase transaction error: error: relation \"Incidents\" does not exist\n    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async exports.handler (/var/task/index.js:53:32) {\n  length: 108,\n  severity: 'ERROR',\n  code: '42P01',\n  detail: undefined,\n  hint: undefined,\n  position: '15',\n  internalPosition: undefined,\n  internalQuery: undefined,\n  where: undefined,\n  schema: undefined,\n  table: undefined,\n  column: undefined,\n  dataType: undefined,\n  constraint: undefined,\n  file: 'parse_relation.c',\n  line: '1449',\n  routine: 'parserOpenTable'\n}\n",
+    "ingestionTime": 1778236840795,
+    "eventId": "39656006569454358657307503965986161771285492319725748228"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]1e2b8c95f3fa4171bf7b539361898dc7",
+    "timestamp": 1778236835431,
+    "message": "2026-05-08T10:40:35.431Z\td11990bf-e853-5aa8-85b9-f2c857b168ce\tERROR\tDatabase transaction error: error: relation \"Incidents\" does not exist\n    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async exports.handler (/var/task/index.js:53:32) {\n  length: 108,\n  severity: 'ERROR',\n  code: '42P01',\n  detail: undefined,\n  hint: undefined,\n  position: '15',\n  internalPosition: undefined,\n  internalQuery: undefined,\n  where: undefined,\n  schema: undefined,\n  table: undefined,\n  column: undefined,\n  dataType: undefined,\n  constraint: undefined,\n  file: 'parse_relation.c',\n  line: '1449',\n  routine: 'parserOpenTable'\n}\n",
+    "ingestionTime": 1778236839891,
+    "eventId": "39656006569588163128498687703742206558845395433512501252"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]80ed933b814145388be66753d5a7d168",
+    "timestamp": 1778236835435,
+    "message": "2026-05-08T10:40:35.435Z\t5d9f0b01-c8a1-5e8e-81e6-6976774339ac\tERROR\tDatabase transaction error: error: relation \"Incidents\" does not exist\n    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async exports.handler (/var/task/index.js:53:32) {\n  length: 108,\n  severity: 'ERROR',\n  code: '42P01',\n  detail: undefined,\n  hint: undefined,\n  position: '15',\n  internalPosition: undefined,\n  internalQuery: undefined,\n  where: undefined,\n  schema: undefined,\n  table: undefined,\n  column: undefined,\n  dataType: undefined,\n  constraint: undefined,\n  file: 'parse_relation.c',\n  line: '1449',\n  routine: 'parserOpenTable'\n}\n",
+    "ingestionTime": 1778236843639,
+    "eventId": "39656006569677366109292810200839734246284970990717501444"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]6c9bdd8de7a6499dbc6c30bd14bae7bf",
+    "timestamp": 1778236835445,
+    "message": "2026-05-08T10:40:35.445Z\tf56342ca-a4f3-56e8-9a43-20bd1b115a8f\tERROR\tError processing record: error: relation \"Incidents\" does not exist\n    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async exports.handler (/var/task/index.js:53:32) {\n  length: 108,\n  severity: 'ERROR',\n  code: '42P01',\n  detail: undefined,\n  hint: undefined,\n  position: '15',\n  internalPosition: undefined,\n  internalQuery: undefined,\n  where: undefined,\n  schema: undefined,\n  table: undefined,\n  column: undefined,\n  dataType: undefined,\n  constraint: undefined,\n  file: 'parse_relation.c',\n  line: '1449',\n  routine: 'parserOpenTable'\n}\n",
+    "ingestionTime": 1778236840795,
+    "eventId": "39656006569900373561278116428816876136738459549845356549"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]6c9bdd8de7a6499dbc6c30bd14bae7bf",
+    "timestamp": 1778236835446,
+    "message": "2026-05-08T10:40:35.446Z\tf56342ca-a4f3-56e8-9a43-20bd1b115a8f\tERROR\tInvoke Error \t{\"errorType\":\"error\",\"errorMessage\":\"relation \\\"Incidents\\\" does not exist\",\"code\":\"42P01\",\"length\":108,\"name\":\"error\",\"severity\":\"ERROR\",\"position\":\"15\",\"file\":\"parse_relation.c\",\"line\":\"1449\",\"routine\":\"parserOpenTable\",\"stack\":[\"error: relation \\\"Incidents\\\" does not exist\",\"    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\",\"    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\",\"    at async exports.handler (/var/task/index.js:53:32)\"]}\n",
+    "ingestionTime": 1778236840795,
+    "eventId": "39656006569922674306476647051958411855011107911351336966"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]25d80a1834d943a4badfef42c915ede6",
+    "timestamp": 1778236835447,
+    "message": "2026-05-08T10:40:35.447Z\t4ca3580c-a0b1-5569-8db7-3a7b1f53601c\tERROR\tDatabase transaction error: error: relation \"Incidents\" does not exist\n    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async exports.handler (/var/task/index.js:53:32) {\n  length: 108,\n  severity: 'ERROR',\n  code: '42P01',\n  detail: undefined,\n  hint: undefined,\n  position: '15',\n  internalPosition: undefined,\n  internalQuery: undefined,\n  where: undefined,\n  schema: undefined,\n  table: undefined,\n  column: undefined,\n  dataType: undefined,\n  constraint: undefined,\n  file: 'parse_relation.c',\n  line: '1449',\n  routine: 'parserOpenTable'\n}\n",
+    "ingestionTime": 1778236842973,
+    "eventId": "39656006569944975051675177677732767782037772111897493508"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]23f55bf9d0d0440cb6148a31afd6e0df",
+    "timestamp": 1778236835449,
+    "message": "2026-05-08T10:40:35.449Z\t12de946d-9fe4-5dda-901e-f61a20064d04\tERROR\tDatabase transaction error: error: relation \"Incidents\" does not exist\n    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async exports.handler (/var/task/index.js:53:32) {\n  length: 108,\n  severity: 'ERROR',\n  code: '42P01',\n  detail: undefined,\n  hint: undefined,\n  position: '15',\n  internalPosition: undefined,\n  internalQuery: undefined,\n  where: undefined,\n  schema: undefined,\n  table: undefined,\n  column: undefined,\n  dataType: undefined,\n  constraint: undefined,\n  file: 'parse_relation.c',\n  line: '1449',\n  routine: 'parserOpenTable'\n}\n",
+    "ingestionTime": 1778236836521,
+    "eventId": "39656006569989576542072238916215555773180092032184352772"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]1e2b8c95f3fa4171bf7b539361898dc7",
+    "timestamp": 1778236835450,
+    "message": "2026-05-08T10:40:35.450Z\td11990bf-e853-5aa8-85b9-f2c857b168ce\tERROR\tError processing record: error: relation \"Incidents\" does not exist\n    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async exports.handler (/var/task/index.js:53:32) {\n  length: 108,\n  severity: 'ERROR',\n  code: '42P01',\n  detail: undefined,\n  hint: undefined,\n  position: '15',\n  internalPosition: undefined,\n  internalQuery: undefined,\n  where: undefined,\n  schema: undefined,\n  table: undefined,\n  column: undefined,\n  dataType: undefined,\n  constraint: undefined,\n  file: 'parse_relation.c',\n  line: '1449',\n  routine: 'parserOpenTable'\n}\n",
+    "ingestionTime": 1778236839891,
+    "eventId": "39656006570011877287270769543431385206025714302126129157"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]1e2b8c95f3fa4171bf7b539361898dc7",
+    "timestamp": 1778236835451,
+    "message": "2026-05-08T10:40:35.451Z\td11990bf-e853-5aa8-85b9-f2c857b168ce\tERROR\tInvoke Error \t{\"errorType\":\"error\",\"errorMessage\":\"relation \\\"Incidents\\\" does not exist\",\"code\":\"42P01\",\"length\":108,\"name\":\"error\",\"severity\":\"ERROR\",\"position\":\"15\",\"file\":\"parse_relation.c\",\"line\":\"1449\",\"routine\":\"parserOpenTable\",\"stack\":[\"error: relation \\\"Incidents\\\" does not exist\",\"    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\",\"    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\",\"    at async exports.handler (/var/task/index.js:53:32)\"]}\n",
+    "ingestionTime": 1778236839891,
+    "eventId": "39656006570034178032469300166572920924298362663632109574"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]80ed933b814145388be66753d5a7d168",
+    "timestamp": 1778236835456,
+    "message": "2026-05-08T10:40:35.456Z\t5d9f0b01-c8a1-5e8e-81e6-6976774339ac\tERROR\tError processing record: error: relation \"Incidents\" does not exist\n    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async exports.handler (/var/task/index.js:53:32) {\n  length: 108,\n  severity: 'ERROR',\n  code: '42P01',\n  detail: undefined,\n  hint: undefined,\n  position: '15',\n  internalPosition: undefined,\n  internalQuery: undefined,\n  where: undefined,\n  schema: undefined,\n  table: undefined,\n  column: undefined,\n  dataType: undefined,\n  constraint: undefined,\n  file: 'parse_relation.c',\n  line: '1449',\n  routine: 'parserOpenTable'\n}\n",
+    "ingestionTime": 1778236843639,
+    "eventId": "39656006570145681758461953286811984330010586582343090181"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]80ed933b814145388be66753d5a7d168",
+    "timestamp": 1778236835457,
+    "message": "2026-05-08T10:40:35.457Z\t5d9f0b01-c8a1-5e8e-81e6-6976774339ac\tERROR\tInvoke Error \t{\"errorType\":\"error\",\"errorMessage\":\"relation \\\"Incidents\\\" does not exist\",\"code\":\"42P01\",\"length\":108,\"name\":\"error\",\"severity\":\"ERROR\",\"position\":\"15\",\"file\":\"parse_relation.c\",\"line\":\"1449\",\"routine\":\"parserOpenTable\",\"stack\":[\"error: relation \\\"Incidents\\\" does not exist\",\"    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\",\"    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\",\"    at async exports.handler (/var/task/index.js:53:32)\"]}\n",
+    "ingestionTime": 1778236843639,
+    "eventId": "39656006570167982503660483909953520048283234943849070598"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]6c9bdd8de7a6499dbc6c30bd14bae7bf",
+    "timestamp": 1778236835466,
+    "message": "END RequestId: f56342ca-a4f3-56e8-9a43-20bd1b115a8f\n",
+    "ingestionTime": 1778236840795,
+    "eventId": "39656006570368689210447259514789126220464075141470945287"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]6c9bdd8de7a6499dbc6c30bd14bae7bf",
+    "timestamp": 1778236835466,
+    "message": "REPORT RequestId: f56342ca-a4f3-56e8-9a43-20bd1b115a8f\tDuration: 409.37 ms\tBilled Duration: 819 ms\tMemory Size: 256 MB\tMax Memory Used: 93 MB\tInit Duration: 409.35 ms\t\n",
+    "ingestionTime": 1778236840795,
+    "eventId": "39656006570368689210447259514789126220464075141470945288"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]25d80a1834d943a4badfef42c915ede6",
+    "timestamp": 1778236835466,
+    "message": "2026-05-08T10:40:35.466Z\t4ca3580c-a0b1-5569-8db7-3a7b1f53601c\tERROR\tError processing record: error: relation \"Incidents\" does not exist\n    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async exports.handler (/var/task/index.js:53:32) {\n  length: 108,\n  severity: 'ERROR',\n  code: '42P01',\n  detail: undefined,\n  hint: undefined,\n  position: '15',\n  internalPosition: undefined,\n  internalQuery: undefined,\n  where: undefined,\n  schema: undefined,\n  table: undefined,\n  column: undefined,\n  dataType: undefined,\n  constraint: undefined,\n  file: 'parse_relation.c',\n  line: '1449',\n  routine: 'parserOpenTable'\n}\n",
+    "ingestionTime": 1778236842973,
+    "eventId": "39656006570368689210447259517421946429218090980511121413"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]25d80a1834d943a4badfef42c915ede6",
+    "timestamp": 1778236835467,
+    "message": "2026-05-08T10:40:35.467Z\t4ca3580c-a0b1-5569-8db7-3a7b1f53601c\tERROR\tInvoke Error \t{\"errorType\":\"error\",\"errorMessage\":\"relation \\\"Incidents\\\" does not exist\",\"code\":\"42P01\",\"length\":108,\"name\":\"error\",\"severity\":\"ERROR\",\"position\":\"15\",\"file\":\"parse_relation.c\",\"line\":\"1449\",\"routine\":\"parserOpenTable\",\"stack\":[\"error: relation \\\"Incidents\\\" does not exist\",\"    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\",\"    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\",\"    at async exports.handler (/var/task/index.js:53:32)\"]}\n",
+    "ingestionTime": 1778236842973,
+    "eventId": "39656006570390989955645790140563482147490739342017101830"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]23f55bf9d0d0440cb6148a31afd6e0df",
+    "timestamp": 1778236835469,
+    "message": "2026-05-08T10:40:35.469Z\t12de946d-9fe4-5dda-901e-f61a20064d04\tERROR\tError processing record: error: relation \"Incidents\" does not exist\n    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async exports.handler (/var/task/index.js:53:32) {\n  length: 108,\n  severity: 'ERROR',\n  code: '42P01',\n  detail: undefined,\n  hint: undefined,\n  position: '15',\n  internalPosition: undefined,\n  internalQuery: undefined,\n  where: undefined,\n  schema: undefined,\n  table: undefined,\n  column: undefined,\n  dataType: undefined,\n  constraint: undefined,\n  file: 'parse_relation.c',\n  line: '1449',\n  routine: 'parserOpenTable'\n}\n",
+    "ingestionTime": 1778236836521,
+    "eventId": "39656006570435591446042851379046270138633059262303961093"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]23f55bf9d0d0440cb6148a31afd6e0df",
+    "timestamp": 1778236835469,
+    "message": "2026-05-08T10:40:35.469Z\t12de946d-9fe4-5dda-901e-f61a20064d04\tERROR\tInvoke Error \t{\"errorType\":\"error\",\"errorMessage\":\"relation \\\"Incidents\\\" does not exist\",\"code\":\"42P01\",\"length\":108,\"name\":\"error\",\"severity\":\"ERROR\",\"position\":\"15\",\"file\":\"parse_relation.c\",\"line\":\"1449\",\"routine\":\"parserOpenTable\",\"stack\":[\"error: relation \\\"Incidents\\\" does not exist\",\"    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\",\"    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\",\"    at async exports.handler (/var/task/index.js:53:32)\"]}\n",
+    "ingestionTime": 1778236836521,
+    "eventId": "39656006570435591446042851379046270138633059262303961094"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]1e2b8c95f3fa4171bf7b539361898dc7",
+    "timestamp": 1778236835470,
+    "message": "END RequestId: d11990bf-e853-5aa8-85b9-f2c857b168ce\n",
+    "ingestionTime": 1778236839891,
+    "eventId": "39656006570457892191241382006262099571478681532245737479"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]1e2b8c95f3fa4171bf7b539361898dc7",
+    "timestamp": 1778236835470,
+    "message": "REPORT RequestId: d11990bf-e853-5aa8-85b9-f2c857b168ce\tDuration: 410.68 ms\tBilled Duration: 825 ms\tMemory Size: 256 MB\tMax Memory Used: 92 MB\tInit Duration: 413.81 ms\t\n",
+    "ingestionTime": 1778236839891,
+    "eventId": "39656006570457892191241382006262099571478681532245737480"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]80ed933b814145388be66753d5a7d168",
+    "timestamp": 1778236835477,
+    "message": "END RequestId: 5d9f0b01-c8a1-5e8e-81e6-6976774339ac\n",
+    "ingestionTime": 1778236843639,
+    "eventId": "39656006570613997407631096372784234413736202173968678919"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]80ed933b814145388be66753d5a7d168",
+    "timestamp": 1778236835477,
+    "message": "REPORT RequestId: 5d9f0b01-c8a1-5e8e-81e6-6976774339ac\tDuration: 411.64 ms\tBilled Duration: 821 ms\tMemory Size: 256 MB\tMax Memory Used: 92 MB\tInit Duration: 408.83 ms\t\n",
+    "ingestionTime": 1778236843639,
+    "eventId": "39656006570613997407631096372784234413736202173968678920"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]25d80a1834d943a4badfef42c915ede6",
+    "timestamp": 1778236835486,
+    "message": "END RequestId: 4ca3580c-a0b1-5569-8db7-3a7b1f53601c\n",
+    "ingestionTime": 1778236842973,
+    "eventId": "39656006570814704114417871980252660794671058210630729735"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]25d80a1834d943a4badfef42c915ede6",
+    "timestamp": 1778236835486,
+    "message": "REPORT RequestId: 4ca3580c-a0b1-5569-8db7-3a7b1f53601c\tDuration: 406.30 ms\tBilled Duration: 839 ms\tMemory Size: 256 MB\tMax Memory Used: 92 MB\tInit Duration: 431.93 ms\t\n",
+    "ingestionTime": 1778236842973,
+    "eventId": "39656006570814704114417871980252660794671058210630729736"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]23f55bf9d0d0440cb6148a31afd6e0df",
+    "timestamp": 1778236835488,
+    "message": "END RequestId: 12de946d-9fe4-5dda-901e-f61a20064d04\n",
+    "ingestionTime": 1778236836521,
+    "eventId": "39656006570859305604814933218735448785813378130917588999"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]23f55bf9d0d0440cb6148a31afd6e0df",
+    "timestamp": 1778236835488,
+    "message": "REPORT RequestId: 12de946d-9fe4-5dda-901e-f61a20064d04\tDuration: 421.85 ms\tBilled Duration: 837 ms\tMemory Size: 256 MB\tMax Memory Used: 92 MB\tInit Duration: 415.06 ms\t\n",
+    "ingestionTime": 1778236836521,
+    "eventId": "39656006570859305604814933218735448785813378130917589000"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]23f55bf9d0d0440cb6148a31afd6e0df",
+    "timestamp": 1778236864432,
+    "message": "START RequestId: 8452ef52-c11e-583e-a854-8d257ee028e0 Version: $LATEST\n",
+    "ingestionTime": 1778236873457,
+    "eventId": "39656007216332074631085289471998356212613207544842158080"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]25d80a1834d943a4badfef42c915ede6",
+    "timestamp": 1778236864442,
+    "message": "START RequestId: dac894a1-e873-531c-a6b0-f6d6578ef669 Version: $LATEST\n",
+    "ingestionTime": 1778236873466,
+    "eventId": "39656007216555082083070595703424811697125261557238464512"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]25d80a1834d943a4badfef42c915ede6",
+    "timestamp": 1778236864445,
+    "message": "2026-05-08T10:41:04.445Z\tdac894a1-e873-531c-a6b0-f6d6578ef669\tINFO\tReceived Event: {\n  \"Records\": [\n    {\n      \"messageId\": \"7fe1278a-eeb8-4cd3-b886-3d252c142d1e\",\n      \"receiptHandle\": \"AQEBnNIZfQvuhXcIEjWi1yO8X4m0wDixLI0/XvTewKHPhAh2WwMasEPCUmWbU7qnEwXK0Ya3zV8L37I5FDjFNDvkYysv24kPr0KnfTdCkr4acmdtlaT3bl9Z3T7HoeMhcIp+xe7JCiH7weY/PFKzc0FMDlGsvBo/v2a/ErWv8niOrP2R+07jIfo6+3RyJbJTOd7BwyndiExnBEPD222Cur0GOJMkOnbG3u0/8S2vqD4/WLBxcTUlJig7wOwc3QmkESY8hWRdE7qBCWMWZ0APDECAJoKAaoO5iUwRE19cUab8cCriXd9V1rUL3trV/oe2nSm3LMYftxdrki41dAwg24E6IKGqRFI/OMrKyHC9GM9ORL79WrBwgf5+vIShnkqkAszexmiiyVfob391cwMqzD8MgZWuisnD6Sne0lY187BqSZI=\",\n      \"body\": \"{\\\"event_id\\\":\\\"77652f2b-d82e-4df3-9b10-22450c409275\\\",\\\"event_type\\\":\\\"INCIDENT_COMPLETED\\\",\\\"timestamp\\\":\\\"2026-05-08T09:32:16.999Z\\\",\\\"incident_id\\\":\\\"INC-BKK-104\\\",\\\"request_id\\\":\\\"RES-INC-BKK-104-1778174215140\\\",\\\"status\\\":\\\"RESOLVED\\\",\\\"source_service\\\":\\\"ResourceAllocationService\\\",\\\"description\\\":\\\"Assisted victims to shelter\\\",\\\"resource\\\":{\\\"resource_id\\\":\\\"c866ae02-6090-4fa0-95eb-c62752782cef\\\",\\\"resource_type\\\":\\\"RESCUE_BOAT\\\"},\\\"final_status\\\":\\\"AVAILABLE\\\",\\\"completed_at\\\":\\\"2026-05-08T09:32:16.971Z\\\",\\\"destination\\\":{\\\"destination_type\\\":\\\"SHELTER\\\",\\\"destination_id\\\":\\\"9786\\\",\\\"destination_name\\\":\\\"ศูนย์พัฒนาเด็กเล็กอบต.คูลบางหลวง\\\",\\\"shelter_id\\\":\\\"9786\\\"}}\",\n      \"attributes\": {\n        \"ApproximateReceiveCount\": \"2\",\n        \"SentTimestamp\": \"1778232737005\",\n        \"SenderId\": \"AROATFH652UEIRI2CZTYE:i-0ed81b496c797e410\",\n        \"ApproximateFirstReceiveTimestamp\": \"1778236834390\"\n      },\n      \"messageAttributes\": {\n        \"x-correlation-id\": {\n          \"stringValue\": \"a373c7bf-ea66-4aac-a77b-f965121e13de\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        },\n        \"content-type\": {\n          \"stringValue\": \"application/json\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        }\n      },\n      \"md5OfMessageAttributes\": \"013402e1b8c77b9cc8977b701ace3eca\",\n      \"md5OfBody\": \"7320c0f613a80d0ceeda24bfbd1e50ba\",\n      \"eventSource\": \"aws:sqs\",\n      \"eventSourceARN\": \"arn:aws:sqs:us-east-1:217430480136:resource-events-incident-completed\",\n      \"awsRegion\": \"us-east-1\"\n    }\n  ]\n}\n",
+    "ingestionTime": 1778236873466,
+    "eventId": "39656007216621984318666187572849418851943206641756405761"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]25d80a1834d943a4badfef42c915ede6",
+    "timestamp": 1778236864445,
+    "message": "2026-05-08T10:41:04.445Z\tdac894a1-e873-531c-a6b0-f6d6578ef669\tINFO\tProcessing RESOLVED update for incident: INC_BKK_104\n",
+    "ingestionTime": 1778236873466,
+    "eventId": "39656007216621984318666187572849418851943206641756405762"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]80ed933b814145388be66753d5a7d168",
+    "timestamp": 1778236864465,
+    "message": "START RequestId: c8e75d3e-3811-5880-84f7-3f4987efafa2 Version: $LATEST\n",
+    "ingestionTime": 1778236873486,
+    "eventId": "39656007217067999222636800035703869746087725529003261952"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]1e2b8c95f3fa4171bf7b539361898dc7",
+    "timestamp": 1778236864465,
+    "message": "START RequestId: ff6725f0-8b29-5ad3-a878-478734d408b5 Version: $LATEST\n",
+    "ingestionTime": 1778236873489,
+    "eventId": "39656007217067999222636800035707539883512975007148277760"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]25d80a1834d943a4badfef42c915ede6",
+    "timestamp": 1778236864466,
+    "message": "2026-05-08T10:41:04.466Z\tdac894a1-e873-531c-a6b0-f6d6578ef669\tERROR\tDatabase transaction error: error: relation \"Incidents\" does not exist\n    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async exports.handler (/var/task/index.js:53:32) {\n  length: 108,\n  severity: 'ERROR',\n  code: '42P01',\n  detail: undefined,\n  hint: undefined,\n  position: '15',\n  internalPosition: undefined,\n  internalQuery: undefined,\n  where: undefined,\n  schema: undefined,\n  table: undefined,\n  column: undefined,\n  dataType: undefined,\n  constraint: undefined,\n  file: 'parse_relation.c',\n  line: '1449',\n  routine: 'parserOpenTable'\n}\n",
+    "ingestionTime": 1778236873466,
+    "eventId": "39656007217090299967835330658821668935668822233381994499"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]1e2b8c95f3fa4171bf7b539361898dc7",
+    "timestamp": 1778236864466,
+    "message": "2026-05-08T10:41:04.466Z\tff6725f0-8b29-5ad3-a878-478734d408b5\tINFO\tReceived Event: {\n  \"Records\": [\n    {\n      \"messageId\": \"06685d64-b85e-4e56-9322-f6e5ef41b17a\",\n      \"receiptHandle\": \"AQEB7oIzuTJS5cZfBv7Ninc/+3Eq/0bpYxIvTeXdK+lpPEzAgJE9MwruYnxVqosxd8ME/yQaCPrGU+8oiYxtAIQbMNl1FbU9vTIgi+fPt1LssOitZdDLb/rwRo2jmxIRXFA0Mc+3lC8s1MLz1DvKJuvwR+h1WLe7G5SGtvo42kMxwjQptzGb3e8enXCQqmROtTAnU9dPfVnNGhzZvqA70+wu3yfv/Tglz/0AH68Qv54BVUlZztzJewwsz2geHKdVWjz4YXyzojGAfbj6XN/5s+HIUP4CT+gAxV65q0Tjvj6zFcgKCjmA9abCXO8Is9bDz5Orhj0cfCzq5bkn0mnZE7MdKnGwcOyUoot/atmoL/p2nxEN/fm4KWXG4omwvvHK+LrOcx8UFj+pwsxgovEx4SIZscuL7jKXJzUHEut8TpinL3k=\",\n      \"body\": \"{\\\"event_id\\\":\\\"e9b1db1a-18b4-42cc-94ca-7fd333897621\\\",\\\"event_type\\\":\\\"INCIDENT_COMPLETED\\\",\\\"timestamp\\\":\\\"2026-05-08T09:11:01.333Z\\\",\\\"incident_id\\\":\\\"zone-a584381b\\\",\\\"request_id\\\":\\\"VOL-zone-a584381b-1778230933108\\\",\\\"status\\\":\\\"RESOLVED\\\",\\\"source_service\\\":\\\"ResourceAllocationService\\\",\\\"description\\\":\\\"Assisted victims to shelter\\\",\\\"resource\\\":{\\\"resource_id\\\":\\\"15665a1a-5fd9-421d-bd47-35e688c30009\\\",\\\"resource_type\\\":\\\"HELICOPTER\\\"},\\\"final_status\\\":\\\"AVAILABLE\\\",\\\"completed_at\\\":\\\"2026-05-08T09:11:01.274Z\\\",\\\"destination\\\":{\\\"destination_type\\\":\\\"SHELTER\\\",\\\"destination_id\\\":\\\"9786\\\",\\\"destination_name\\\":\\\"ศูนย์พัฒนาเด็กเล็กอบต.คูลบางหลวง\\\",\\\"shelter_id\\\":\\\"9786\\\"}}\",\n      \"attributes\": {\n        \"ApproximateReceiveCount\": \"2\",\n        \"SentTimestamp\": \"1778231461347\",\n        \"SenderId\": \"AROATFH652UEIRI2CZTYE:i-0ed81b496c797e410\",\n        \"ApproximateFirstReceiveTimestamp\": \"1778236834410\"\n      },\n      \"messageAttributes\": {\n        \"x-correlation-id\": {\n          \"stringValue\": \"c08fbcd9-fe56-40fa-87d4-e2990316fcb6\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        },\n        \"content-type\": {\n          \"stringValue\": \"application/json\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        }\n      },\n      \"md5OfMessageAttributes\": \"c350181129ab493be31ae9840c5fb0a8\",\n      \"md5OfBody\": \"eed4ac896991dbdee7af4214a40fb959\",\n      \"eventSource\": \"aws:sqs\",\n      \"eventSourceARN\": \"arn:aws:sqs:us-east-1:217430480136:resource-events-incident-completed\",\n      \"awsRegion\": \"us-east-1\"\n    },\n    {\n      \"messageId\": \"1205d0fb-c015-43d1-b39c-487bdcb3b9e5\",\n      \"receiptHandle\": \"AQEBXUxCw/IfEMxwxLFzllSHnikGmS5ZjnpS9bcgNvk8iQ4moFZnz4Ncp9nyIqYEt/db9FsSDsHUTYPc0UIX/JAN+zBO6imGw3V/YM0qzh3M42X1RzTZ1Pe15gSptFCQ4GDWOTcpdS78YOjgTPox20b0Wf7YxGTTCRVVg+kZ5KsYDMD1s5XPmKqkctqVuaZFoUIhomIQlSAcfMVlNVJ76Pmw6gUAHJ9Ce61tMV7Aa3R5L1i/ycG5H/pFg32Z3H7XBu2NsAVIsA/W0Adb+YLe1qQ4TtiWDF53Kq1JXkQUB3Uk3cxTdc8yTxZBKX31fO2J6PI0lHLPDhXsOo2PWzfKRU19PBOguP0IsDV2t6Ipta1feo3012k9CHOYIH/PqVQWgG/J4sb5kDePKvmJ9/rMlJS7FgC46wHxehGV+mbvvLTPn1c=\",\n      \"body\": \"{\\\"event_id\\\":\\\"cecac46a-1db5-4ecd-bf48-32d425b80190\\\",\\\"event_type\\\":\\\"INCIDENT_COMPLETED\\\",\\\"timestamp\\\":\\\"2026-05-08T09:57:26.938Z\\\",\\\"incident_id\\\":\\\"INC-HIGH-999\\\",\\\"request_id\\\":\\\"RES-req_009-1778232996883\\\",\\\"status\\\":\\\"RESOLVED\\\",\\\"source_service\\\":\\\"ResourceAllocationService\\\",\\\"description\\\":\\\"Assisted victims to hospital\\\",\\\"resource\\\":{\\\"resource_id\\\":\\\"d5482c73-f0fc-4eae-8567-3d16347531cb\\\",\\\"resource_type\\\":\\\"RESCUE_BOAT\\\"},\\\"final_status\\\":\\\"AVAILABLE\\\",\\\"completed_at\\\":\\\"2026-05-08T09:57:26.877Z\\\",\\\"destination\\\":{\\\"destination_type\\\":\\\"HOSPITAL\\\",\\\"destination_id\\\":\\\"HOS-001\\\",\\\"destination_name\\\":\\\"Center Hospital\\\"}}\",\n      \"attributes\": {\n        \"ApproximateReceiveCount\": \"2\",\n        \"SentTimestamp\": \"1778234246943\",\n        \"SenderId\": \"AROATFH652UEIRI2CZTYE:i-0ed81b496c797e410\",\n        \"ApproximateFirstReceiveTimestamp\": \"1778236834397\"\n      },\n      \"messageAttributes\": {\n        \"x-correlation-id\": {\n          \"stringValue\": \"75615232-4c23-4acd-a397-d263510a719a\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        },\n        \"content-type\": {\n          \"stringValue\": \"application/json\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        }\n      },\n      \"md5OfMessageAttributes\": \"fc89facbe4ebd803f5a9113a1b1d401f\",\n      \"md5OfBody\": \"7b79e5b2934f1ffc7984eb35e805b4f6\",\n      \"eventSource\": \"aws:sqs\",\n      \"eventSourceARN\": \"arn:aws:sqs:us-east-1:217430480136:resource-events-incident-completed\",\n      \"awsRegion\": \"us-east-1\"\n    }\n  ]\n}\n",
+    "ingestionTime": 1778236873489,
+    "eventId": "39656007217090299967835330658849075601785623368654258177"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]25d80a1834d943a4badfef42c915ede6",
+    "timestamp": 1778236864467,
+    "message": "2026-05-08T10:41:04.467Z\tdac894a1-e873-531c-a6b0-f6d6578ef669\tERROR\tError processing record: error: relation \"Incidents\" does not exist\n    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async exports.handler (/var/task/index.js:53:32) {\n  length: 108,\n  severity: 'ERROR',\n  code: '42P01',\n  detail: undefined,\n  hint: undefined,\n  position: '15',\n  internalPosition: undefined,\n  internalQuery: undefined,\n  where: undefined,\n  schema: undefined,\n  table: undefined,\n  column: undefined,\n  dataType: undefined,\n  constraint: undefined,\n  file: 'parse_relation.c',\n  line: '1449',\n  routine: 'parserOpenTable'\n}\n",
+    "ingestionTime": 1778236873466,
+    "eventId": "39656007217112600713033861281963204653941470594887974916"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]25d80a1834d943a4badfef42c915ede6",
+    "timestamp": 1778236864467,
+    "message": "2026-05-08T10:41:04.467Z\tdac894a1-e873-531c-a6b0-f6d6578ef669\tERROR\tInvoke Error \t{\"errorType\":\"error\",\"errorMessage\":\"relation \\\"Incidents\\\" does not exist\",\"code\":\"42P01\",\"length\":108,\"name\":\"error\",\"severity\":\"ERROR\",\"position\":\"15\",\"file\":\"parse_relation.c\",\"line\":\"1449\",\"routine\":\"parserOpenTable\",\"stack\":[\"error: relation \\\"Incidents\\\" does not exist\",\"    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\",\"    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\",\"    at async exports.handler (/var/task/index.js:53:32)\"]}\n",
+    "ingestionTime": 1778236873466,
+    "eventId": "39656007217112600713033861281963204653941470594887974917"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]1e2b8c95f3fa4171bf7b539361898dc7",
+    "timestamp": 1778236864467,
+    "message": "2026-05-08T10:41:04.467Z\tff6725f0-8b29-5ad3-a878-478734d408b5\tINFO\tProcessing RESOLVED update for incident: zone_a584381b\n",
+    "ingestionTime": 1778236873489,
+    "eventId": "39656007217112600713033861281990611320058271730160238594"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]6c9bdd8de7a6499dbc6c30bd14bae7bf",
+    "timestamp": 1778236864493,
+    "message": "START RequestId: 9bd469fb-03ce-59a4-a3d9-0b8cbc3095c3 Version: $LATEST\n",
+    "ingestionTime": 1778236873520,
+    "eventId": "39656007217692420088195657483707983767564139118330445824"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]25d80a1834d943a4badfef42c915ede6",
+    "timestamp": 1778236864505,
+    "message": "END RequestId: dac894a1-e873-531c-a6b0-f6d6578ef669\n",
+    "ingestionTime": 1778236873466,
+    "eventId": "39656007217960029030578024961341561948302108332115230726"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]25d80a1834d943a4badfef42c915ede6",
+    "timestamp": 1778236864506,
+    "message": "REPORT RequestId: dac894a1-e873-531c-a6b0-f6d6578ef669\tDuration: 63.05 ms\tBilled Duration: 64 ms\tMemory Size: 256 MB\tMax Memory Used: 92 MB\t\n",
+    "ingestionTime": 1778236873466,
+    "eventId": "39656007217982329775776555584483097666574756693621211143"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]1e2b8c95f3fa4171bf7b539361898dc7",
+    "timestamp": 1778236864510,
+    "message": "2026-05-08T10:41:04.510Z\tff6725f0-8b29-5ad3-a878-478734d408b5\tERROR\tDatabase transaction error: error: relation \"Incidents\" does not exist\n    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async exports.handler (/var/task/index.js:53:32) {\n  length: 108,\n  severity: 'ERROR',\n  code: '42P01',\n  detail: undefined,\n  hint: undefined,\n  position: '15',\n  internalPosition: undefined,\n  internalQuery: undefined,\n  where: undefined,\n  schema: undefined,\n  table: undefined,\n  column: undefined,\n  dataType: undefined,\n  constraint: undefined,\n  file: 'parse_relation.c',\n  line: '1449',\n  routine: 'parserOpenTable'\n}\n",
+    "ingestionTime": 1778236873489,
+    "eventId": "39656007218071532756570678077076647205782151274917396483"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]1e2b8c95f3fa4171bf7b539361898dc7",
+    "timestamp": 1778236864511,
+    "message": "2026-05-08T10:41:04.511Z\tff6725f0-8b29-5ad3-a878-478734d408b5\tERROR\tError processing record: error: relation \"Incidents\" does not exist\n    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async exports.handler (/var/task/index.js:53:32) {\n  length: 108,\n  severity: 'ERROR',\n  code: '42P01',\n  detail: undefined,\n  hint: undefined,\n  position: '15',\n  internalPosition: undefined,\n  internalQuery: undefined,\n  where: undefined,\n  schema: undefined,\n  table: undefined,\n  column: undefined,\n  dataType: undefined,\n  constraint: undefined,\n  file: 'parse_relation.c',\n  line: '1449',\n  routine: 'parserOpenTable'\n}\n",
+    "ingestionTime": 1778236873489,
+    "eventId": "39656007218093833501769208700218182924054799636423376900"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]23f55bf9d0d0440cb6148a31afd6e0df",
+    "timestamp": 1778236864527,
+    "message": "2026-05-08T10:41:04.527Z\t8452ef52-c11e-583e-a854-8d257ee028e0\tINFO\tReceived Event: {\n  \"Records\": [\n    {\n      \"messageId\": \"ea608619-109a-4eb7-adbd-3cb9dbbbe3ba\",\n      \"receiptHandle\": \"AQEBf4PfgCmgv96tVUii9URycKuW5h4ZZZAZ+dJkX0l066tlPh5gSTKbfj9RP1tptZ0pah2iveo9Clyc4AWF+QhU9dwCfcO3mbke5co+wmyq3d/MXZwUxMPMI+/GQTzBxM2b9w223MjFpttPFelpMPstO0KYdBVCUvBXtA8kYdF+yeFyQY/O2X7rUK7FYe2dpPhQOypcIWgwMvzdcBbP8Qbc1U7TOM8XXIoS+EpePKQDhY2xaHmNdRRBaiq6ilt7wDAerAkWshQOME7zKBrEk/vgyQbWCd5ZnfpEFSylVJyJCCAqy7L5NSHRr9Kz2BB3X9tXX1JmN5Apq5QX5nb+JG27JPn/+uLnS7YviCJIDliYY5Q59frJfPtlBskM626oVG9+Lx6HMpv8s0XrqNz+ftGWH+PDn7bJf6qTtT+tQ7GPREA=\",\n      \"body\": \"{\\\"event_id\\\":\\\"bd825c5a-9787-48a8-940a-be30a946d8f5\\\",\\\"event_type\\\":\\\"INCIDENT_COMPLETED\\\",\\\"timestamp\\\":\\\"2026-05-08T09:31:37.055Z\\\",\\\"incident_id\\\":\\\"N/A\\\",\\\"request_id\\\":\\\"RES-N/A-1778222777036\\\",\\\"status\\\":\\\"RESOLVED\\\",\\\"source_service\\\":\\\"ResourceAllocationService\\\",\\\"description\\\":\\\"Assisted victims to hospital\\\",\\\"resource\\\":{\\\"resource_id\\\":\\\"d5482c73-f0fc-4eae-8567-3d16347531cb\\\",\\\"resource_type\\\":\\\"RESCUE_BOAT\\\"},\\\"final_status\\\":\\\"AVAILABLE\\\",\\\"completed_at\\\":\\\"2026-05-08T09:31:36.990Z\\\",\\\"destination\\\":{\\\"destination_type\\\":\\\"HOSPITAL\\\",\\\"destination_id\\\":\\\"HOS-001\\\",\\\"destination_name\\\":\\\"Center Hospital\\\"}}\",\n      \"attributes\": {\n        \"ApproximateReceiveCount\": \"2\",\n        \"SentTimestamp\": \"1778232697060\",\n        \"SenderId\": \"AROATFH652UEIRI2CZTYE:i-0ed81b496c797e410\",\n        \"ApproximateFirstReceiveTimestamp\": \"1778236834386\"\n      },\n      \"messageAttributes\": {\n        \"x-correlation-id\": {\n          \"stringValue\": \"796a392c-3e55-47d1-9df4-3d7cc78a1f6e\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        },\n        \"content-type\": {\n          \"stringValue\": \"application/json\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        }\n      },\n      \"md5OfBody\": \"6a759e6a36b5fafe24f41a8f449b5b05\",\n      \"md5OfMessageAttributes\": \"a6e6cbd3fc44e72f37de3fc84ac7759c\",\n      \"eventSource\": \"aws:sqs\",\n      \"eventSourceARN\": \"arn:aws:sqs:us-east-1:217430480136:resource-events-incident-completed\",\n      \"awsRegion\": \"us-east-1\"\n    }\n  ]\n}\n",
+    "ingestionTime": 1778236873457,
+    "eventId": "39656007218450645424945698670444249448514801887910297601"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]23f55bf9d0d0440cb6148a31afd6e0df",
+    "timestamp": 1778236864527,
+    "message": "2026-05-08T10:41:04.527Z\t8452ef52-c11e-583e-a854-8d257ee028e0\tINFO\tProcessing RESOLVED update for incident: N/A\n",
+    "ingestionTime": 1778236873457,
+    "eventId": "39656007218450645424945698670444249448514801887910297602"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]80ed933b814145388be66753d5a7d168",
+    "timestamp": 1778236864555,
+    "message": "2026-05-08T10:41:04.555Z\tc8e75d3e-3811-5880-84f7-3f4987efafa2\tINFO\tReceived Event: {\n  \"Records\": [\n    {\n      \"messageId\": \"c1b250cd-019b-46dc-aa59-07c9ab430856\",\n      \"receiptHandle\": \"AQEBXCTkyU69vI+PwawzjVySgnVtcg+v+qPHM8jm+/Kw1K++mafhJjIYu2Graq98vbVTaZ43DUEmuVNQ5O6sFpwAL9R/KrhBLPtWsFAxmBfhS36FjErk+9DjhjWislQAbzzqbNX3+JXdw5VDnZZeqXRLb0VN3fP3XLfptJVT51ZABckLqxCSpEow9CufG7M6lhENookCvLGdV2pXspRjnwLbRUcJmcQgWb0nP/VzHjrc7tQ6kXXkGeI0+4giVYBUfz1+wrV3uuIkBusTsPylsd2Kz1zWo3UdpY9K+2owQTipYuUb82gKo1b6iPK4RVcBQ2U7aHbbaM2NRBS9yXL8oyCqk7Su23RboHV5uwY5apkS961bOcyXKxGtWEdJNhfRwDGFdGahmyR6q+3A9/7cm1I3ecX5WFG7ltBjdy52byNghk4=\",\n      \"body\": \"{\\\"event_id\\\":\\\"cd51a49e-b39c-4ad5-aafa-1a2567e08b04\\\",\\\"event_type\\\":\\\"INCIDENT_COMPLETED\\\",\\\"timestamp\\\":\\\"2026-05-08T09:22:48.201Z\\\",\\\"incident_id\\\":\\\"INC-BKK-104\\\",\\\"request_id\\\":\\\"RES-INC-BKK-104-1778174188988\\\",\\\"status\\\":\\\"RESOLVED\\\",\\\"source_service\\\":\\\"ResourceAllocationService\\\",\\\"description\\\":\\\"Incident resolved\\\",\\\"resource\\\":{\\\"resource_id\\\":\\\"17120860-e05d-4c2e-825d-418522154254\\\",\\\"resource_type\\\":\\\"RESCUE_BOAT\\\"},\\\"final_status\\\":\\\"AVAILABLE\\\",\\\"completed_at\\\":\\\"2026-05-08T09:22:48.146Z\\\"}\",\n      \"attributes\": {\n        \"ApproximateReceiveCount\": \"2\",\n        \"SentTimestamp\": \"1778232168207\",\n        \"SenderId\": \"AROATFH652UEIRI2CZTYE:i-0ed81b496c797e410\",\n        \"ApproximateFirstReceiveTimestamp\": \"1778236834390\"\n      },\n      \"messageAttributes\": {\n        \"x-correlation-id\": {\n          \"stringValue\": \"81d6aae2-9e5c-4b42-8160-557bf0d65f74\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        },\n        \"content-type\": {\n          \"stringValue\": \"application/json\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        }\n      },\n      \"md5OfMessageAttributes\": \"294cf4ec8ddb6eb06df13dd263c6af1c\",\n      \"md5OfBody\": \"4403962084e44fe7258bc4dd0dad8a33\",\n      \"eventSource\": \"aws:sqs\",\n      \"eventSourceARN\": \"arn:aws:sqs:us-east-1:217430480136:resource-events-incident-completed\",\n      \"awsRegion\": \"us-east-1\"\n    },\n    {\n      \"messageId\": \"190d548c-3494-4568-bd82-a1374ad2aed0\",\n      \"receiptHandle\": \"AQEBbz4H5tui3jMtWCL9d1choVLq+kGF3Zme89P27yh6sKGHWGsF/6fDPcLRP/ARUXoeTkoH1UT+HTtmmwAFy/6z6x8aPpc96yt3kcAr1SoCm9yJquL2+oI0DuyEoluMbALc1N02IraQTxXkYYfvVSe8s68Ll61BZoyVvfa6UOjudmeys+Dbj+03RslfjVr0j23n8zGWzP9fG+ekC4I0fzkSI5KX7cYnSewHmfDgDSRhf94Q4uGCAo/zYBeithCwSrQXxTAwwgtE9ndoObkUFMEyawTIQ1opojHQRZ/QlWXLAtnFOic6kjg7yMdX00syBBsAVmGQBLCfABJpfM8LR4VJ6I8k1Rdtxc65QclAgcwcy1w1vQRcQz6Iy22zvFzzw8dE3DX1Zv60xDnNw2lS3Id7Tcc6CCRt6hOhDkl73k2Xf8g=\",\n      \"body\": \"{\\\"event_id\\\":\\\"5f5d2498-a728-4d0e-9c7b-9b9cbbdbe0cf\\\",\\\"event_type\\\":\\\"INCIDENT_COMPLETED\\\",\\\"timestamp\\\":\\\"2026-05-08T10:39:48.704Z\\\",\\\"incident_id\\\":\\\"INC_0003\\\",\\\"request_id\\\":\\\"REQ-8EF265BC\\\",\\\"status\\\":\\\"RESOLVED\\\",\\\"source_service\\\":\\\"ResourceAllocationService\\\",\\\"description\\\":\\\"Assisted victims to shelter\\\",\\\"resource\\\":{\\\"resource_id\\\":\\\"15665a1a-5fd9-421d-bd47-35e688c30009\\\",\\\"resource_type\\\":\\\"HELICOPTER\\\"},\\\"final_status\\\":\\\"AVAILABLE\\\",\\\"completed_at\\\":\\\"2026-05-08T10:39:48.670Z\\\",\\\"destination\\\":{\\\"destination_type\\\":\\\"SHELTER\\\",\\\"destination_id\\\":\\\"9786\\\",\\\"destination_name\\\":\\\"ศูนย์พัฒนาเด็กเล็กอบต.คูลบางหลวง\\\",\\\"shelter_id\\\":\\\"9786\\\"}}\",\n      \"attributes\": {\n        \"ApproximateReceiveCount\": \"2\",\n        \"SentTimestamp\": \"1778236788710\",\n        \"SenderId\": \"AROATFH652UEIRI2CZTYE:i-0ed81b496c797e410\",\n        \"ApproximateFirstReceiveTimestamp\": \"1778236834416\"\n      },\n      \"messageAttributes\": {\n        \"x-correlation-id\": {\n          \"stringValue\": \"728167ce-7f49-4d4d-9a77-8cb6ad2aab05\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        },\n        \"content-type\": {\n          \"stringValue\": \"application/json\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        }\n      },\n      \"md5OfMessageAttributes\": \"2e34291ac90646063c4f7c20a058df7a\",\n      \"md5OfBody\": \"6e009650492b393abbabe7e1b6eac801\",\n      \"eventSource\": \"aws:sqs\",\n      \"eventSourceARN\": \"arn:aws:sqs:us-east-1:217430480136:resource-events-incident-completed\",\n      \"awsRegion\": \"us-east-1\"\n    }\n  ]\n}\n",
+    "ingestionTime": 1778236873486,
+    "eventId": "39656007219075066290504556118442084390626078064541499393"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]80ed933b814145388be66753d5a7d168",
+    "timestamp": 1778236864555,
+    "message": "2026-05-08T10:41:04.555Z\tc8e75d3e-3811-5880-84f7-3f4987efafa2\tINFO\tProcessing RESOLVED update for incident: INC_BKK_104\n",
+    "ingestionTime": 1778236873486,
+    "eventId": "39656007219075066290504556118442084390626078064541499394"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]1e2b8c95f3fa4171bf7b539361898dc7",
+    "timestamp": 1778236864568,
+    "message": "2026-05-08T10:41:04.568Z\tff6725f0-8b29-5ad3-a878-478734d408b5\tERROR\tInvoke Error \t{\"errorType\":\"error\",\"errorMessage\":\"relation \\\"Incidents\\\" does not exist\",\"code\":\"42P01\",\"length\":108,\"name\":\"error\",\"severity\":\"ERROR\",\"position\":\"15\",\"file\":\"parse_relation.c\",\"line\":\"1449\",\"routine\":\"parserOpenTable\",\"stack\":[\"error: relation \\\"Incidents\\\" does not exist\",\"    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\",\"    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\",\"    at async exports.handler (/var/task/index.js:53:32)\"]}\n",
+    "ingestionTime": 1778236873489,
+    "eventId": "39656007219364975978085454219285718865595756242264260613"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]1e2b8c95f3fa4171bf7b539361898dc7",
+    "timestamp": 1778236864570,
+    "message": "END RequestId: ff6725f0-8b29-5ad3-a878-478734d408b5\n",
+    "ingestionTime": 1778236873489,
+    "eventId": "39656007219409577468482515465568790302141052965276221446"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]1e2b8c95f3fa4171bf7b539361898dc7",
+    "timestamp": 1778236864570,
+    "message": "REPORT RequestId: ff6725f0-8b29-5ad3-a878-478734d408b5\tDuration: 103.75 ms\tBilled Duration: 104 ms\tMemory Size: 256 MB\tMax Memory Used: 92 MB\t\n",
+    "ingestionTime": 1778236873489,
+    "eventId": "39656007219409577468482515465568790302141052965276221447"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]6c9bdd8de7a6499dbc6c30bd14bae7bf",
+    "timestamp": 1778236864584,
+    "message": "2026-05-08T10:41:04.584Z\t9bd469fb-03ce-59a4-a3d9-0b8cbc3095c3\tINFO\tReceived Event: {\n  \"Records\": [\n    {\n      \"messageId\": \"8f1b7f9d-2b31-488a-aa6d-8809b9a4f05e\",\n      \"receiptHandle\": \"AQEB40pDXPUI0nGYoEKuML8M6ryH7CYE8HtGdQE+RtpWlWazw0kelwQcaV0f/6fOza/xjbkiraklmijXbfAfItb+AwDvVg1Kn3mQGKelQgYFkUZytlO6qqxb/D7Ez5dVcrWX14xlgRKsbZexWokmcz3kKuKz03IeNVWp6nHe6QRsLYxmWUpXqLC8Hcwb5nacywvAbwsLIjLC758eXIjGIIweHOaFkTnj7lLZP/LuFh+c80j3RP868LBqwwXA9OcvdR/8Elv99d2iJsl5wKxTryPWZuwQGsQtFcVO7tUx4Ue1pKAAyUvUGCUNLm1KH8+KVvQk3q8GZC5Qaccml0US8e1JSFlqnjNTLKbfbZl7BXn8amPHTPiZ6Ezg2tM8CC4yF3nSXi1QO1YSRqQ5FtCE6CDiWIdO2aD11XmLyjeyW95O1bU=\",\n      \"body\": \"{\\\"event_id\\\":\\\"7941c521-fe25-4507-b6bc-d3a95c842096\\\",\\\"event_type\\\":\\\"INCIDENT_COMPLETED\\\",\\\"timestamp\\\":\\\"2026-05-08T09:58:27.441Z\\\",\\\"incident_id\\\":\\\"INC_0008\\\",\\\"request_id\\\":\\\"REQ-BDD04128\\\",\\\"status\\\":\\\"RESOLVED\\\",\\\"source_service\\\":\\\"ResourceAllocationService\\\",\\\"description\\\":\\\"Assisted victims to shelter\\\",\\\"resource\\\":{\\\"resource_id\\\":\\\"53cfba7a-9102-4703-baec-0f154a7e2c8d\\\",\\\"resource_type\\\":\\\"AMBULANCE_VAN\\\"},\\\"final_status\\\":\\\"AVAILABLE\\\",\\\"completed_at\\\":\\\"2026-05-08T09:58:27.423Z\\\",\\\"destination\\\":{\\\"destination_type\\\":\\\"SHELTER\\\",\\\"destination_id\\\":\\\"9786\\\",\\\"destination_name\\\":\\\"ศูนย์พัฒนาเด็กเล็กอบต.คูลบางหลวง\\\",\\\"shelter_id\\\":\\\"9786\\\"}}\",\n      \"attributes\": {\n        \"ApproximateReceiveCount\": \"2\",\n        \"SentTimestamp\": \"1778234307446\",\n        \"SenderId\": \"AROATFH652UEIRI2CZTYE:i-0ed81b496c797e410\",\n        \"ApproximateFirstReceiveTimestamp\": \"1778236834444\"\n      },\n      \"messageAttributes\": {\n        \"x-correlation-id\": {\n          \"stringValue\": \"249d824f-3f38-4292-980e-7c105c922cba\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        },\n        \"content-type\": {\n          \"stringValue\": \"application/json\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        }\n      },\n      \"md5OfMessageAttributes\": \"8dc6c95953bee4e42fe25fe7b65513ef\",\n      \"md5OfBody\": \"c2f187ad93f6f5ace8c2d7f2d853c89c\",\n      \"eventSource\": \"aws:sqs\",\n      \"eventSourceARN\": \"arn:aws:sqs:us-east-1:217430480136:resource-events-incident-completed\",\n      \"awsRegion\": \"us-east-1\"\n    },\n    {\n      \"messageId\": \"7e6c5092-6b56-49e5-b6d9-df8c7769fb62\",\n      \"receiptHandle\": \"AQEB4vh4JPpqFcP6RK/t5b9AzAsKVG3WhgILp5Mh6j1/yW+5drG1bTJz/BtmRs/I1qso5IbAOkfonyobhAlv4P8TWipZ5weCZoslxJNeb4kVuJAsyg3WAFDUNp6J/T0SvYBp2tn5kh2zHRjtgVfIyiEDJtSxh6cvth6zKOAQqdeMDG16h1w6QJ124VDFbTFwoGjoG0+pPKkfxFlfI3tj9H2CpfVGatyqXy1gfCl8+IBkK0e0AGbsm37d0IkjSZRWWg3l4TT8funs15YRKfN4haBwXstZ/7lwQSgkwyZuKvl8QcMwv6Ay4dcKOqfsiidn5rHtF+c/QGHxxV2B7GFimhcABXgSgS2eSkImbq/3q5qXcQZ8xrxX/GuOn+lgClvz3OGowQDTgEETmOfoJ1IlMZ/yJmqJr68pB5x6/OTacVI46YQ=\",\n      \"body\": \"{\\\"event_id\\\":\\\"065ac843-25b4-4898-9e34-b8cf4dbc77ce\\\",\\\"event_type\\\":\\\"INCIDENT_COMPLETED\\\",\\\"timestamp\\\":\\\"2026-05-08T10:40:07.526Z\\\",\\\"incident_id\\\":\\\"INC_0003\\\",\\\"request_id\\\":\\\"REQ-8EF265BC\\\",\\\"status\\\":\\\"RESOLVED\\\",\\\"source_service\\\":\\\"ResourceAllocationService\\\",\\\"description\\\":\\\"Assisted victims to shelter\\\",\\\"resource\\\":{\\\"resource_id\\\":\\\"a39cd09c-d6ce-4412-8fce-428906a51de2\\\",\\\"resource_type\\\":\\\"HELICOPTER\\\"},\\\"final_status\\\":\\\"AVAILABLE\\\",\\\"completed_at\\\":\\\"2026-05-08T10:40:07.416Z\\\",\\\"destination\\\":{\\\"destination_type\\\":\\\"SHELTER\\\",\\\"destination_id\\\":\\\"9786\\\",\\\"destination_name\\\":\\\"ศูนย์พัฒนาเด็กเล็กอบต.คูลบางหลวง\\\",\\\"shelter_id\\\":\\\"9786\\\"}}\",\n      \"attributes\": {\n        \"ApproximateReceiveCount\": \"2\",\n        \"SentTimestamp\": \"1778236807531\",\n        \"SenderId\": \"AROATFH652UEIRI2CZTYE:i-0ed81b496c797e410\",\n        \"ApproximateFirstReceiveTimestamp\": \"1778236834448\"\n      },\n      \"messageAttributes\": {\n        \"x-correlation-id\": {\n          \"stringValue\": \"d4dbfc00-724f-4e27-a475-d4da6b280b75\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        },\n        \"content-type\": {\n          \"stringValue\": \"application/json\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        }\n      },\n      \"md5OfMessageAttributes\": \"8adbbbf5413e10fd9e2084eb94a032cb\",\n      \"md5OfBody\": \"6be7f19430a00cec81b678d151418af6\",\n      \"eventSource\": \"aws:sqs\",\n      \"eventSourceARN\": \"arn:aws:sqs:us-east-1:217430480136:resource-events-incident-completed\",\n      \"awsRegion\": \"us-east-1\"\n    }\n  ]\n}\n",
+    "ingestionTime": 1778236873520,
+    "eventId": "39656007219721787901261944189587734130375140015374663681"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]6c9bdd8de7a6499dbc6c30bd14bae7bf",
+    "timestamp": 1778236864584,
+    "message": "2026-05-08T10:41:04.584Z\t9bd469fb-03ce-59a4-a3d9-0b8cbc3095c3\tINFO\tProcessing RESOLVED update for incident: INC_0008\n",
+    "ingestionTime": 1778236873520,
+    "eventId": "39656007219721787901261944189587734130375140015374663682"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]80ed933b814145388be66753d5a7d168",
+    "timestamp": 1778236864596,
+    "message": "2026-05-08T10:41:04.596Z\tc8e75d3e-3811-5880-84f7-3f4987efafa2\tERROR\tDatabase transaction error: error: relation \"Incidents\" does not exist\n    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async exports.handler (/var/task/index.js:53:32) {\n  length: 108,\n  severity: 'ERROR',\n  code: '42P01',\n  detail: undefined,\n  hint: undefined,\n  position: '15',\n  internalPosition: undefined,\n  internalQuery: undefined,\n  where: undefined,\n  schema: undefined,\n  table: undefined,\n  column: undefined,\n  dataType: undefined,\n  constraint: undefined,\n  file: 'parse_relation.c',\n  line: '1449',\n  routine: 'parserOpenTable'\n}\n",
+    "ingestionTime": 1778236873486,
+    "eventId": "39656007219989396843644311667245048839804660886286696451"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]80ed933b814145388be66753d5a7d168",
+    "timestamp": 1778236864597,
+    "message": "2026-05-08T10:41:04.597Z\tc8e75d3e-3811-5880-84f7-3f4987efafa2\tERROR\tError processing record: error: relation \"Incidents\" does not exist\n    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async exports.handler (/var/task/index.js:53:32) {\n  length: 108,\n  severity: 'ERROR',\n  code: '42P01',\n  detail: undefined,\n  hint: undefined,\n  position: '15',\n  internalPosition: undefined,\n  internalQuery: undefined,\n  where: undefined,\n  schema: undefined,\n  table: undefined,\n  column: undefined,\n  dataType: undefined,\n  constraint: undefined,\n  file: 'parse_relation.c',\n  line: '1449',\n  routine: 'parserOpenTable'\n}\n",
+    "ingestionTime": 1778236873486,
+    "eventId": "39656007220011697588842842290386584558077309247792676868"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]80ed933b814145388be66753d5a7d168",
+    "timestamp": 1778236864597,
+    "message": "2026-05-08T10:41:04.597Z\tc8e75d3e-3811-5880-84f7-3f4987efafa2\tERROR\tInvoke Error \t{\"errorType\":\"error\",\"errorMessage\":\"relation \\\"Incidents\\\" does not exist\",\"code\":\"42P01\",\"length\":108,\"name\":\"error\",\"severity\":\"ERROR\",\"position\":\"15\",\"file\":\"parse_relation.c\",\"line\":\"1449\",\"routine\":\"parserOpenTable\",\"stack\":[\"error: relation \\\"Incidents\\\" does not exist\",\"    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\",\"    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\",\"    at async exports.handler (/var/task/index.js:53:32)\"]}\n",
+    "ingestionTime": 1778236873486,
+    "eventId": "39656007220011697588842842290386584558077309247792676869"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]23f55bf9d0d0440cb6148a31afd6e0df",
+    "timestamp": 1778236864627,
+    "message": "2026-05-08T10:41:04.627Z\t8452ef52-c11e-583e-a854-8d257ee028e0\tERROR\tDatabase transaction error: error: relation \"Incidents\" does not exist\n    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async exports.handler (/var/task/index.js:53:32) {\n  length: 108,\n  severity: 'ERROR',\n  code: '42P01',\n  detail: undefined,\n  hint: undefined,\n  position: '15',\n  internalPosition: undefined,\n  internalQuery: undefined,\n  where: undefined,\n  schema: undefined,\n  table: undefined,\n  column: undefined,\n  dataType: undefined,\n  constraint: undefined,\n  file: 'parse_relation.c',\n  line: '1449',\n  routine: 'parserOpenTable'\n}\n",
+    "ingestionTime": 1778236873457,
+    "eventId": "39656007220680719944798760984597821275779638038508339203"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]23f55bf9d0d0440cb6148a31afd6e0df",
+    "timestamp": 1778236864627,
+    "message": "2026-05-08T10:41:04.627Z\t8452ef52-c11e-583e-a854-8d257ee028e0\tERROR\tError processing record: error: relation \"Incidents\" does not exist\n    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async exports.handler (/var/task/index.js:53:32) {\n  length: 108,\n  severity: 'ERROR',\n  code: '42P01',\n  detail: undefined,\n  hint: undefined,\n  position: '15',\n  internalPosition: undefined,\n  internalQuery: undefined,\n  where: undefined,\n  schema: undefined,\n  table: undefined,\n  column: undefined,\n  dataType: undefined,\n  constraint: undefined,\n  file: 'parse_relation.c',\n  line: '1449',\n  routine: 'parserOpenTable'\n}\n",
+    "ingestionTime": 1778236873457,
+    "eventId": "39656007220680719944798760984597821275779638038508339204"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]23f55bf9d0d0440cb6148a31afd6e0df",
+    "timestamp": 1778236864628,
+    "message": "2026-05-08T10:41:04.628Z\t8452ef52-c11e-583e-a854-8d257ee028e0\tERROR\tInvoke Error \t{\"errorType\":\"error\",\"errorMessage\":\"relation \\\"Incidents\\\" does not exist\",\"code\":\"42P01\",\"length\":108,\"name\":\"error\",\"severity\":\"ERROR\",\"position\":\"15\",\"file\":\"parse_relation.c\",\"line\":\"1449\",\"routine\":\"parserOpenTable\",\"stack\":[\"error: relation \\\"Incidents\\\" does not exist\",\"    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\",\"    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\",\"    at async exports.handler (/var/task/index.js:53:32)\"]}\n",
+    "ingestionTime": 1778236873457,
+    "eventId": "39656007220703020689997291607739356994052286400014319621"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]23f55bf9d0d0440cb6148a31afd6e0df",
+    "timestamp": 1778236864630,
+    "message": "END RequestId: 8452ef52-c11e-583e-a854-8d257ee028e0\n",
+    "ingestionTime": 1778236873457,
+    "eventId": "39656007220747622180394352854022428430597583123026280454"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]23f55bf9d0d0440cb6148a31afd6e0df",
+    "timestamp": 1778236864630,
+    "message": "REPORT RequestId: 8452ef52-c11e-583e-a854-8d257ee028e0\tDuration: 197.57 ms\tBilled Duration: 198 ms\tMemory Size: 256 MB\tMax Memory Used: 92 MB\t\n",
+    "ingestionTime": 1778236873457,
+    "eventId": "39656007220747622180394352854022428430597583123026280455"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]80ed933b814145388be66753d5a7d168",
+    "timestamp": 1778236864636,
+    "message": "END RequestId: c8e75d3e-3811-5880-84f7-3f4987efafa2\n",
+    "ingestionTime": 1778236873486,
+    "eventId": "39656007220881426651585536592906477570710595346525913094"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]80ed933b814145388be66753d5a7d168",
+    "timestamp": 1778236864636,
+    "message": "REPORT RequestId: c8e75d3e-3811-5880-84f7-3f4987efafa2\tDuration: 170.79 ms\tBilled Duration: 171 ms\tMemory Size: 256 MB\tMax Memory Used: 93 MB\t\n",
+    "ingestionTime": 1778236873486,
+    "eventId": "39656007220881426651585536592906477570710595346525913095"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]6c9bdd8de7a6499dbc6c30bd14bae7bf",
+    "timestamp": 1778236864647,
+    "message": "2026-05-08T10:41:04.647Z\t9bd469fb-03ce-59a4-a3d9-0b8cbc3095c3\tERROR\tDatabase transaction error: error: relation \"Incidents\" does not exist\n    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async exports.handler (/var/task/index.js:53:32) {\n  length: 108,\n  severity: 'ERROR',\n  code: '42P01',\n  detail: undefined,\n  hint: undefined,\n  position: '15',\n  internalPosition: undefined,\n  internalQuery: undefined,\n  where: undefined,\n  schema: undefined,\n  table: undefined,\n  column: undefined,\n  dataType: undefined,\n  constraint: undefined,\n  file: 'parse_relation.c',\n  line: '1449',\n  routine: 'parserOpenTable'\n}\n",
+    "ingestionTime": 1778236873520,
+    "eventId": "39656007221126734848769373447504484381551986790251429891"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]6c9bdd8de7a6499dbc6c30bd14bae7bf",
+    "timestamp": 1778236864664,
+    "message": "2026-05-08T10:41:04.664Z\t9bd469fb-03ce-59a4-a3d9-0b8cbc3095c3\tERROR\tError processing record: error: relation \"Incidents\" does not exist\n    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async exports.handler (/var/task/index.js:53:32) {\n  length: 108,\n  severity: 'ERROR',\n  code: '42P01',\n  detail: undefined,\n  hint: undefined,\n  position: '15',\n  internalPosition: undefined,\n  internalQuery: undefined,\n  where: undefined,\n  schema: undefined,\n  table: undefined,\n  column: undefined,\n  dataType: undefined,\n  constraint: undefined,\n  file: 'parse_relation.c',\n  line: '1449',\n  routine: 'parserOpenTable'\n}\n",
+    "ingestionTime": 1778236873520,
+    "eventId": "39656007221505847517144394040910591592187008935853096964"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]6c9bdd8de7a6499dbc6c30bd14bae7bf",
+    "timestamp": 1778236864664,
+    "message": "2026-05-08T10:41:04.664Z\t9bd469fb-03ce-59a4-a3d9-0b8cbc3095c3\tERROR\tInvoke Error \t{\"errorType\":\"error\",\"errorMessage\":\"relation \\\"Incidents\\\" does not exist\",\"code\":\"42P01\",\"length\":108,\"name\":\"error\",\"severity\":\"ERROR\",\"position\":\"15\",\"file\":\"parse_relation.c\",\"line\":\"1449\",\"routine\":\"parserOpenTable\",\"stack\":[\"error: relation \\\"Incidents\\\" does not exist\",\"    at /opt/nodejs/node_modules/pg/lib/client.js:631:17\",\"    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\",\"    at async exports.handler (/var/task/index.js:53:32)\"]}\n",
+    "ingestionTime": 1778236873520,
+    "eventId": "39656007221505847517144394040910591592187008935853096965"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]6c9bdd8de7a6499dbc6c30bd14bae7bf",
+    "timestamp": 1778236864705,
+    "message": "END RequestId: 9bd469fb-03ce-59a4-a3d9-0b8cbc3095c3\n",
+    "ingestionTime": 1778236873520,
+    "eventId": "39656007222420178070284149589713556041365591757598294022"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]6c9bdd8de7a6499dbc6c30bd14bae7bf",
+    "timestamp": 1778236864705,
+    "message": "REPORT RequestId: 9bd469fb-03ce-59a4-a3d9-0b8cbc3095c3\tDuration: 211.41 ms\tBilled Duration: 212 ms\tMemory Size: 256 MB\tMax Memory Used: 93 MB\t\n",
+    "ingestionTime": 1778236873520,
+    "eventId": "39656007222420178070284149589713556041365591757598294023"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]6c9bdd8de7a6499dbc6c30bd14bae7bf",
+    "timestamp": 1778236894439,
+    "message": "START RequestId: fafb03b4-f726-5001-b94d-61c337336723 Version: $LATEST\n",
+    "ingestionTime": 1778236903467,
+    "eventId": "39656007885510535803393698116340695091885126867204177920"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]80ed933b814145388be66753d5a7d168",
+    "timestamp": 1778236894449,
+    "message": "START RequestId: e8a20bb2-4caf-5b3d-93ad-69c58cb5a0d7 Version: $LATEST\n",
+    "ingestionTime": 1778236903477,
+    "eventId": "39656007885733543255379004347768165602410317258124689408"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]80ed933b814145388be66753d5a7d168",
+    "timestamp": 1778236894451,
+    "message": "2026-05-08T10:41:34.451Z\te8a20bb2-4caf-5b3d-93ad-69c58cb5a0d7\tINFO\tReceived Event: {\n  \"Records\": [\n    {\n      \"messageId\": \"c1b250cd-019b-46dc-aa59-07c9ab430856\",\n      \"receiptHandle\": \"AQEBb6YQb7TpKFcaZlo44Lfu2lLO+gYQdhqPpRmk3dP9NMOEA/wkiZer2QWH951/nzfE579XtVmG0Uu24GlW/ifTpRtpULUbXwOKcQMbRuEkoSyhtvlkh9zKCyQUmIHBmbl3qJ+eSkRsRWPaxsKnQvxO75zFG+z7rjsBSxGF+xhP/SVcd49tbihMIhp7/5vlaDTQNsH343TQrXXlNQZ4elM/rCmNTiwY/XghMNN0fc4MnUjGXMQJRy008lNVvL+vu+y1mwhFUrtqkjATkOki1b64IfyxyxxIAuBJArMMV5HbjRQH0SKTgEN1dlJeyQSaIhGPhBcDOd94oeuCGUbh1BFeUA/IrcSWRWtebB5aru9lIlcKOpn4wkUCyT+0LaajJLKpdhUfJcp+8y7b63uoIQzfB64fE1GCudK4Vcvj8ffNXMo=\",\n      \"body\": \"{\\\"event_id\\\":\\\"cd51a49e-b39c-4ad5-aafa-1a2567e08b04\\\",\\\"event_type\\\":\\\"INCIDENT_COMPLETED\\\",\\\"timestamp\\\":\\\"2026-05-08T09:22:48.201Z\\\",\\\"incident_id\\\":\\\"INC-BKK-104\\\",\\\"request_id\\\":\\\"RES-INC-BKK-104-1778174188988\\\",\\\"status\\\":\\\"RESOLVED\\\",\\\"source_service\\\":\\\"ResourceAllocationService\\\",\\\"description\\\":\\\"Incident resolved\\\",\\\"resource\\\":{\\\"resource_id\\\":\\\"17120860-e05d-4c2e-825d-418522154254\\\",\\\"resource_type\\\":\\\"RESCUE_BOAT\\\"},\\\"final_status\\\":\\\"AVAILABLE\\\",\\\"completed_at\\\":\\\"2026-05-08T09:22:48.146Z\\\"}\",\n      \"attributes\": {\n        \"ApproximateReceiveCount\": \"3\",\n        \"SentTimestamp\": \"1778232168207\",\n        \"SenderId\": \"AROATFH652UEIRI2CZTYE:i-0ed81b496c797e410\",\n        \"ApproximateFirstReceiveTimestamp\": \"1778236834390\"\n      },\n      \"messageAttributes\": {\n        \"x-correlation-id\": {\n          \"stringValue\": \"81d6aae2-9e5c-4b42-8160-557bf0d65f74\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        },\n        \"content-type\": {\n          \"stringValue\": \"application/json\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        }\n      },\n      \"md5OfMessageAttributes\": \"294cf4ec8ddb6eb06df13dd263c6af1c\",\n      \"md5OfBody\": \"4403962084e44fe7258bc4dd0dad8a33\",\n      \"eventSource\": \"aws:sqs\",\n      \"eventSourceARN\": \"arn:aws:sqs:us-east-1:217430480136:resource-events-incident-completed\",\n      \"awsRegion\": \"us-east-1\"\n    }\n  ]\n}\n",
+    "ingestionTime": 1778236903477,
+    "eventId": "39656007885778144745776065594051237038955613981136650241"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]80ed933b814145388be66753d5a7d168",
+    "timestamp": 1778236894451,
+    "message": "2026-05-08T10:41:34.451Z\te8a20bb2-4caf-5b3d-93ad-69c58cb5a0d7\tINFO\tProcessing RESOLVED update for incident: INC_BKK_104\n",
+    "ingestionTime": 1778236903477,
+    "eventId": "39656007885778144745776065594051237038955613981136650242"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]23f55bf9d0d0440cb6148a31afd6e0df",
+    "timestamp": 1778236894467,
+    "message": "START RequestId: 777011a0-c1ea-5bb1-863f-73d701f0e420 Version: $LATEST\n",
+    "ingestionTime": 1778236903494,
+    "eventId": "39656007886134956668952555564336098978945684958860345344"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]23f55bf9d0d0440cb6148a31afd6e0df",
+    "timestamp": 1778236894468,
+    "message": "2026-05-08T10:41:34.468Z\t777011a0-c1ea-5bb1-863f-73d701f0e420\tINFO\tReceived Event: {\n  \"Records\": [\n    {\n      \"messageId\": \"7fe1278a-eeb8-4cd3-b886-3d252c142d1e\",\n      \"receiptHandle\": \"AQEBwT89H0lH2ELPPCB+t2o84zFX3xXdXphBpxDOX9WDJ8xY0ed5WsyRl38+M6MmVBLF5P90AAXzvanYUvAwdWipD9za5lPo8uzM3YFddV1LUlfhnks2KkxWD27kgw5WVWlnTGVk0mfbM4i4Y1VfFZeQaL6KbdFHDhOocUfaR34lEPTBoS9Fz9VnZfp5GDnfyxdTDhURSd7Ok1kuIPHQorBCPX61jZfeXNZHChmgkCZ6qClvteXXXaFS+7s5gtF+5ljI3gF9kuAVIeSwLuzPyn3Pf4n+4xpS0IB4KjoL6xEndmvC0UYszt+Jdd0a+txGjhfbgLR5Fu5AEjbO8irtbH9EAiUHjcN/oQtAb3bu/vemys1PIrfSS9BeNGpXra6jDiX06z5SNkv33zR2s2TxPVs6jxveGRbYG0OTWCxznD57JSM=\",\n      \"body\": \"{\\\"event_id\\\":\\\"77652f2b-d82e-4df3-9b10-22450c409275\\\",\\\"event_type\\\":\\\"INCIDENT_COMPLETED\\\",\\\"timestamp\\\":\\\"2026-05-08T09:32:16.999Z\\\",\\\"incident_id\\\":\\\"INC-BKK-104\\\",\\\"request_id\\\":\\\"RES-INC-BKK-104-1778174215140\\\",\\\"status\\\":\\\"RESOLVED\\\",\\\"source_service\\\":\\\"ResourceAllocationService\\\",\\\"description\\\":\\\"Assisted victims to shelter\\\",\\\"resource\\\":{\\\"resource_id\\\":\\\"c866ae02-6090-4fa0-95eb-c62752782cef\\\",\\\"resource_type\\\":\\\"RESCUE_BOAT\\\"},\\\"final_status\\\":\\\"AVAILABLE\\\",\\\"completed_at\\\":\\\"2026-05-08T09:32:16.971Z\\\",\\\"destination\\\":{\\\"destination_type\\\":\\\"SHELTER\\\",\\\"destination_id\\\":\\\"9786\\\",\\\"destination_name\\\":\\\"ศูนย์พัฒนาเด็กเล็กอบต.คูลบางหลวง\\\",\\\"shelter_id\\\":\\\"9786\\\"}}\",\n      \"attributes\": {\n        \"ApproximateReceiveCount\": \"3\",\n        \"SentTimestamp\": \"1778232737005\",\n        \"SenderId\": \"AROATFH652UEIRI2CZTYE:i-0ed81b496c797e410\",\n        \"ApproximateFirstReceiveTimestamp\": \"1778236834390\"\n      },\n      \"messageAttributes\": {\n        \"x-correlation-id\": {\n          \"stringValue\": \"a373c7bf-ea66-4aac-a77b-f965121e13de\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        },\n        \"content-type\": {\n          \"stringValue\": \"application/json\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        }\n      },\n      \"md5OfMessageAttributes\": \"013402e1b8c77b9cc8977b701ace3eca\",\n      \"md5OfBody\": \"7320c0f613a80d0ceeda24bfbd1e50ba\",\n      \"eventSource\": \"aws:sqs\",\n      \"eventSourceARN\": \"arn:aws:sqs:us-east-1:217430480136:resource-events-incident-completed\",\n      \"awsRegion\": \"us-east-1\"\n    },\n    {\n      \"messageId\": \"1205d0fb-c015-43d1-b39c-487bdcb3b9e5\",\n      \"receiptHandle\": \"AQEB4w6+H3gke7A7lw1IMy5kt1DpLiyxNhgwWzDR6Z+jdK4wbZMtEGoHar8ro7ZrobPbmfOPDy6WksrJgjiJpi088Z+gxXrctcUhe7VJ5p+G8K0wBX1AB4U/2bwU16VCxGcZ72k3TeQpSIs8Oof/TMXYOI1HshXj3wk5RXZxvOOENFknQkHgs1SmYSOCjoIYpQVowuOPNo2p5P21tGJZDOcIfkUlksur1ZKNmicZKMMUDZhIb8BbzztZn+1rrcSFdujQwnA9+e5QQyuijmTu+cQqyS+ELbTfCC3gMcDl437ISi/55vqIwOAeO12I7vo6uz3CSXeZq/08jSY3Ao4rmmcsfHMj4vr4688W1Rkqwdt4/nBW4BbN9hcnegG3mr4jFL3LcnhtLKlI252RETjXP025ALJ+yhIFq6JFLM+PTcJghNI=\",\n      \"body\": \"{\\\"event_id\\\":\\\"cecac46a-1db5-4ecd-bf48-32d425b80190\\\",\\\"event_type\\\":\\\"INCIDENT_COMPLETED\\\",\\\"timestamp\\\":\\\"2026-05-08T09:57:26.938Z\\\",\\\"incident_id\\\":\\\"INC-HIGH-999\\\",\\\"request_id\\\":\\\"RES-req_009-1778232996883\\\",\\\"status\\\":\\\"RESOLVED\\\",\\\"source_service\\\":\\\"ResourceAllocationService\\\",\\\"description\\\":\\\"Assisted victims to hospital\\\",\\\"resource\\\":{\\\"resource_id\\\":\\\"d5482c73-f0fc-4eae-8567-3d16347531cb\\\",\\\"resource_type\\\":\\\"RESCUE_BOAT\\\"},\\\"final_status\\\":\\\"AVAILABLE\\\",\\\"completed_at\\\":\\\"2026-05-08T09:57:26.877Z\\\",\\\"destination\\\":{\\\"destination_type\\\":\\\"HOSPITAL\\\",\\\"destination_id\\\":\\\"HOS-001\\\",\\\"destination_name\\\":\\\"Center Hospital\\\"}}\",\n      \"attributes\": {\n        \"ApproximateReceiveCount\": \"3\",\n        \"SentTimestamp\": \"1778234246943\",\n        \"SenderId\": \"AROATFH652UEIRI2CZTYE:i-0ed81b496c797e410\",\n        \"ApproximateFirstReceiveTimestamp\": \"1778236834397\"\n      },\n      \"messageAttributes\": {\n        \"x-correlation-id\": {\n          \"stringValue\": \"75615232-4c23-4acd-a397-d263510a719a\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        },\n        \"content-type\": {\n          \"stringValue\": \"application/json\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        }\n      },\n      \"md5OfMessageAttributes\": \"fc89facbe4ebd803f5a9113a1b1d401f\",\n      \"md5OfBody\": \"7b79e5b2934f1ffc7984eb35e805b4f6\",\n      \"eventSource\": \"aws:sqs\",\n      \"eventSourceARN\": \"arn:aws:sqs:us-east-1:217430480136:resource-events-incident-completed\",\n      \"awsRegion\": \"us-east-1\"\n    },\n    {\n      \"messageId\": \"06685d64-b85e-4e56-9322-f6e5ef41b17a\",\n      \"receiptHandle\": \"AQEB5s2zHt8F5AoSHpiT/tjfWCkCYUAtOE94x39ll9Xkz6S+N5lkMB9nhJBhLsCFuYU+Z5A3wp2WXQakmM9aSp/hw6HTmGlXuS/WklSwhImyoVMzgXfuGoUyDAEVP/86hONBOzZ+1AZLOTTgJiv+37lfpCszBqnk6Pqus6dKx4Ddn8OoKJ1GVYHKo7vRoUUELfFolxb+qmKCRo67/5QgDWg3JMH5aFwZbBlRCfBUsbTdNXEde9LloC5g+Jh2Bvh6jivywX9fXQDZul9+8MSPSTLe87QazDGEw/fgzuURWrn5eICi98dbHPVK9ka0/lQS/cflr6d+zI2Kt+5mUdt3INlEsczYYybLwOX+++y4uB2oGhEZKlEZ5QtOHyQWmue5TI8ysVA7RnLKyVhCHpRYLJpdiiORtllm4AmKWgWcg6RagWY=\",\n      \"body\": \"{\\\"event_id\\\":\\\"e9b1db1a-18b4-42cc-94ca-7fd333897621\\\",\\\"event_type\\\":\\\"INCIDENT_COMPLETED\\\",\\\"timestamp\\\":\\\"2026-05-08T09:11:01.333Z\\\",\\\"incident_id\\\":\\\"zone-a584381b\\\",\\\"request_id\\\":\\\"VOL-zone-a584381b-1778230933108\\\",\\\"status\\\":\\\"RESOLVED\\\",\\\"source_service\\\":\\\"ResourceAllocationService\\\",\\\"description\\\":\\\"Assisted victims to shelter\\\",\\\"resource\\\":{\\\"resource_id\\\":\\\"15665a1a-5fd9-421d-bd47-35e688c30009\\\",\\\"resource_type\\\":\\\"HELICOPTER\\\"},\\\"final_status\\\":\\\"AVAILABLE\\\",\\\"completed_at\\\":\\\"2026-05-08T09:11:01.274Z\\\",\\\"destination\\\":{\\\"destination_type\\\":\\\"SHELTER\\\",\\\"destination_id\\\":\\\"9786\\\",\\\"destination_name\\\":\\\"ศูนย์พัฒนาเด็กเล็กอบต.คูลบางหลวง\\\",\\\"shelter_id\\\":\\\"9786\\\"}}\",\n      \"attributes\": {\n        \"ApproximateReceiveCount\": \"3\",\n        \"SentTimestamp\": \"1778231461347\",\n        \"SenderId\": \"AROATFH652UEIRI2CZTYE:i-0ed81b496c797e410\",\n        \"ApproximateFirstReceiveTimestamp\": \"1778236834410\"\n      },\n      \"messageAttributes\": {\n        \"x-correlation-id\": {\n          \"stringValue\": \"c08fbcd9-fe56-40fa-87d4-e2990316fcb6\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        },\n        \"content-type\": {\n          \"stringValue\": \"application/json\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        }\n      },\n      \"md5OfMessageAttributes\": \"c350181129ab493be31ae9840c5fb0a8\",\n      \"md5OfBody\": \"eed4ac896991dbdee7af4214a40fb959\",\n      \"eventSource\": \"aws:sqs\",\n      \"eventSourceARN\": \"arn:aws:sqs:us-east-1:217430480136:resource-events-incident-completed\",\n      \"awsRegion\": \"us-east-1\"\n    }\n  ]\n}\n",
+    "ingestionTime": 1778236903494,
+    "eventId": "39656007886157257414151086187477634697218333320366325761"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]23f55bf9d0d0440cb6148a31afd6e0df",
+    "timestamp": 1778236894468,
+    "message": "2026-05-08T10:41:34.468Z\t777011a0-c1ea-5bb1-863f-73d701f0e420\tINFO\tProcessing RESOLVED update for incident: INC_BKK_104\n",
+    "ingestionTime": 1778236903494,
+    "eventId": "39656007886157257414151086187477634697218333320366325762"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]1e2b8c95f3fa4171bf7b539361898dc7",
+    "timestamp": 1778236894473,
+    "message": "START RequestId: 55abb4c2-c98d-5b16-9b37-d6b50991be93 Version: $LATEST\n",
+    "ingestionTime": 1778236903498,
+    "eventId": "39656007886268761140143739303190361636954483243066916864"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]1e2b8c95f3fa4171bf7b539361898dc7",
+    "timestamp": 1778236894489,
+    "message": "2026-05-08T10:41:34.489Z\t55abb4c2-c98d-5b16-9b37-d6b50991be93\tINFO\tReceived Event: {\n  \"Records\": [\n    {\n      \"messageId\": \"190d548c-3494-4568-bd82-a1374ad2aed0\",\n      \"receiptHandle\": \"AQEBPwPb/oQnjXFf0dub4qYKdy+9FkDqZwIBUebQQIPODDwcQApNiuSjCrt0mcCu0tAu6wDmFhk9T8+GsylAPVKLy4xTzzX8iga3i1GVsFrbIVRZsMfzn5+epXAp3sFubW6PbtxK2ssCZARJ0l4z6LjXpSBdBf0Yfodqfco/w9Slqgz4KJ39hmhd+23ZCnoHAH2TjnnaxxzDE/I4Vz4+Bg1zFHvRLhtr8W1Oawf4ucy7uQU8meO1q2P36ipckdNm79sZKnIzyDq7C/ZSekpcoqoMjscFJgIR59Kpi0a7QklBzZvfeV7NVk1aoOiKIkmXQHuSgZg+iLJkzPw3kWBZFAxFp00IVcBoIKZhDwHCO/sye89v8Y2K4pMQqT9VVz/4d0Jmf5IbbC79lU55MF4ZD9/Ap+2ErLBLSdJieLSBMluOWlk=\",\n      \"body\": \"{\\\"event_id\\\":\\\"5f5d2498-a728-4d0e-9c7b-9b9cbbdbe0cf\\\",\\\"event_type\\\":\\\"INCIDENT_COMPLETED\\\",\\\"timestamp\\\":\\\"2026-05-08T10:39:48.704Z\\\",\\\"incident_id\\\":\\\"INC_0003\\\",\\\"request_id\\\":\\\"REQ-8EF265BC\\\",\\\"status\\\":\\\"RESOLVED\\\",\\\"source_service\\\":\\\"ResourceAllocationService\\\",\\\"description\\\":\\\"Assisted victims to shelter\\\",\\\"resource\\\":{\\\"resource_id\\\":\\\"15665a1a-5fd9-421d-bd47-35e688c30009\\\",\\\"resource_type\\\":\\\"HELICOPTER\\\"},\\\"final_status\\\":\\\"AVAILABLE\\\",\\\"completed_at\\\":\\\"2026-05-08T10:39:48.670Z\\\",\\\"destination\\\":{\\\"destination_type\\\":\\\"SHELTER\\\",\\\"destination_id\\\":\\\"9786\\\",\\\"destination_name\\\":\\\"ศูนย์พัฒนาเด็กเล็กอบต.คูลบางหลวง\\\",\\\"shelter_id\\\":\\\"9786\\\"}}\",\n      \"attributes\": {\n        \"ApproximateReceiveCount\": \"3\",\n        \"SentTimestamp\": \"1778236788710\",\n        \"SenderId\": \"AROATFH652UEIRI2CZTYE:i-0ed81b496c797e410\",\n        \"ApproximateFirstReceiveTimestamp\": \"1778236834416\"\n      },\n      \"messageAttributes\": {\n        \"x-correlation-id\": {\n          \"stringValue\": \"728167ce-7f49-4d4d-9a77-8cb6ad2aab05\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        },\n        \"content-type\": {\n          \"stringValue\": \"application/json\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        }\n      },\n      \"md5OfMessageAttributes\": \"2e34291ac90646063c4f7c20a058df7a\",\n      \"md5OfBody\": \"6e009650492b393abbabe7e1b6eac801\",\n      \"eventSource\": \"aws:sqs\",\n      \"eventSourceARN\": \"arn:aws:sqs:us-east-1:217430480136:resource-events-incident-completed\",\n      \"awsRegion\": \"us-east-1\"\n    }\n  ]\n}\n",
+    "ingestionTime": 1778236903498,
+    "eventId": "39656007886625573063320229273454933129316857027162603521"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]1e2b8c95f3fa4171bf7b539361898dc7",
+    "timestamp": 1778236894489,
+    "message": "2026-05-08T10:41:34.489Z\t55abb4c2-c98d-5b16-9b37-d6b50991be93\tINFO\tProcessing RESOLVED update for incident: INC_0003\n",
+    "ingestionTime": 1778236903498,
+    "eventId": "39656007886625573063320229273454933129316857027162603522"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]25d80a1834d943a4badfef42c915ede6",
+    "timestamp": 1778236894500,
+    "message": "START RequestId: 934e212b-a634-54ea-b2e3-435c662843cc Version: $LATEST\n",
+    "ingestionTime": 1778236903524,
+    "eventId": "39656007886870881260504066128042927590393115410040881152"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]25d80a1834d943a4badfef42c915ede6",
+    "timestamp": 1778236894528,
+    "message": "2026-05-08T10:41:34.528Z\t934e212b-a634-54ea-b2e3-435c662843cc\tINFO\tReceived Event: {\n  \"Records\": [\n    {\n      \"messageId\": \"7e6c5092-6b56-49e5-b6d9-df8c7769fb62\",\n      \"receiptHandle\": \"AQEBqMjtrWZQ3shZYzrEtsnHzOg2o4qRXVpUGFcfTtj79nDFFmAlLv+PJ8UZWD6jPsQxZR13YM47QrL/mI2xdAWYeOZjQyuwg13ztjkUI4tEH5R+VJ8K1wS/BnG4az7owzulfqtElMvLZCi5vkDzsYGhUjwoyZ2GSwvokG+qDOjEvvGB+I6W7CQXRyYUTi63cghjhrlDdLvD427+o9v/4LrXer37bK+S75FXwGoxxTcSekzGVPvMwf/Le1VBqgptsX682AhIkRlA8bvu+17TxrRP+qvYwSlNb6OTxjARz5cd/KMxkCYR40WlWYmU28V8ccKMrPzWOY7eZvb7Y/ufk4qSBFzYK1R0u8l0IkPsU8T4Iel8889S5ZHxzoY+cFDt6wzgVLnTWmVftYtL9lOhw598FJHMnm7vnKJSTguXy5m+8WE=\",\n      \"body\": \"{\\\"event_id\\\":\\\"065ac843-25b4-4898-9e34-b8cf4dbc77ce\\\",\\\"event_type\\\":\\\"INCIDENT_COMPLETED\\\",\\\"timestamp\\\":\\\"2026-05-08T10:40:07.526Z\\\",\\\"incident_id\\\":\\\"INC_0003\\\",\\\"request_id\\\":\\\"REQ-8EF265BC\\\",\\\"status\\\":\\\"RESOLVED\\\",\\\"source_service\\\":\\\"ResourceAllocationService\\\",\\\"description\\\":\\\"Assisted victims to shelter\\\",\\\"resource\\\":{\\\"resource_id\\\":\\\"a39cd09c-d6ce-4412-8fce-428906a51de2\\\",\\\"resource_type\\\":\\\"HELICOPTER\\\"},\\\"final_status\\\":\\\"AVAILABLE\\\",\\\"completed_at\\\":\\\"2026-05-08T10:40:07.416Z\\\",\\\"destination\\\":{\\\"destination_type\\\":\\\"SHELTER\\\",\\\"destination_id\\\":\\\"9786\\\",\\\"destination_name\\\":\\\"ศูนย์พัฒนาเด็กเล็กอบต.คูลบางหลวง\\\",\\\"shelter_id\\\":\\\"9786\\\"}}\",\n      \"attributes\": {\n        \"ApproximateReceiveCount\": \"3\",\n        \"SentTimestamp\": \"1778236807531\",\n        \"SenderId\": \"AROATFH652UEIRI2CZTYE:i-0ed81b496c797e410\",\n        \"ApproximateFirstReceiveTimestamp\": \"1778236834448\"\n      },\n      \"messageAttributes\": {\n        \"x-correlation-id\": {\n          \"stringValue\": \"d4dbfc00-724f-4e27-a475-d4da6b280b75\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        },\n        \"content-type\": {\n          \"stringValue\": \"application/json\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        }\n      },\n      \"md5OfMessageAttributes\": \"8adbbbf5413e10fd9e2084eb94a032cb\",\n      \"md5OfBody\": \"6be7f19430a00cec81b678d151418af6\",\n      \"eventSource\": \"aws:sqs\",\n      \"eventSourceARN\": \"arn:aws:sqs:us-east-1:217430480136:resource-events-incident-completed\",\n      \"awsRegion\": \"us-east-1\"\n    }\n  ]\n}\n",
+    "ingestionTime": 1778236903524,
+    "eventId": "39656007887495302126062923576005927702027269532208332801"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]25d80a1834d943a4badfef42c915ede6",
+    "timestamp": 1778236894528,
+    "message": "2026-05-08T10:41:34.528Z\t934e212b-a634-54ea-b2e3-435c662843cc\tINFO\tProcessing RESOLVED update for incident: INC_0003\n",
+    "ingestionTime": 1778236903524,
+    "eventId": "39656007887495302126062923576005927702027269532208332802"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]6c9bdd8de7a6499dbc6c30bd14bae7bf",
+    "timestamp": 1778236894544,
+    "message": "2026-05-08T10:41:34.544Z\tfafb03b4-f726-5001-b94d-61c337336723\tINFO\tReceived Event: {\n  \"Records\": [\n    {\n      \"messageId\": \"ea608619-109a-4eb7-adbd-3cb9dbbbe3ba\",\n      \"receiptHandle\": \"AQEBjugpSsXcCaQK9XHcoBQYncKCEI5RP5uUPo2KuDm/ilzNUHnwX2Hzlw/o7QY4hU22MOicFGgaFLcT66u1/Lghc68W3lzVm4FpO029A0FKByJeivuP+QLvW7YZkQP3jT9hcApM/EroxFJ1gyeavyJ8Q8tvd8Vfe/LpghhfdaErMUxmctA66/afcmMURK2QQBiAEWJl8zVIQZHaycCOsb7Jm3a7ii2qU6vErwXYRQsrhirQusK7IcL/IXpZdlngmBgqeVXvU1PqtNED647c1ZIFUVU0eyVZA5wG2yW5zBNzsN6h0km4ZGvvrXGzem17KonVZVersHeGEFAmBk+L/IBLstKSupqzMNumPkouWjjp8c5YimWgwo/ORAUEkQo60E7o0npuiFDh/3kEEGtH0fCsUisR4RGUT+9B/ZIq86SQ9qM=\",\n      \"body\": \"{\\\"event_id\\\":\\\"bd825c5a-9787-48a8-940a-be30a946d8f5\\\",\\\"event_type\\\":\\\"INCIDENT_COMPLETED\\\",\\\"timestamp\\\":\\\"2026-05-08T09:31:37.055Z\\\",\\\"incident_id\\\":\\\"N/A\\\",\\\"request_id\\\":\\\"RES-N/A-1778222777036\\\",\\\"status\\\":\\\"RESOLVED\\\",\\\"source_service\\\":\\\"ResourceAllocationService\\\",\\\"description\\\":\\\"Assisted victims to hospital\\\",\\\"resource\\\":{\\\"resource_id\\\":\\\"d5482c73-f0fc-4eae-8567-3d16347531cb\\\",\\\"resource_type\\\":\\\"RESCUE_BOAT\\\"},\\\"final_status\\\":\\\"AVAILABLE\\\",\\\"completed_at\\\":\\\"2026-05-08T09:31:36.990Z\\\",\\\"destination\\\":{\\\"destination_type\\\":\\\"HOSPITAL\\\",\\\"destination_id\\\":\\\"HOS-001\\\",\\\"destination_name\\\":\\\"Center Hospital\\\"}}\",\n      \"attributes\": {\n        \"ApproximateReceiveCount\": \"3\",\n        \"SentTimestamp\": \"1778232697060\",\n        \"SenderId\": \"AROATFH652UEIRI2CZTYE:i-0ed81b496c797e410\",\n        \"ApproximateFirstReceiveTimestamp\": \"1778236834386\"\n      },\n      \"messageAttributes\": {\n        \"x-correlation-id\": {\n          \"stringValue\": \"796a392c-3e55-47d1-9df4-3d7cc78a1f6e\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        },\n        \"content-type\": {\n          \"stringValue\": \"application/json\",\n          \"stringListValues\": [],\n          \"binaryListValues\": [],\n          \"dataType\": \"String\"\n        }\n      },\n      \"md5OfMessageAttributes\": \"a6e6cbd3fc44e72f37de3fc84ac7759c\",\n      \"md5OfBody\": \"6a759e6a36b5fafe24f41a8f449b5b05\",\n      \"eventSource\": \"aws:sqs\",\n      \"eventSourceARN\": \"arn:aws:sqs:us-east-1:217430480136:resource-events-incident-completed\",\n      \"awsRegion\": \"us-east-1\"\n    }\n  ]\n}\n",
+    "ingestionTime": 1778236903467,
+    "eventId": "39656007887852114049239413546201945510513204825332121601"
+  },
+  {
+    "logStreamName": "2026/05/08/[$LATEST]6c9bdd8de7a6499dbc6c30bd14bae7bf",
+    "timestamp": 1778236894544,
+    "message": "2026-05-08T10:41:34.544Z\tfafb03b4-f726-5001-b94d-61c337336723\tINFO\tProcessing RESOLVED update for incident: N/A\n",
+    "ingestionTime": 1778236903467,
+    "eventId": "39656007887852114049239413546201945510513204825332121602"
+  }
+]
