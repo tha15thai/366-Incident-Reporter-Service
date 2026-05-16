@@ -1,0 +1,1 @@
+{"httpMethod":"PATCH","resource":"/incidents/{incident_id}/status","pathParameters":{"incident_id":"INC_0003"},"headers":{"Content-Type":"application/json"},"body":"{\"status\":\"VERIFIED\",\"severity\":\"HIGH\",\"updated_by\":\"1234567890123\"}"}

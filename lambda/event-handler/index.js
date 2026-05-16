@@ -10,9 +10,21 @@ exports.handler = async (event) => {
       // 1. Extract raw message body depending on SNS or SQS
       let rawMessage = '';
       if (record.EventSource === 'aws:sns' || record.EventSubscriptionArn) {
+        // Direct SNS trigger
         rawMessage = record.Sns.Message;
       } else if (record.eventSource === 'aws:sqs') {
-        rawMessage = record.body;
+        // SNS → SQS → Lambda: body อาจเป็น SNS Notification wrapper (2 ชั้น)
+        let bodyParsed;
+        try { bodyParsed = JSON.parse(record.body); } catch (_) { bodyParsed = {}; }
+
+        if (bodyParsed.Type === 'Notification' && bodyParsed.Message) {
+          // แกะชั้นนอก SNS wrapper → เอา Message ข้างใน
+          rawMessage = bodyParsed.Message;
+          console.log('Unwrapped SNS-over-SQS from topic:', bodyParsed.TopicArn);
+        } else {
+          // SQS ส่งตรง (ไม่ผ่าน SNS)
+          rawMessage = record.body;
+        }
       } else {
         console.warn('Unknown event source:', record);
         continue;
@@ -33,13 +45,21 @@ exports.handler = async (event) => {
         }
       }
 
-      // 3. Normalize Incident ID (Handle Friend's format INC-0001)
-      const rawIncidentId = payload.incidentId || payload.incident_id || payload.incident_Id;
-      const incidentId = rawIncidentId ? rawIncidentId.replace(/-/g, '_') : null;
-      const status = payload.status;
-      
+      // 3. Normalize Incident ID and fields (Handle varied formats from different services)
+      const rawIncidentId = payload.incidentId || payload.incident_id || payload.incident_Id
+        || payload.IncidentId || payload.id;
+      const incidentId = rawIncidentId ? rawIncidentId.replace(/-/g, '_').toUpperCase() : null;
+      const status = payload.status || payload.newStatus || payload.new_status;
+      // Field aliases from various services (News Checker may use 'reason', 'checkedBy', etc.)
+      if (!payload.description && (payload.reason || payload.note || payload.message)) {
+        payload.description = payload.reason || payload.note || payload.message;
+      }
+      if (!payload.operatorId && (payload.checkedBy || payload.checked_by || payload.operator || payload.agentId)) {
+        payload.operatorId = payload.checkedBy || payload.checked_by || payload.operator || payload.agentId;
+      }
+
       if (!incidentId || !status) {
-        console.warn('Skipping message: Missing incidentId or status');
+        console.warn('Skipping message: Missing incidentId or status', payload);
         continue;
       }
 
@@ -96,11 +116,12 @@ exports.handler = async (event) => {
             console.log(`Incident ${incidentId} already REJECTED. Skipping.`);
             await client.query('ROLLBACK'); continue; 
           }
-          if (incident.status !== 'REPORTED') {
+          // News Checker can reject from REPORTED (or VERIFIED if false alarm)
+          if (!['REPORTED', 'VERIFIED'].includes(incident.status)) {
             console.error(`Invalid transition from ${incident.status} to REJECTED.`);
             await client.query('ROLLBACK'); continue;
           }
-          actionDescription = actionDescription || 'ข้อมูลถูกปฏิเสธ (Fake News) จากหน่วยตรวจสอบข่าว';
+          actionDescription = payload.description || 'ข้อมูลถูกปฏิเสธ (Fake News) จากหน่วยตรวจสอบข่าว';
           actionBy = payload.operatorId || 'NEWS_CHECKER_SERVICE';
           queryStr = `UPDATE "Incidents" SET status = 'REJECTED', description = $1, updated_at = $2 WHERE incident_id = $3 RETURNING *`;
           queryParams = [actionDescription, now, incidentId];

@@ -4,6 +4,16 @@
 
 const API_BASE = 'https://dcvvgbft6j.execute-api.us-east-1.amazonaws.com/v1/incidents';
 
+// HTTP-safe UUID (crypto.randomUUID() ต้องการ HTTPS เท่านั้น)
+function genUUID() {
+  try { return crypto.randomUUID(); } catch (_) {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+      const r = Math.random() * 16 | 0;
+      return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+    });
+  }
+}
+
 // ─── Hardcoded credentials (stored in DB as Reporter) ───
 const USERS = {
   kudoshinichi: { password: 'shinichi1234', reporter_id: '1234567890123', name: 'คุโด้ ชินอิจิ' }
@@ -228,7 +238,7 @@ async function handleFormSubmit(e) {
   setLoading(true);
   console.log('📤 Sending:', JSON.stringify(payload, null, 2));
   try {
-    const res  = await fetch(API_BASE, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Request-Id': crypto.randomUUID() }, body: JSON.stringify(payload) });
+    const res  = await fetch(API_BASE, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Request-Id': genUUID() }, body: JSON.stringify(payload) });
     const data = await res.json();
     if (res.status === 201 || res.ok) showSuccess(data);
     else if (res.status === 409) showApiError('มีรายงานเหตุการณ์ใกล้เคียงนี้ภายใน 10 นาทีแล้ว');

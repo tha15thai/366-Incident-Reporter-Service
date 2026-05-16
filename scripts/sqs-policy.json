@@ -1,0 +1,21 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": { "Service": "sns.amazonaws.com" },
+      "Action": "sqs:SendMessage",
+      "Resource": "arn:aws:sqs:us-east-1:186945826500:incident-reporter-incident-input-queue",
+      "Condition": {
+        "ArnLike": {
+          "aws:SourceArn": [
+            "arn:aws:sns:us-east-1:620162259453:SendIncidentStatus",
+            "arn:aws:sns:us-east-1:072833417664:reporter-news-rejected-topic",
+            "arn:aws:sns:us-east-1:552692352531:incident-prioritized-topic",
+            "arn:aws:sns:us-east-1:445880711982:change-rejected-status"
+          ]
+        }
+      }
+    }
+  ]
+}

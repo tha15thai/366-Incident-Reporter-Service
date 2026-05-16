@@ -63,6 +63,7 @@ async function publishIncidentStatusChanged(incident, previousStatus) {
     incidentType: incident.incident_type,
     severity: incident.severity,
     location: incident.location,
+    description: incident.description || null,   // หมายเหตุ/เหตุผลที่เปลี่ยนแปลง
     updatedAt: incident.updated_at,
   };
 
