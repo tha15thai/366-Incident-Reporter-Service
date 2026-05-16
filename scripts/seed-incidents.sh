@@ -1,76 +1,91 @@
 #!/bin/bash
+# seed-incidents.sh - สร้าง 5 Incidents ตัวอย่างผ่าน API
 
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-BLUE='\033[0;34m'
-NC='\033[0m'
+API_URL="https://dcvvgbft6j.execute-api.us-east-1.amazonaws.com/v1/incidents"
+TMP_DIR=$(mktemp -d)
 
-API_URL="https://8wbns0ueuj.execute-api.us-east-1.amazonaws.com/v1/incidents"
+echo "🌊 Creating 5 test incidents..."
 
-echo -e "${BLUE}🌱 Seeding diverse Incident Data...${NC}"
+# เขียน JSON files แยก เพื่อหลีกเลี่ยง encoding issue บน Windows
 
-# 1. Fire - Critical
-echo -e "${YELLOW}Adding: FIRE (CRITICAL)...${NC}"
-curl -s -X POST "$API_URL" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "reporter_id": "1234567890123",
-    "reporter_name": "Somchai Jaidee",
-    "phone": "0812345678",
-    "incident_type": "FIRE",
-    "location": {"type": "Point", "coordinates": [100.5231, 13.7367]},
-    "address_name": "Siam Square, Bangkok",
-    "description": "Large fire breakout in the basement parking area.",
-    "severity": "CRITICAL",
-    "affected_count": 150
-  }' | python3 -m json.tool || echo "Failed to add Fire"
+cat > "$TMP_DIR/1.json" << 'ENDJSON'
+{
+  "reporter_id": "1234567890123",
+  "reporter_name": "Somchai Jaidee",
+  "incident_type": "FLOOD",
+  "description": "\u0e19\u0e49\u0e33\u0e17\u0e48\u0e27\u0e21\u0e2a\u0e39\u0e07\u0e23\u0e30\u0e14\u0e31\u0e1a\u0e40\u0e02\u0e48\u0e32 \u0e1a\u0e23\u0e34\u0e40\u0e27\u0e13\u0e16\u0e19\u0e19\u0e2a\u0e38\u0e02\u0e38\u0e21\u0e27\u0e34\u0e17 \u0e02\u0e27\u0e32\u0e07\u0e01\u0e32\u0e23\u0e08\u0e23\u0e32\u0e08\u0e23",
+  "address_name": "\u0e16\u0e19\u0e19\u0e2a\u0e38\u0e02\u0e38\u0e21\u0e27\u0e34\u0e17 \u0e01\u0e23\u0e38\u0e07\u0e40\u0e17\u0e1e\u0e21\u0e2b\u0e32\u0e19\u0e04\u0e23",
+  "location": { "type": "Point", "coordinates": [100.5618, 13.7300] },
+  "affected_count": 150,
+  "incident_start": "2026-05-17T00:00:00.000Z",
+  "report_channel": "mobile_app"
+}
+ENDJSON
 
-# 2. Flood - High
-echo -e "\n${YELLOW}Adding: FLOOD (HIGH)...${NC}"
-curl -s -X POST "$API_URL" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "reporter_id": "9876543210987",
-    "reporter_name": "Somying Rakdee",
-    "phone": "0898765432",
-    "incident_type": "FLOOD",
-    "location": {"type": "Point", "coordinates": [100.608, 14.072]},
-    "address_name": "Navanakorn, Pathum Thani",
-    "description": "Flash flood after heavy rain. Water level rising fast.",
-    "severity": "HIGH",
-    "affected_count": 30
-  }' | python3 -m json.tool || echo "Failed to add Flood"
+cat > "$TMP_DIR/2.json" << 'ENDJSON'
+{
+  "reporter_id": "9876543210987",
+  "reporter_name": "Somying Rakdee",
+  "incident_type": "STORM",
+  "description": "\u0e1e\u0e32\u0e22\u0e38\u0e1d\u0e19\u0e15\u0e01\u0e2b\u0e19\u0e31\u0e01\u0e21\u0e32\u0e01 \u0e25\u0e21\u0e41\u0e23\u0e07 \u0e15\u0e49\u0e19\u0e44\u0e21\u0e49\u0e25\u0e49\u0e21\u0e17\u0e31\u0e1a\u0e16\u0e19\u0e19",
+  "address_name": "\u0e16\u0e19\u0e19\u0e19\u0e34\u0e21\u0e21\u0e32\u0e19\u0e40\u0e2b\u0e21\u0e34\u0e19\u0e17\u0e4c \u0e40\u0e0a\u0e35\u0e22\u0e07\u0e43\u0e2b\u0e21\u0e48",
+  "location": { "type": "Point", "coordinates": [98.9853, 18.7953] },
+  "affected_count": 80,
+  "incident_start": "2026-05-17T00:05:00.000Z",
+  "report_channel": "mobile_app"
+}
+ENDJSON
 
-# 3. Earthquake - Critical
-echo -e "\n${YELLOW}Adding: EARTHQUAKE (CRITICAL)...${NC}"
-curl -s -X POST "$API_URL" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "reporter_id": "1234567890123",
-    "reporter_name": "Somchai Jaidee",
-    "phone": "0812345678",
-    "incident_type": "EARTHQUAKE",
-    "location": {"type": "Point", "coordinates": [99.840, 19.910]},
-    "address_name": "Chiang Rai Center",
-    "description": "Strong tremors felt across the city. Building cracks reported.",
-    "severity": "CRITICAL",
-    "affected_count": 500
-  }' | python3 -m json.tool || echo "Failed to add Earthquake"
+cat > "$TMP_DIR/3.json" << 'ENDJSON'
+{
+  "reporter_id": "1234567890123",
+  "reporter_name": "Somchai Jaidee",
+  "incident_type": "EARTHQUAKE",
+  "description": "\u0e23\u0e39\u0e49\u0e2a\u0e36\u0e01\u0e41\u0e1c\u0e48\u0e19\u0e14\u0e34\u0e19\u0e44\u0e2b\u0e27\u0e40\u0e1b\u0e47\u0e19\u0e40\u0e27\u0e25\u0e32\u0e1b\u0e23\u0e30\u0e21\u0e32\u0e13 10 \u0e27\u0e34\u0e19\u0e32\u0e17\u0e35 \u0e2d\u0e32\u0e04\u0e32\u0e23\u0e2a\u0e31\u0e48\u0e19 \u0e2b\u0e19\u0e49\u0e32\u0e15\u0e48\u0e32\u0e07\u0e41\u0e15\u0e01",
+  "address_name": "\u0e2d\u0e33\u0e40\u0e20\u0e2d\u0e40\u0e21\u0e37\u0e2d\u0e07 \u0e08\u0e31\u0e07\u0e2b\u0e27\u0e31\u0e14\u0e40\u0e0a\u0e35\u0e22\u0e07\u0e23\u0e32\u0e22",
+  "location": { "type": "Point", "coordinates": [99.8324, 19.9071] },
+  "affected_count": 300,
+  "incident_start": "2026-05-17T00:10:00.000Z",
+  "report_channel": "mobile_app"
+}
+ENDJSON
 
-# 4. Power Outage - Medium
-echo -e "\n${YELLOW}Adding: POWER_OUTAGE (MEDIUM)...${NC}"
-curl -s -X POST "$API_URL" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "reporter_id": "9876543210987",
-    "reporter_name": "Somying Rakdee",
-    "phone": "0898765432",
-    "incident_type": "POWER_OUTAGE",
-    "location": {"type": "Point", "coordinates": [100.540, 13.700]},
-    "address_name": "Rama 3, Bangkok",
-    "description": "Blackout in the neighborhood for over 2 hours.",
-    "severity": "MEDIUM",
-    "affected_count": 200
-  }' | python3 -m json.tool || echo "Failed to add Power Outage"
+cat > "$TMP_DIR/4.json" << 'ENDJSON'
+{
+  "reporter_id": "9876543210987",
+  "reporter_name": "Somying Rakdee",
+  "incident_type": "FLOOD",
+  "description": "\u0e19\u0e49\u0e33\u0e17\u0e48\u0e27\u0e21\u0e02\u0e31\u0e07 \u0e1a\u0e49\u0e32\u0e19\u0e40\u0e23\u0e37\u0e2d\u0e19\u0e40\u0e2a\u0e35\u0e22\u0e2b\u0e32\u0e22 \u0e0a\u0e32\u0e27\u0e1a\u0e49\u0e32\u0e19\u0e15\u0e49\u0e2d\u0e07\u0e01\u0e32\u0e23\u0e04\u0e27\u0e32\u0e21\u0e0a\u0e48\u0e27\u0e22\u0e40\u0e2b\u0e25\u0e37\u0e2d\u0e40\u0e23\u0e48\u0e07\u0e14\u0e48\u0e27\u0e19",
+  "address_name": "\u0e15\u0e33\u0e1a\u0e25\u0e43\u0e19\u0e40\u0e21\u0e37\u0e2d\u0e07 \u0e19\u0e04\u0e23\u0e23\u0e32\u0e0a\u0e2a\u0e35\u0e21\u0e32",
+  "location": { "type": "Point", "coordinates": [102.1011, 14.9799] },
+  "affected_count": 500,
+  "incident_start": "2026-05-17T00:15:00.000Z",
+  "report_channel": "mobile_app"
+}
+ENDJSON
 
-echo -e "\n${GREEN}✅ Seeding completed!${NC}"
+cat > "$TMP_DIR/5.json" << 'ENDJSON'
+{
+  "reporter_id": "1234567890123",
+  "reporter_name": "Somchai Jaidee",
+  "incident_type": "STORM",
+  "description": "\u0e1e\u0e32\u0e22\u0e38\u0e42\u0e0b\u0e19\u0e23\u0e49\u0e2d\u0e19 \u0e04\u0e25\u0e37\u0e48\u0e19\u0e2a\u0e39\u0e07\u0e21\u0e32\u0e01 \u0e2b\u0e49\u0e32\u0e21\u0e25\u0e07\u0e17\u0e30\u0e40\u0e25 \u0e19\u0e31\u0e01\u0e17\u0e48\u0e2d\u0e07\u0e40\u0e17\u0e35\u0e48\u0e22\u0e27\u0e15\u0e49\u0e2d\u0e07\u0e01\u0e32\u0e23\u0e04\u0e27\u0e32\u0e21\u0e0a\u0e48\u0e27\u0e22\u0e40\u0e2b\u0e25\u0e37\u0e2d",
+  "address_name": "\u0e2b\u0e32\u0e14\u0e1b\u0e48\u0e32\u0e15\u0e2d\u0e07 \u0e20\u0e39\u0e40\u0e01\u0e47\u0e15",
+  "location": { "type": "Point", "coordinates": [98.2976, 7.8957] },
+  "affected_count": 200,
+  "incident_start": "2026-05-17T00:20:00.000Z",
+  "report_channel": "mobile_app"
+}
+ENDJSON
+
+# ส่งทีละอัน
+for i in 1 2 3 4 5; do
+  echo "$i/5 Creating incident..."
+  curl -s -X POST "$API_URL" \
+    -H "Content-Type: application/json; charset=utf-8" \
+    --data-binary "@$TMP_DIR/$i.json"
+  echo ""
+done
+
+rm -rf "$TMP_DIR"
+echo "✅ Done! Check: $API_URL"

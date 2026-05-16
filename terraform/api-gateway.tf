@@ -174,3 +174,89 @@ resource "aws_api_gateway_stage" "v1" {
   rest_api_id   = aws_api_gateway_rest_api.main.id
   stage_name    = "v1"
 }
+
+# ================================================================
+# CORS OPTIONS – /incidents
+# ================================================================
+resource "aws_api_gateway_method" "options_incidents" {
+  rest_api_id   = aws_api_gateway_rest_api.main.id
+  resource_id   = aws_api_gateway_resource.incidents.id
+  http_method   = "OPTIONS"
+  authorization = "NONE"
+}
+
+resource "aws_api_gateway_integration" "options_incidents" {
+  rest_api_id = aws_api_gateway_rest_api.main.id
+  resource_id = aws_api_gateway_resource.incidents.id
+  http_method = aws_api_gateway_method.options_incidents.http_method
+  type        = "MOCK"
+  request_templates = { "application/json" = "{\"statusCode\": 200}" }
+}
+
+resource "aws_api_gateway_method_response" "options_incidents" {
+  rest_api_id = aws_api_gateway_rest_api.main.id
+  resource_id = aws_api_gateway_resource.incidents.id
+  http_method = aws_api_gateway_method.options_incidents.http_method
+  status_code = "200"
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Headers" = true
+    "method.response.header.Access-Control-Allow-Methods" = true
+    "method.response.header.Access-Control-Allow-Origin"  = true
+  }
+}
+
+resource "aws_api_gateway_integration_response" "options_incidents" {
+  rest_api_id = aws_api_gateway_rest_api.main.id
+  resource_id = aws_api_gateway_resource.incidents.id
+  http_method = aws_api_gateway_method.options_incidents.http_method
+  status_code = aws_api_gateway_method_response.options_incidents.status_code
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Headers" = "'Content-Type,X-Request-Id,X-Admin-Id,X-Trace-Id'"
+    "method.response.header.Access-Control-Allow-Methods" = "'GET,POST,PATCH,OPTIONS'"
+    "method.response.header.Access-Control-Allow-Origin"  = "'*'"
+  }
+  depends_on = [aws_api_gateway_integration.options_incidents]
+}
+
+# ================================================================
+# CORS OPTIONS – /incidents/{incident_id}/status
+# ================================================================
+resource "aws_api_gateway_method" "options_status" {
+  rest_api_id   = aws_api_gateway_rest_api.main.id
+  resource_id   = aws_api_gateway_resource.status.id
+  http_method   = "OPTIONS"
+  authorization = "NONE"
+}
+
+resource "aws_api_gateway_integration" "options_status" {
+  rest_api_id = aws_api_gateway_rest_api.main.id
+  resource_id = aws_api_gateway_resource.status.id
+  http_method = aws_api_gateway_method.options_status.http_method
+  type        = "MOCK"
+  request_templates = { "application/json" = "{\"statusCode\": 200}" }
+}
+
+resource "aws_api_gateway_method_response" "options_status" {
+  rest_api_id = aws_api_gateway_rest_api.main.id
+  resource_id = aws_api_gateway_resource.status.id
+  http_method = aws_api_gateway_method.options_status.http_method
+  status_code = "200"
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Headers" = true
+    "method.response.header.Access-Control-Allow-Methods" = true
+    "method.response.header.Access-Control-Allow-Origin"  = true
+  }
+}
+
+resource "aws_api_gateway_integration_response" "options_status" {
+  rest_api_id = aws_api_gateway_rest_api.main.id
+  resource_id = aws_api_gateway_resource.status.id
+  http_method = aws_api_gateway_method.options_status.http_method
+  status_code = aws_api_gateway_method_response.options_status.status_code
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Headers" = "'Content-Type,X-Request-Id,X-Admin-Id,X-Trace-Id'"
+    "method.response.header.Access-Control-Allow-Methods" = "'GET,POST,PATCH,OPTIONS'"
+    "method.response.header.Access-Control-Allow-Origin"  = "'*'"
+  }
+  depends_on = [aws_api_gateway_integration.options_status]
+}

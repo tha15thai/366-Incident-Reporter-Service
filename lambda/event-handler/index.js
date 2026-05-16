@@ -43,6 +43,12 @@ exports.handler = async (event) => {
         continue;
       }
 
+      // --- New Validation: Fail Fast for invalid ID formats ---
+      if (!incidentId.match(/^INC_\d{4}$/) && !incidentId.match(/^INC[A-Z0-9]{12}$/)) {
+        console.warn(`Skipping message: Invalid incidentId format (${incidentId})`);
+        continue;
+      }
+
       console.log(`Processing ${status} update for incident: ${incidentId}`);
 
       const client = await db.getClient();
@@ -148,15 +154,17 @@ exports.handler = async (event) => {
         console.log(`✅ Successfully updated ${incidentId} to ${status}`);
 
       } catch (err) {
-        await client.query('ROLLBACK');
+        if (client) await client.query('ROLLBACK');
         console.error('Database transaction error:', err);
-        if (record.eventSource === 'aws:sqs') throw err; // Re-throw to DLQ logic for SQS
+        if (record.eventSource === 'aws:sqs' || record.EventSource === 'aws:sns' || record.eventSource === 'aws:sqs') throw err; 
       } finally {
-        client.release();
+        if (client) client.release();
       }
     } catch (error) {
       console.error('Error processing record:', error);
-      if (record.eventSource === 'aws:sqs') throw error;
+      // Ensure SQS retries on unexpected errors (outside the DB block)
+      const isSqs = record.eventSource === 'aws:sqs' || record.eventSource === 'aws:sqs';
+      if (isSqs) throw error;
     }
   }
 

@@ -45,39 +45,26 @@ resource "aws_lambda_function" "event_handler" {
   memory_size      = 256
   source_code_hash = filebase64sha256("../lambda/event-handler.zip")
   layers           = [aws_lambda_layer_version.dependencies.arn]
+  reserved_concurrent_executions = 2
   environment {
     variables = local.lambda_environment
   }
 }
 
-# SNS Permissions
-resource "aws_lambda_permission" "allow_friend_sns" {
-  statement_id  = "AllowExecutionFromFriendSNS"
-  action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.event_handler.function_name
-  principal     = "sns.amazonaws.com"
-  source_arn    = "arn:aws:sns:us-east-1:620162259453:SendIncidentStatus"
-}
+# SNS Permissions (Removed direct triggers in favor of SQS buffering)
+# Note: Friends should now point their SNS subscriptions to our SQS Queue instead of our Lambda.
 
-resource "aws_lambda_permission" "allow_friend_sns_news_rejected" {
-  statement_id  = "AllowExecutionFromFriendSNSRejected"
-  action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.event_handler.function_name
-  principal     = "sns.amazonaws.com"
-  source_arn    = "arn:aws:sns:us-east-1:072833417664:reporter-news-rejected-topic"
-}
+# ⚠️ รอเพื่อน 217430480136 เพิ่ม SQS Policy (Allow LabRole อ่าน Queue) ก่อน แล้วค่อย uncomment
+# resource "aws_lambda_event_source_mapping" "resolved_handler_sqs" {
+#   event_source_arn = "arn:aws:sqs:us-east-1:217430480136:resource-events-incident-completed"
+#   function_name    = aws_lambda_function.event_handler.arn
+#   batch_size       = 5
+#   enabled          = true
+# }
 
-resource "aws_lambda_permission" "allow_friend_sns_priority_verified" {
-  statement_id  = "AllowExecutionFromFriendSNSPriorityVerified"
-  action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.event_handler.function_name
-  principal     = "sns.amazonaws.com"
-  source_arn    = "arn:aws:sns:us-east-1:552692352531:incident-prioritized-topic"
-}
-
-# SQS Event Source Mapping (Friend's RESOLVED queue)
-resource "aws_lambda_event_source_mapping" "resolved_handler_sqs" {
-  event_source_arn = "arn:aws:sqs:us-east-1:217430480136:resource-events-incident-completed"
+# SQS Event Source Mapping (Our local buffer queue)
+resource "aws_lambda_event_source_mapping" "local_buffer_sqs" {
+  event_source_arn = aws_sqs_queue.incident_input_queue.arn
   function_name    = aws_lambda_function.event_handler.arn
   batch_size       = 5
   enabled          = true

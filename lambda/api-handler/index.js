@@ -24,6 +24,16 @@ exports.handler = async (event) => {
       return await updateStatus(event, pathParameters.incident_id);
     } else if (httpMethod === 'GET' && resource === '/incidents/{incident_id}/history') {
       return await getHistory(event, pathParameters.incident_id);
+    } else if (httpMethod === 'OPTIONS') {
+      return {
+        statusCode: 200,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET,POST,PATCH,OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type,X-Request-Id,X-Admin-Id,X-Trace-Id',
+        },
+        body: '',
+      };
     } else {
       return errorResponse(404, 'NOT_FOUND', 'Route not found');
     }
@@ -53,8 +63,7 @@ async function createIncident(event) {
     return errorResponse(409, 'DUPLICATE_INCIDENT', 'Similar incident already reported in this area within 10 minutes');
   }
 
-  // Incident Priority Service requires all incoming incidents to be set as HIGH initially.
-  const severity = 'HIGH';
+  // severity จะถูก set โดยเพื่อน Priority Sorter ผ่าน VERIFIED status
   const logId = generateLogId();
   const client = await db.getClient();
 
@@ -73,12 +82,12 @@ async function createIncident(event) {
 
     const incidentResult = await client.query(
       `INSERT INTO "Incidents" (
-        incident_id, incident_type, severity, status, location, 
+        incident_id, incident_type, status, location, 
         address_name, incident_start, description, reporter_id, 
         report_channel, report_count, affected_count, created_at, updated_at
-       ) VALUES ($1, $2, $3, $4, ST_SetSRID(ST_GeomFromGeoJSON($5), 4326), $6, $7, $8, $9, $10, $11, $12, $13, $14)
+       ) VALUES ($1, $2, $3, ST_SetSRID(ST_GeomFromGeoJSON($4), 4326), $5, $6, $7, $8, $9, $10, $11, $12, $13)
        RETURNING *`,
-      [incidentId, body.incident_type, severity, 'REPORTED', JSON.stringify(body.location),
+      [incidentId, body.incident_type, 'REPORTED', JSON.stringify(body.location),
        body.address_name || '', body.incident_start || now, body.description || '',
        body.reporter_id, body.report_channel || 'mobile_app', 1, body.affected_count || 0, now, now]
     );
@@ -162,6 +171,8 @@ async function listIncidents(event) {
     incident_start: incident.incident_start,
     report_count: incident.report_count,
     affected_count: incident.affected_count,
+    description: incident.description,
+    updated_at: incident.updated_at,
     created_at: incident.created_at,
   }));
 
@@ -202,17 +213,20 @@ async function getIncident(event, incidentId) {
 }
 
 // --------------------------------------------------------------------------
-// 4. UPDATE STATUS (Admin manual update)
+// 4. UPDATE INCIDENT (Admin manual edit — all fields except incident_id)
 // --------------------------------------------------------------------------
 async function updateStatus(event, incidentId) {
   const body = JSON.parse(event.body);
-  const adminId = event.headers['X-Admin-Id'] || event.headers['x-admin-id'];
+  const updatedBy = body.updated_by ||
+    event.headers['X-Admin-Id'] || event.headers['x-admin-id'] ||
+    'ADMIN';
 
-  if (!body.status) {
-    return errorResponse(400, 'VALIDATION_ERROR', 'status is required');
-  }
-  if (!adminId) {
-    return errorResponse(403, 'ACCESS_DENIED', 'Admin authorization required');
+  // Require at least one field to update
+  const hasUpdate = body.status || body.severity || body.incident_type ||
+    body.description !== undefined || body.affected_count !== undefined ||
+    body.latitude !== undefined;
+  if (!hasUpdate) {
+    return errorResponse(400, 'VALIDATION_ERROR', 'At least one field to update is required');
   }
 
   const now = new Date().toISOString();
@@ -234,22 +248,59 @@ async function updateStatus(event, incidentId) {
 
     const incident = incidentResult.rows[0];
     const oldStatus = incident.status;
+    const newStatus = body.status || oldStatus;
 
-    if (!isValidTransition(oldStatus, body.status)) {
+    // Validate status transition only if status is changing
+    if (body.status && body.status !== oldStatus && !isValidTransition(oldStatus, body.status)) {
       await client.query('ROLLBACK');
-      return errorResponse(400, 'INVALID_STATUS_TRANSITION', 
+      return errorResponse(400, 'INVALID_STATUS_TRANSITION',
         `Cannot change status from ${oldStatus} to ${body.status}`);
     }
 
+    // Build dynamic SET clause
+    const sets = ['status = $1', 'updated_at = $2'];
+    const params = [newStatus, now];
+    let idx = 3;
+
+    if (body.severity) {
+      sets.push(`severity = $${idx++}`);
+      params.push(body.severity.toUpperCase());
+    }
+    if (body.incident_type) {
+      sets.push(`incident_type = $${idx++}`);
+      params.push(body.incident_type);
+    }
+    if (body.description !== undefined && body.description !== null) {
+      sets.push(`description = $${idx++}`);
+      params.push(body.description);
+    }
+    if (body.affected_count !== undefined) {
+      sets.push(`affected_count = $${idx++}`);
+      params.push(parseInt(body.affected_count) || 0);
+    }
+    if (body.latitude !== undefined && body.longitude !== undefined) {
+      sets.push(`location = ST_SetSRID(ST_MakePoint($${idx}, $${idx+1}), 4326)`);
+      params.push(parseFloat(body.longitude), parseFloat(body.latitude));
+      idx += 2;
+    }
+    if (body.address_name !== undefined) {
+      sets.push(`address_name = $${idx++}`);
+      params.push(body.address_name);
+    }
+
+    params.push(incidentId);
     const updatedResult = await client.query(
-      `UPDATE "Incidents" SET status = $1, updated_at = $2 WHERE incident_id = $3 RETURNING *`,
-      [body.status, now, incidentId]
+      `UPDATE "Incidents" SET ${sets.join(', ')} WHERE incident_id = $${idx} RETURNING *`,
+      params
     );
+
+    const logDescription = body.description ||
+      (body.status ? `เปลี่ยนสถานะเป็น ${newStatus}` : `อัปเดตข้อมูลโดย ${updatedBy}`);
 
     await client.query(
       `INSERT INTO "StatusHistory" (log_id, incident_id, status, description, created_at, created_by)
        VALUES ($1, $2, $3, $4, $5, $6)`,
-      [logId, incidentId, body.status, body.description || `เปลี่ยนสถานะเป็น ${body.status}`, now, adminId]
+      [logId, incidentId, newStatus, logDescription, now, updatedBy]
     );
 
     await client.query('COMMIT');
@@ -259,7 +310,10 @@ async function updateStatus(event, incidentId) {
       (await client.query('SELECT ST_AsGeoJSON($1) as geojson', [updatedIncident.location])).rows[0].geojson
     );
 
-    await publishIncidentStatusChanged({ ...updatedIncident, location: locationGeoJSON }, oldStatus);
+    // Publish to SNS whenever status changes (including external subscribers)
+    if (newStatus !== oldStatus) {
+      await publishIncidentStatusChanged({ ...updatedIncident, location: locationGeoJSON }, oldStatus);
+    }
 
     return successResponse(200, {
       incident_id: updatedIncident.incident_id,

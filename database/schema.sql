@@ -4,13 +4,14 @@ CREATE TABLE IF NOT EXISTS "Reporter" (
     reporter_id VARCHAR(20) PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     phone_num VARCHAR(20) NOT NULL,
-    reporter_type VARCHAR(50) NOT NULL CHECK (reporter_type IN ('citizen', 'police', 'government_agency', 'other'))
+    reporter_type VARCHAR(50) NOT NULL CHECK (reporter_type IN ('citizen', 'police', 'government_agency', 'other')),
+    password VARCHAR(255)
 );
 
 CREATE TABLE IF NOT EXISTS "Incidents" (
     incident_id VARCHAR(50) PRIMARY KEY,
     incident_type VARCHAR(50) NOT NULL CHECK (incident_type IN ('FLOOD', 'EARTHQUAKE', 'STORM')),
-    severity VARCHAR(20) NOT NULL CHECK (severity IN ('CRITICAL', 'HIGH', 'MEDIUM', 'LOW')),
+    severity VARCHAR(20) CHECK (severity IN ('CRITICAL', 'HIGH', 'MEDIUM', 'LOW')),
     status VARCHAR(20) NOT NULL CHECK (status IN ('REPORTED', 'VERIFIED', 'IN_PROGRESS', 'RESOLVED', 'REJECTED')),
     location GEOMETRY(Point, 4326) NOT NULL,
     address_name VARCHAR(500),
@@ -43,9 +44,8 @@ CREATE INDEX IF NOT EXISTS idx_incidents_type ON "Incidents"(incident_type);
 CREATE INDEX IF NOT EXISTS idx_incidents_created_at ON "Incidents"(created_at DESC);
 CREATE INDEX IF NOT EXISTS idx_status_history_incident ON "StatusHistory"(incident_id, created_at);
 
-INSERT INTO "Reporter" (reporter_id, name, phone_num, reporter_type) VALUES
-('1234567890123', 'สมชาย ใจดี', '0812345678', 'citizen'),
-('9876543210987', 'สมหญิง รักดี', '0898765432', 'citizen')
+INSERT INTO "Reporter" (reporter_id, name, phone_num, reporter_type, password) VALUES
+('1234567890123', 'Kudo Shinichi', '0800000001', 'government_agency', 'shinichi1234')
 ON CONFLICT (reporter_id) DO NOTHING;
 
 COMMIT;

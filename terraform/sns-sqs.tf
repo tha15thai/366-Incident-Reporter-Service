@@ -34,7 +34,7 @@ resource "aws_sns_topic_policy" "incident_created" {
         Resource = aws_sns_topic.incident_created.arn
         Condition = {
           StringEquals = {
-            "AWS:SourceOwner" = "121953018955"
+            "AWS:SourceOwner" = data.aws_caller_identity.current.account_id
           }
         }
       },
@@ -44,7 +44,7 @@ resource "aws_sns_topic_policy" "incident_created" {
         Principal = {
           AWS = [
             "arn:aws:iam::709706489755:root",
-            "arn:aws:iam::767398101278:root"
+            "arn:aws:iam::552692352531:root"
           ]
         }
         Action   = ["SNS:Subscribe", "SNS:Receive"]
@@ -62,12 +62,13 @@ resource "aws_sns_topic_policy" "incident_created" {
 #   endpoint  = "arn:aws:lambda:us-east-1:709706489755:function:SyncIncidentHandler"
 # }
 
-# SNS Subscription - ส่งข้อมูลไปให้ SQS ของเพื่อน (News Checker / Priority Sorter)
-#resource "aws_sns_topic_subscription" "incident_created_to_friend_sqs" {
-#  topic_arn = aws_sns_topic.incident_created.arn
-#  protocol  = "sqs"
-#  endpoint  = "arn:aws:sqs:us-east-1:072833417664:incident-reporter-queue"
-#}
+# ⚠️ รอเพื่อน 072833417664 เพิ่ม SQS Policy ก่อน แล้วค่อย uncomment
+# resource "aws_sns_topic_subscription" "incident_created_to_friend_sqs" {
+#   topic_arn            = aws_sns_topic.incident_created.arn
+#   protocol             = "sqs"
+#   endpoint             = "arn:aws:sqs:us-east-1:072833417664:incident-reporter-queue"
+#   raw_message_delivery = true
+# }
 
 
 resource "aws_sns_topic" "incident_status_changed" {
@@ -105,7 +106,7 @@ resource "aws_sns_topic_policy" "incident_status_changed" {
         Resource = aws_sns_topic.incident_status_changed.arn
         Condition = {
           StringEquals = {
-            "AWS:SourceOwner" = "121953018955"
+            "AWS:SourceOwner" = data.aws_caller_identity.current.account_id
           }
         }
       },
@@ -132,3 +133,65 @@ resource "aws_sns_topic_policy" "incident_status_changed" {
 #   endpoint  = "arn:aws:lambda:us-east-1:813157187595:function:impactZoneHandler"
 # }
 
+# --- New SQS Queue to Buffer Incoming Messages ---
+
+resource "aws_sqs_queue" "incident_input_queue" {
+  name                      = "${var.project_name}-incident-input-queue"
+  message_retention_seconds = 86400
+  visibility_timeout_seconds = 60 # Match or exceed Lambda timeout (30s)
+
+  tags = {
+    Name = "${var.project_name}-incident-input-queue"
+  }
+}
+
+resource "aws_sqs_queue_policy" "incident_input_policy" {
+  queue_url = aws_sqs_queue.incident_input_queue.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Principal = {
+          Service = "sns.amazonaws.com"
+        }
+        Action   = "sqs:SendMessage"
+        Resource = aws_sqs_queue.incident_input_queue.arn
+        Condition = {
+          ArnLike = {
+            "aws:SourceArn" = [
+              "arn:aws:sns:us-east-1:620162259453:SendIncidentStatus",
+              "arn:aws:sns:us-east-1:072833417664:reporter-news-rejected-topic",
+              "arn:aws:sns:us-east-1:552692352531:incident-prioritized-topic"
+            ]
+          }
+        }
+      }
+    ]
+  })
+}
+
+# --- Subscribing our Queue to Friends' SNS Topics ---
+# ⚠️ Cross-Account: เราไม่สามารถ Subscribe จากฝั่งเราเองได้
+# เพื่อนต้องเป็นคนสร้าง Subscription จาก SNS ของเขา → SQS ของเรา
+# ให้ส่ง SQS ARN นี้ให้เพื่อนไปทำต่อ:
+#   SQS ARN = aws_sqs_queue.incident_input_queue.arn (ดูจาก output หลัง apply)
+#
+# resource "aws_sns_topic_subscription" "friend1_to_our_sqs" {
+#   topic_arn = "arn:aws:sns:us-east-1:620162259453:SendIncidentStatus"
+#   protocol  = "sqs"
+#   endpoint  = aws_sqs_queue.incident_input_queue.arn
+# }
+#
+# resource "aws_sns_topic_subscription" "friend2_to_our_sqs" {
+#   topic_arn = "arn:aws:sns:us-east-1:072833417664:reporter-news-rejected-topic"
+#   protocol  = "sqs"
+#   endpoint  = aws_sqs_queue.incident_input_queue.arn
+# }
+#
+# resource "aws_sns_topic_subscription" "friend3_to_our_sqs" {
+#   topic_arn = "arn:aws:sns:us-east-1:552692352531:incident-prioritized-topic"
+#   protocol  = "sqs"
+#   endpoint  = aws_sqs_queue.incident_input_queue.arn
+# }
