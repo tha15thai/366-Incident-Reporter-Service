@@ -13,6 +13,12 @@ lambda/layers/nodejs/
 lambda/layers/dependencies.zip
 lambda/package-lock.json
 
+# Scratch (temp dev files)
+scratch/node_modules/
+scratch/package-lock.json
+scratch/*.json
+scratch/*.zip
+
 # IDE
 .vscode/
 .idea/

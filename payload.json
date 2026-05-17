@@ -1,5 +1,0 @@
-{
-  "pathParameters": { "incident_id": "INC_0005" },
-  "headers": { "X-Admin-Id": "ADMIN_001" },
-  "body": "{\"status\":\"VERIFIED\",\"description\":\"Manual admin verification\"}"
-}
