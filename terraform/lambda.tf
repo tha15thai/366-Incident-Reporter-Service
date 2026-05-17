@@ -54,13 +54,14 @@ resource "aws_lambda_function" "event_handler" {
 # SNS Permissions (Removed direct triggers in favor of SQS buffering)
 # Note: Friends should now point their SNS subscriptions to our SQS Queue instead of our Lambda.
 
-# ⚠️ รอเพื่อน 217430480136 เพิ่ม SQS Policy (Allow LabRole อ่าน Queue) ก่อน แล้วค่อย uncomment
-# resource "aws_lambda_event_source_mapping" "resolved_handler_sqs" {
-#   event_source_arn = "arn:aws:sqs:us-east-1:217430480136:resource-events-incident-completed"
-#   function_name    = aws_lambda_function.event_handler.arn
-#   batch_size       = 5
-#   enabled          = true
-# }
+# Cross-account SQS trigger: RESOLVED events from Resource Allocation Service (account 217430480136)
+# ⚠️ เพื่อนต้องเพิ่ม SQS Policy ให้ LabRole ของเราอ่าน Queue ก่อน
+resource "aws_lambda_event_source_mapping" "resolved_handler_sqs" {
+  event_source_arn = "arn:aws:sqs:us-east-1:217430480136:resource-events-incident-completed"
+  function_name    = aws_lambda_function.event_handler.arn
+  batch_size       = 5
+  enabled          = true
+}
 
 # SQS Event Source Mapping (Our local buffer queue)
 resource "aws_lambda_event_source_mapping" "local_buffer_sqs" {
